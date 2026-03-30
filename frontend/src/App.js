@@ -37,6 +37,13 @@ const IMAGES = {
     "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/ok2dvnl2_6X3A3131.jpg",
     "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/b17g8dh2_6X3A3137.jpg"
   ],
+  // Pink Room bedroom photos
+  pinkRoom: [
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/07dv74jy_6X3A3145.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/aj900s2l_6X3A3168.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/vsj0m48k_6X3A3175.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/dmgvmmhh_6X3A3181.jpg"
+  ],
   // Interior/Sitting/Dining photos
   interior: [
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/76o7azlg_6X3A2502.jpg",
@@ -407,22 +414,26 @@ const GallerySection = () => {
     { src: IMAGES.terrace[0], category: "terrace", alt: "Outdoor Dining" },
     { src: IMAGES.bedroom[0], category: "bedroom", alt: "Blue Room - Sea View" },
     { src: IMAGES.outdoor[0], category: "outdoor", alt: "Path to the Sea" },
+    { src: IMAGES.pinkRoom[0], category: "bedroom", alt: "Pink Room" },
     { src: IMAGES.interior[1], category: "interior", alt: "Sitting Area" },
     { src: IMAGES.kitchen[0], category: "kitchen", alt: "Kitchen" },
     { src: IMAGES.terrace[1], category: "terrace", alt: "BBQ Area" },
     { src: IMAGES.bedroom[1], category: "bedroom", alt: "Blue Room - Detail" },
+    { src: IMAGES.pinkRoom[1], category: "bedroom", alt: "Pink Room - Detail" },
     { src: IMAGES.interior[2], category: "interior", alt: "Dining Area" },
     { src: IMAGES.outdoor[1], category: "outdoor", alt: "Stone Steps" },
     { src: IMAGES.terrace[2], category: "terrace", alt: "Terrace Dining" },
     { src: IMAGES.kitchen[1], category: "kitchen", alt: "Kitchen View" },
     { src: IMAGES.interior[3], category: "interior", alt: "Interior" },
     { src: IMAGES.bedroom[2], category: "bedroom", alt: "Blue Room - Bed" },
+    { src: IMAGES.pinkRoom[2], category: "bedroom", alt: "Pink Room - Bed" },
     { src: IMAGES.outdoor[2], category: "outdoor", alt: "Coastal View" },
     { src: IMAGES.terrace[3], category: "terrace", alt: "Outdoor Kitchen" },
     { src: IMAGES.interior[4], category: "interior", alt: "Living Space" },
     { src: IMAGES.kitchen[2], category: "kitchen", alt: "Kitchen Detail" },
     { src: IMAGES.terrace[7], category: "terrace", alt: "Sunset Dining" },
-    { src: IMAGES.bedroom[3], category: "bedroom", alt: "Ensuite Bathroom" },
+    { src: IMAGES.bedroom[3], category: "bedroom", alt: "Blue Room - Bathroom" },
+    { src: IMAGES.pinkRoom[3], category: "bedroom", alt: "Pink Room - Bathroom" },
     { src: IMAGES.outdoor[3], category: "outdoor", alt: "Bay View" },
     { src: IMAGES.terrace[4], category: "terrace", alt: "Pergola Dining" },
     { src: IMAGES.interior[5], category: "interior", alt: "Interior Detail" },
