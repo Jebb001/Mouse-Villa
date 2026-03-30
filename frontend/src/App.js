@@ -447,46 +447,48 @@ const OutdoorSection = () => {
 
 // Photo Gallery Section
 const GallerySection = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+  
   const allImages = [
     { src: IMAGES.interior[0], category: "interior", alt: "Living Room" },
     { src: IMAGES.terrace[0], category: "terrace", alt: "Outdoor Dining" },
-    { src: IMAGES.bedroom[0], category: "bedroom", alt: "Blue Room" },
+    { src: IMAGES.bedroom[0], category: "blueRoom", alt: "Blue Room" },
     { src: IMAGES.outdoor[0], category: "outdoor", alt: "Path to the Sea" },
-    { src: IMAGES.pinkRoom[0], category: "bedroom", alt: "Pink Room" },
-    { src: IMAGES.seaRoom[0], category: "bedroom", alt: "Sea Room" },
-    { src: IMAGES.suzaniRoom[0], category: "bedroom", alt: "Suzani Room" },
-    { src: IMAGES.topRoom[0], category: "bedroom", alt: "Top Room" },
+    { src: IMAGES.pinkRoom[0], category: "pinkRoom", alt: "Pink Room" },
+    { src: IMAGES.seaRoom[0], category: "seaRoom", alt: "Sea Room" },
+    { src: IMAGES.suzaniRoom[0], category: "suzaniRoom", alt: "Suzani Room" },
+    { src: IMAGES.topRoom[0], category: "topRoom", alt: "Top Room" },
     { src: IMAGES.interior[1], category: "interior", alt: "Sitting Area" },
     { src: IMAGES.kitchen[0], category: "kitchen", alt: "Kitchen" },
     { src: IMAGES.terrace[1], category: "terrace", alt: "BBQ Area" },
-    { src: IMAGES.bedroom[1], category: "bedroom", alt: "Blue Room - Detail" },
-    { src: IMAGES.pinkRoom[1], category: "bedroom", alt: "Pink Room - Detail" },
-    { src: IMAGES.seaRoom[1], category: "bedroom", alt: "Sea Room - View" },
-    { src: IMAGES.suzaniRoom[1], category: "bedroom", alt: "Suzani Room - Detail" },
-    { src: IMAGES.topRoom[1], category: "bedroom", alt: "Top Room - View" },
+    { src: IMAGES.bedroom[1], category: "blueRoom", alt: "Blue Room - Detail" },
+    { src: IMAGES.pinkRoom[1], category: "pinkRoom", alt: "Pink Room - Detail" },
+    { src: IMAGES.seaRoom[1], category: "seaRoom", alt: "Sea Room - View" },
+    { src: IMAGES.suzaniRoom[1], category: "suzaniRoom", alt: "Suzani Room - Detail" },
+    { src: IMAGES.topRoom[1], category: "topRoom", alt: "Top Room - View" },
     { src: IMAGES.interior[2], category: "interior", alt: "Dining Area" },
     { src: IMAGES.outdoor[1], category: "outdoor", alt: "Stone Steps" },
     { src: IMAGES.terrace[2], category: "terrace", alt: "Terrace Dining" },
     { src: IMAGES.kitchen[1], category: "kitchen", alt: "Kitchen View" },
     { src: IMAGES.interior[3], category: "interior", alt: "Interior" },
-    { src: IMAGES.bedroom[2], category: "bedroom", alt: "Blue Room - Bed" },
-    { src: IMAGES.pinkRoom[2], category: "bedroom", alt: "Pink Room - Bed" },
-    { src: IMAGES.seaRoom[2], category: "bedroom", alt: "Sea Room - Bed" },
-    { src: IMAGES.suzaniRoom[2], category: "bedroom", alt: "Suzani Room - Bed" },
-    { src: IMAGES.topRoom[2], category: "bedroom", alt: "Top Room - Bed" },
+    { src: IMAGES.bedroom[2], category: "blueRoom", alt: "Blue Room - Bed" },
+    { src: IMAGES.pinkRoom[2], category: "pinkRoom", alt: "Pink Room - Bed" },
+    { src: IMAGES.seaRoom[2], category: "seaRoom", alt: "Sea Room - Bed" },
+    { src: IMAGES.suzaniRoom[2], category: "suzaniRoom", alt: "Suzani Room - Bed" },
+    { src: IMAGES.topRoom[2], category: "topRoom", alt: "Top Room - Bed" },
     { src: IMAGES.outdoor[2], category: "outdoor", alt: "Coastal View" },
     { src: IMAGES.terrace[3], category: "terrace", alt: "Outdoor Kitchen" },
     { src: IMAGES.interior[4], category: "interior", alt: "Living Space" },
     { src: IMAGES.kitchen[2], category: "kitchen", alt: "Kitchen Detail" },
     { src: IMAGES.terrace[7], category: "terrace", alt: "Sunset Dining" },
-    { src: IMAGES.bedroom[3], category: "bedroom", alt: "Blue Room - Bathroom" },
-    { src: IMAGES.pinkRoom[3], category: "bedroom", alt: "Pink Room - Bathroom" },
-    { src: IMAGES.seaRoom[3], category: "bedroom", alt: "Sea Room - Detail" },
-    { src: IMAGES.suzaniRoom[3], category: "bedroom", alt: "Suzani Room - View" },
-    { src: IMAGES.seaRoom[4], category: "bedroom", alt: "Sea Room - Bathroom" },
-    { src: IMAGES.suzaniRoom[4], category: "bedroom", alt: "Suzani Room - Bathroom" },
-    { src: IMAGES.topRoom[3], category: "bedroom", alt: "Top Room - Bathroom" },
-    { src: IMAGES.suzaniRoom[5], category: "bedroom", alt: "Suzani Room - Window" },
+    { src: IMAGES.bedroom[3], category: "blueRoom", alt: "Blue Room - Bathroom" },
+    { src: IMAGES.pinkRoom[3], category: "pinkRoom", alt: "Pink Room - Bathroom" },
+    { src: IMAGES.seaRoom[3], category: "seaRoom", alt: "Sea Room - Detail" },
+    { src: IMAGES.suzaniRoom[3], category: "suzaniRoom", alt: "Suzani Room - View" },
+    { src: IMAGES.seaRoom[4], category: "seaRoom", alt: "Sea Room - Bathroom" },
+    { src: IMAGES.suzaniRoom[4], category: "suzaniRoom", alt: "Suzani Room - Bathroom" },
+    { src: IMAGES.topRoom[3], category: "topRoom", alt: "Top Room - Bathroom" },
+    { src: IMAGES.suzaniRoom[5], category: "suzaniRoom", alt: "Suzani Room - Window" },
     { src: IMAGES.outdoor[3], category: "outdoor", alt: "Bay View" },
     { src: IMAGES.terrace[4], category: "terrace", alt: "Pergola Dining" },
     { src: IMAGES.interior[5], category: "interior", alt: "Interior Detail" },
@@ -531,22 +533,34 @@ const GallerySection = () => {
 
         <Tabs defaultValue="all" className="villa-tabs" onValueChange={setActiveTab}>
           <TabsList className="mb-8 bg-transparent justify-center flex-wrap gap-2" data-testid="gallery-tabs">
-            <TabsTrigger value="all" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-all">
+            <TabsTrigger value="all" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-all">
               All
             </TabsTrigger>
-            <TabsTrigger value="interior" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-interior">
+            <TabsTrigger value="interior" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-interior">
               Interior
             </TabsTrigger>
-            <TabsTrigger value="kitchen" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-kitchen">
+            <TabsTrigger value="kitchen" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-kitchen">
               Kitchen
             </TabsTrigger>
-            <TabsTrigger value="terrace" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-terrace">
+            <TabsTrigger value="terrace" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-terrace">
               Terrace & BBQ
             </TabsTrigger>
-            <TabsTrigger value="bedroom" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-bedrooms">
-              Bedrooms
+            <TabsTrigger value="blueRoom" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-blue">
+              Blue Room
             </TabsTrigger>
-            <TabsTrigger value="outdoor" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-outdoor">
+            <TabsTrigger value="pinkRoom" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-pink">
+              Pink Room
+            </TabsTrigger>
+            <TabsTrigger value="seaRoom" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-sea">
+              Sea Room
+            </TabsTrigger>
+            <TabsTrigger value="suzaniRoom" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-suzani">
+              Suzani Room
+            </TabsTrigger>
+            <TabsTrigger value="topRoom" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-top">
+              Top Room
+            </TabsTrigger>
+            <TabsTrigger value="outdoor" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-outdoor">
               Sea & Outdoor
             </TabsTrigger>
           </TabsList>
@@ -568,6 +582,7 @@ const GallerySection = () => {
                     className={`gallery-item cursor-pointer ${
                       index === 0 ? "sm:col-span-2 sm:row-span-2" : ""
                     }`}
+                    onClick={() => setSelectedImage(image)}
                     data-testid={`gallery-image-${index}`}
                   >
                     <img
@@ -584,6 +599,43 @@ const GallerySection = () => {
           </TabsContent>
         </Tabs>
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+            onClick={() => setSelectedImage(null)}
+            data-testid="lightbox-modal"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="relative max-w-5xl max-h-[90vh] w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute -top-12 right-0 text-white hover:text-[#C05E44] transition-colors"
+                data-testid="lightbox-close"
+              >
+                <X size={32} weight="light" />
+              </button>
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                className="w-full h-auto max-h-[85vh] object-contain"
+              />
+              <p className="text-white/80 text-center mt-4 text-sm">{selectedImage.alt}</p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
