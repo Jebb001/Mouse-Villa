@@ -58,7 +58,8 @@ const IMAGES = {
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/4w9qrq0a_6X3A2750.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/zappo98a_6X3A2771.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/s24i0mtn_6X3A2781.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/nv8txv0a_6X3A2790.jpg"
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/nv8txv0a_6X3A2790.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/vnxc3gej_6X3A2722.jpg"
   ],
   // Interior/Sitting/Dining photos
   interior: [
@@ -460,6 +461,7 @@ const GallerySection = () => {
     { src: IMAGES.suzaniRoom[3], category: "bedroom", alt: "Suzani Room - View" },
     { src: IMAGES.seaRoom[4], category: "bedroom", alt: "Sea Room - Bathroom" },
     { src: IMAGES.suzaniRoom[4], category: "bedroom", alt: "Suzani Room - Bathroom" },
+    { src: IMAGES.suzaniRoom[5], category: "bedroom", alt: "Suzani Room - Window" },
     { src: IMAGES.outdoor[3], category: "outdoor", alt: "Bay View" },
     { src: IMAGES.terrace[4], category: "terrace", alt: "Pergola Dining" },
     { src: IMAGES.interior[5], category: "interior", alt: "Interior Detail" },
