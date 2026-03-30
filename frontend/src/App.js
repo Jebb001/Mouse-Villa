@@ -517,33 +517,33 @@ const GallerySection = () => {
         </div>
 
         <Tabs defaultValue="interior" className="villa-tabs" onValueChange={setActiveTab}>
-          <TabsList className="mb-8 bg-transparent justify-center flex-wrap gap-2" data-testid="gallery-tabs">
-            <TabsTrigger value="interior" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-interior">
+          <TabsList className="mb-8 bg-transparent justify-start sm:justify-center flex-nowrap overflow-x-auto gap-2 pb-2" data-testid="gallery-tabs">
+            <TabsTrigger value="interior" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-interior">
               Interior
             </TabsTrigger>
-            <TabsTrigger value="kitchen" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-kitchen">
+            <TabsTrigger value="kitchen" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-kitchen">
               Kitchen
             </TabsTrigger>
-            <TabsTrigger value="terrace" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-terrace">
-              Terrace & BBQ
+            <TabsTrigger value="terrace" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-terrace">
+              Terrace
             </TabsTrigger>
-            <TabsTrigger value="blueRoom" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-blue">
+            <TabsTrigger value="blueRoom" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-blue">
               Blue Room
             </TabsTrigger>
-            <TabsTrigger value="pinkRoom" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-pink">
+            <TabsTrigger value="pinkRoom" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-pink">
               Pink Room
             </TabsTrigger>
-            <TabsTrigger value="seaRoom" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-sea">
+            <TabsTrigger value="seaRoom" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-sea">
               Sea Room
             </TabsTrigger>
-            <TabsTrigger value="suzaniRoom" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-suzani">
+            <TabsTrigger value="suzaniRoom" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-suzani">
               Suzani Room
             </TabsTrigger>
-            <TabsTrigger value="topRoom" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-top">
+            <TabsTrigger value="topRoom" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-top">
               Top Room
             </TabsTrigger>
-            <TabsTrigger value="outdoor" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-outdoor">
-              Sea & Outdoor
+            <TabsTrigger value="outdoor" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-outdoor">
+              Outdoor
             </TabsTrigger>
           </TabsList>
 
@@ -589,7 +589,7 @@ const GallerySection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black p-4"
             onClick={() => setSelectedImage(null)}
             data-testid="lightbox-modal"
           >
@@ -598,12 +598,12 @@ const GallerySection = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="relative max-w-5xl max-h-[90vh] w-full"
+              className="relative max-w-5xl max-h-[90vh] w-full flex flex-col items-center"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelectedImage(null)}
-                className="absolute -top-12 right-0 text-white hover:text-[#C05E44] transition-colors"
+                className="absolute -top-10 right-0 sm:-top-12 text-white hover:text-[#C05E44] transition-colors z-10"
                 data-testid="lightbox-close"
               >
                 <X size={32} weight="light" />
@@ -611,7 +611,7 @@ const GallerySection = () => {
               <img
                 src={selectedImage.src}
                 alt={selectedImage.alt}
-                className="w-full h-auto max-h-[85vh] object-contain"
+                className="w-full h-auto max-h-[80vh] object-contain"
               />
               <p className="text-white/80 text-center mt-4 text-sm">{selectedImage.alt}</p>
             </motion.div>
