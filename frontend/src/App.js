@@ -863,25 +863,25 @@ const ActivitiesSection = () => {
       icon: <Mountains size={32} weight="thin" />,
       title: "Hiking",
       description: "81 km of stone-paved footpaths thread the island, well maintained and marked, a joy to walk especially in spring.",
-      image: IMAGES.outdoor[1]
+      image: IMAGES.outdoor[5]
     },
     {
       icon: <Fish size={32} weight="thin" />,
       title: "Scuba Diving",
       description: "Exceptionally clear waters with marine life. Visit the Brittanic wreck (Titanic's sister ship) or other wrecks nearby.",
-      image: IMAGES.outdoor[2]
+      image: IMAGES.outdoor[18]
     },
     {
       icon: <Boat size={32} weight="thin" />,
       title: "Boating",
       description: "Many beautiful beaches along the coast are best explored by boat. Hire one with a captain for a day of snorkeling.",
-      image: IMAGES.outdoor[3]
+      image: IMAGES.outdoor[17]
     },
     {
       icon: <Bicycle size={32} weight="thin" />,
       title: "Cycling",
       description: "Explore Kea's beauty on two wheels. Electric bikes available for rent, making the mountainous terrain enjoyable.",
-      image: IMAGES.outdoor[4]
+      image: IMAGES.outdoor[12]
     }
   ];
 
