@@ -75,6 +75,13 @@ const IMAGES = {
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/nv8txv0a_6X3A2790.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/vnxc3gej_6X3A2722.jpg"
   ],
+  // Top Room bedroom photos
+  topRoom: [
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/lhqes2dd_6X3A2809.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/wz4g6xnf_6X3A2820.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/yjl17e06_6X3A2836.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/rqdx95ck_6X3A2936.jpg"
+  ],
   // Interior/Sitting/Dining photos
   interior: [
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/76o7azlg_6X3A2502.jpg",
@@ -448,6 +455,7 @@ const GallerySection = () => {
     { src: IMAGES.pinkRoom[0], category: "bedroom", alt: "Pink Room" },
     { src: IMAGES.seaRoom[0], category: "bedroom", alt: "Sea Room" },
     { src: IMAGES.suzaniRoom[0], category: "bedroom", alt: "Suzani Room" },
+    { src: IMAGES.topRoom[0], category: "bedroom", alt: "Top Room" },
     { src: IMAGES.interior[1], category: "interior", alt: "Sitting Area" },
     { src: IMAGES.kitchen[0], category: "kitchen", alt: "Kitchen" },
     { src: IMAGES.terrace[1], category: "terrace", alt: "BBQ Area" },
@@ -455,6 +463,7 @@ const GallerySection = () => {
     { src: IMAGES.pinkRoom[1], category: "bedroom", alt: "Pink Room - Detail" },
     { src: IMAGES.seaRoom[1], category: "bedroom", alt: "Sea Room - View" },
     { src: IMAGES.suzaniRoom[1], category: "bedroom", alt: "Suzani Room - Detail" },
+    { src: IMAGES.topRoom[1], category: "bedroom", alt: "Top Room - View" },
     { src: IMAGES.interior[2], category: "interior", alt: "Dining Area" },
     { src: IMAGES.outdoor[1], category: "outdoor", alt: "Stone Steps" },
     { src: IMAGES.terrace[2], category: "terrace", alt: "Terrace Dining" },
@@ -464,6 +473,7 @@ const GallerySection = () => {
     { src: IMAGES.pinkRoom[2], category: "bedroom", alt: "Pink Room - Bed" },
     { src: IMAGES.seaRoom[2], category: "bedroom", alt: "Sea Room - Bed" },
     { src: IMAGES.suzaniRoom[2], category: "bedroom", alt: "Suzani Room - Bed" },
+    { src: IMAGES.topRoom[2], category: "bedroom", alt: "Top Room - Bed" },
     { src: IMAGES.outdoor[2], category: "outdoor", alt: "Coastal View" },
     { src: IMAGES.terrace[3], category: "terrace", alt: "Outdoor Kitchen" },
     { src: IMAGES.interior[4], category: "interior", alt: "Living Space" },
@@ -475,6 +485,7 @@ const GallerySection = () => {
     { src: IMAGES.suzaniRoom[3], category: "bedroom", alt: "Suzani Room - View" },
     { src: IMAGES.seaRoom[4], category: "bedroom", alt: "Sea Room - Bathroom" },
     { src: IMAGES.suzaniRoom[4], category: "bedroom", alt: "Suzani Room - Bathroom" },
+    { src: IMAGES.topRoom[3], category: "bedroom", alt: "Top Room - Bathroom" },
     { src: IMAGES.suzaniRoom[5], category: "bedroom", alt: "Suzani Room - Window" },
     { src: IMAGES.outdoor[3], category: "outdoor", alt: "Bay View" },
     { src: IMAGES.terrace[4], category: "terrace", alt: "Pergola Dining" },
