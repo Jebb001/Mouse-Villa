@@ -1,0 +1,132 @@
+{
+  "theme": "light",
+  "archetype": "1 (Organic & Earthy)",
+  "colors": {
+    "background_primary": "#FAFAFA",
+    "background_secondary": "#F3EFEA",
+    "text_primary": "#1C1917",
+    "text_secondary": "#57534E",
+    "primary_accent": "#C05E44",
+    "secondary_accent": "#2C423F",
+    "border_color": "#E7E5E4"
+  },
+  "typography": {
+    "heading_font": "Cormorant Garamond, serif",
+    "body_font": "Outfit, sans-serif",
+    "h1": "text-5xl sm:text-6xl+ tracking-tighter font-light",
+    "h2": "text-3xl sm:text-4xl tracking-tight font-normal",
+    "h3": "text-2xl sm:text-3xl font-light",
+    "body": "text-base sm:text-lg leading-relaxed text-stone-700",
+    "label": "text-xs uppercase tracking-[0.2em] font-medium"
+  },
+  "spacing_and_layout": {
+    "section_padding": "py-20 sm:py-32",
+    "container": "max-w-7xl mx-auto px-6 sm:px-12",
+    "grid_bento": "grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-10",
+    "border_radius": "rounded-none sm:rounded-md",
+    "card_padding": "p-8 sm:p-12"
+  },
+  "surface_styles": {
+    "glass_panel": "bg-white/70 backdrop-blur-xl border border-white/40 shadow-sm",
+    "solid_card": "bg-white border border-[#E7E5E4] shadow-sm",
+    "dark_section": "bg-[#2C423F] text-[#FAFAFA]"
+  },
+  "components": {
+    "navigation": {
+      "style": "glass_panel",
+      "position": "fixed top-0 w-full z-50",
+      "instructions": "Must include brand name, 4 main links (Villa, Gallery, Activities, Location), and primary CTA 'Inquire'. Do not hide desktop links behind hamburger."
+    },
+    "hero": {
+      "layout": "min-h-[90vh] relative flex items-end pb-24",
+      "overlay": "bg-gradient-to-t from-black/60 via-black/20 to-transparent",
+      "text_alignment": "left-aligned within a container"
+    },
+    "gallery": {
+      "layout": "masonry or bento grid (md:grid-cols-12)",
+      "filtering": "Use shadcn Tabs to switch between 'All', 'Bedrooms', 'Outdoor', 'Pool'."
+    },
+    "amenities_list": {
+      "layout": "grid grid-cols-2 sm:grid-cols-4 gap-8",
+      "icon_style": "light weight, text-[#C05E44]"
+    },
+    "contact_form": {
+      "layout": "2-column bento: left side text/info, right side shadcn form",
+      "style": "solid_card with Terracotta CTA button"
+    }
+  },
+  "media": {
+    "hero_image": {
+      "url": "https://images.unsplash.com/photo-1759097247817-7611910ae819?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHwxfHxtZWRpdGVycmFuZWFuJTIwdmlsbGElMjB0ZXJyYWNlJTIwb2NlYW58ZW58MHx8fHwxNzc0ODc3ODc0fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Mediterranean Villa terrace overlooking the ocean",
+      "placement": "Hero background"
+    },
+    "pool_images": [
+      {
+        "url": "https://images.unsplash.com/photo-1766214573274-f31f935eda13?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzZ8MHwxfHNlYXJjaHwzfHxpbmZpbml0eSUyMHBvb2wlMjBvY2VhbiUyMHZpZXclMjBsdXh1cnl8ZW58MHx8fHwxNzc0ODc3ODc0fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Infinity pool overlooking rocky coast"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1729605412044-81f6acce4370?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzZ8MHwxfHNlYXJjaHwxfHxpbmZpbml0eSUyMHBvb2wlMjBvY2VhbiUyMHZpZXclMjBsdXh1cnl8ZW58MHx8fHwxNzc0ODc3ODc0fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Large swimming pool next to ocean"
+      }
+    ],
+    "bedroom_images": [
+      {
+        "url": "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/ylvi6l68_6X3A3119.jpg",
+        "description": "Blue Room Bedroom photo 1"
+      },
+      {
+        "url": "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/m44rfaon_6X3A3127.jpg",
+        "description": "Blue Room Bedroom photo 2"
+      },
+      {
+        "url": "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/ok2dvnl2_6X3A3131.jpg",
+        "description": "Blue Room Bedroom photo 3"
+      },
+      {
+        "url": "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/b17g8dh2_6X3A3137.jpg",
+        "description": "Blue Room Bedroom photo 4"
+      }
+    ],
+    "activity_images": [
+      {
+        "url": "https://images.pexels.com/photos/3046628/pexels-photo-3046628.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Scuba diving in clear blue sea water"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1752693924632-2e4c82bcb23b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwxfHxncmVlayUyMGZvb2QlMjB3aW5lJTIwdGVycmFjZSUyMG9jZWFufGVufDB8fHx8MTc3NDg3Nzg4OXww&ixlib=rb-4.1.0&q=85",
+        "description": "Greek dining outdoors overlooking ocean"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1582709711064-d40727248338?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwzfHxncmVlY2UlMjBpc2xhbmQlMjBjb2FzdGxpbmV8ZW58MHx8fHwxNzc0ODc3ODc0fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Boating on Greek island coastline"
+      }
+    ]
+  },
+  "interactions_and_motion": {
+    "hover_states": "Text color changes explicitly on hover. Buttons should lift slightly (-translate-y-1) and gain shadow.",
+    "scroll_animations": "Use framer-motion for fade-up on scroll with stagger for grid items.",
+    "smooth_scroll": "Implement lenis for smooth scrolling across the page."
+  },
+  "iconography": {
+    "library": "@phosphor-icons/react",
+    "style": "Thin or Light weight, matching the elegant organic aesthetic. Use for amenities and activities."
+  },
+  "testing": {
+    "attributes": "All interactive elements MUST include data-testid. e.g., data-testid='booking-inquiry-submit'"
+  },
+  "instructions_to_main_agent": [
+    "Build a one-page or multi-section landing page for Villa Kephala.",
+    "Install and use 'Cormorant Garamond' and 'Outfit' fonts from Google Fonts.",
+    "Implement the 'Tetris Grid' pattern for the Photo Gallery using framer-motion for entrance animations. Group the images using shadcn Tabs to separate 'Bedrooms', 'Pool', and 'Outdoor Spaces'.",
+    "In the Activities section, showcase hiking, beaches, historical sites, scuba diving, and cycling using cards with images and short text.",
+    "Create a Contact form section at the bottom for inquiries (booking method). Use Shadcn Form, Input, Textarea.",
+    "Include an interactive map section showing the villa location in Kea. Use a static map image or an iframe of Kea, Greece wrapped in a clean component.",
+    "Ensure generous spacing (py-24 or py-32) between major sections.",
+    "Include an Amenities list with icons for the 'Quick amenities points'.",
+    "Use pure HTML/Tailwind for structural layout and Shadcn for interactive pieces (Tabs, Forms).",
+    "Add 'lenis' library for smooth scrolling if possible, otherwise use CSS smooth scroll.",
+    "Install @phosphor-icons/react for elegant icons."
+  ]
+}
