@@ -32,7 +32,12 @@ const IMAGES = {
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/p7t6012q_6X3A2862.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/irdvpl1j_6X3A2942.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ptsy2naq_6X3A2953.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/os7nbj1z_6X3A2979.jpg"
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/os7nbj1z_6X3A2979.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/4o1hq3yl_6X3A2672.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ztcq7zra_6X3A2674.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/iftlcoa5_6X3A2685.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/00beod5w_6X3A2761.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ou2o94cw_6X3A2840.jpg"
   ],
   // Blue Room bedroom photos
   bedroom: [
@@ -477,6 +482,11 @@ const GallerySection = () => {
     { src: IMAGES.outdoor[6], category: "outdoor", alt: "Outdoor Area" },
     { src: IMAGES.outdoor[7], category: "outdoor", alt: "Villa Exterior" },
     { src: IMAGES.outdoor[8], category: "outdoor", alt: "Terrace Seating" },
+    { src: IMAGES.outdoor[9], category: "outdoor", alt: "Pool View" },
+    { src: IMAGES.outdoor[10], category: "outdoor", alt: "Outdoor Living" },
+    { src: IMAGES.outdoor[11], category: "outdoor", alt: "Garden Area" },
+    { src: IMAGES.outdoor[12], category: "outdoor", alt: "Villa View" },
+    { src: IMAGES.outdoor[13], category: "outdoor", alt: "Terrace Detail" },
     { src: IMAGES.terrace[6], category: "terrace", alt: "Outdoor Seating" },
     { src: IMAGES.interior[7], category: "interior", alt: "Living Area" },
     { src: IMAGES.interior[8], category: "interior", alt: "Interior View" },
