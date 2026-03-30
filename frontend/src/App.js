@@ -750,6 +750,70 @@ const AmenitiesSection = () => {
   );
 };
 
+// Testimonials Section
+const TestimonialsSection = () => {
+  const testimonials = [
+    {
+      quote: "We had the most glorious vacation at Villa Kephala. The villa is gorgeous and beautifully furnished and fully equipped. The outdoor living area is heavenly and the infinity pool is bliss. The view from the villa is beautiful-hillsides and the bluest sea. There are steps down to the little private beach for those who want to sea swim. I would highly recommend this villa - we can't wait to return!",
+      author: "Nicola",
+      location: "Maine, USA",
+      date: "July 2025"
+    },
+    {
+      quote: "Had an exquisite 5 days here with my girlfriends….it was magical. Beautiful house with all amenities. Amazing outside space for al fresco dining. A good sized pool with sea front views. Sundowners and amazing sunsets topped it off! Will be returning and would highly recommend.",
+      author: "Nikki",
+      location: "South London",
+      date: "October 2025"
+    },
+    {
+      quote: "We had such a wonderful holiday at this beautiful villa. Incredible sea views from each en-suite bedroom, lots of great terraces with comfy seating areas for cocktails, and direct access to the sea for morning dips. Beautiful pool and conveniently close to local amenities. Can't recommend highly enough!",
+      author: "Rachel",
+      location: "SW London",
+      date: "October 2025"
+    }
+  ];
+
+  return (
+    <section data-testid="testimonials-section" className="py-20 sm:py-32">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+        <div className="text-center mb-16">
+          <span className="section-label mb-4 block">Guest Reviews</span>
+          <h2 className="section-heading text-3xl sm:text-4xl lg:text-5xl mb-6">
+            What Our Guests Say
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-[#F3EFEA] p-8"
+              data-testid={`testimonial-${index}`}
+            >
+              <div className="text-[#C05E44] text-4xl font-serif mb-4">"</div>
+              <p className="text-[#57534E] text-sm leading-relaxed mb-6 italic">
+                {testimonial.quote}
+              </p>
+              <div className="border-t border-[#E7E5E4] pt-4">
+                <p className="font-['Cormorant_Garamond'] text-lg font-medium text-[#1C1917]">
+                  {testimonial.author}
+                </p>
+                <p className="text-[#57534E] text-sm">
+                  {testimonial.location} · {testimonial.date}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // About Kea Section
 const AboutKeaSection = () => {
   return (
@@ -1282,6 +1346,7 @@ function App() {
       <GallerySection />
       <BedroomsSection />
       <AmenitiesSection />
+      <TestimonialsSection />
       <AboutKeaSection />
       <ActivitiesSection />
       <LocationSection />
