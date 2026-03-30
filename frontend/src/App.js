@@ -36,6 +36,14 @@ const IMAGES = {
     "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/m44rfaon_6X3A3127.jpg",
     "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/ok2dvnl2_6X3A3131.jpg",
     "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/b17g8dh2_6X3A3137.jpg"
+  ],
+  // Interior/Sitting/Dining photos
+  interior: [
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/76o7azlg_6X3A2502.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/vabzeoaq_6X3A2517.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ci8nzblb_6X3A2527.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/19vile9q_6X3A2533.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2r1yshyg_6X3A3038.jpg"
   ]
 };
 
@@ -224,7 +232,7 @@ const IntroSection = () => {
             className="relative"
           >
             <img
-              src={IMAGES.bedroom[0]}
+              src={IMAGES.interior[0]}
               alt="Villa interior"
               className="w-full h-[400px] sm:h-[500px] object-cover"
             />
@@ -373,12 +381,17 @@ const OutdoorSection = () => {
 // Photo Gallery Section
 const GallerySection = () => {
   const allImages = [
+    { src: IMAGES.interior[0], category: "interior", alt: "Living Room" },
     { src: IMAGES.bedroom[0], category: "bedroom", alt: "Blue Room - Sea View" },
     { src: IMAGES.outdoor[0], category: "outdoor", alt: "Path to the Sea" },
+    { src: IMAGES.interior[1], category: "interior", alt: "Sitting Area" },
     { src: IMAGES.bedroom[1], category: "bedroom", alt: "Blue Room - Detail" },
+    { src: IMAGES.interior[2], category: "interior", alt: "Dining Area" },
     { src: IMAGES.outdoor[1], category: "outdoor", alt: "Stone Steps" },
-    { src: IMAGES.outdoor[2], category: "outdoor", alt: "Coastal View" },
+    { src: IMAGES.interior[3], category: "interior", alt: "Kitchen" },
     { src: IMAGES.bedroom[2], category: "bedroom", alt: "Blue Room - Bed" },
+    { src: IMAGES.outdoor[2], category: "outdoor", alt: "Coastal View" },
+    { src: IMAGES.interior[4], category: "interior", alt: "Living Space" },
     { src: IMAGES.bedroom[3], category: "bedroom", alt: "Ensuite Bathroom" },
     { src: IMAGES.outdoor[3], category: "outdoor", alt: "Bay View" },
     { src: IMAGES.outdoor[4], category: "outdoor", alt: "Sea Access" },
@@ -404,6 +417,9 @@ const GallerySection = () => {
           <TabsList className="mb-8 bg-transparent justify-center flex-wrap gap-2" data-testid="gallery-tabs">
             <TabsTrigger value="all" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-all">
               All
+            </TabsTrigger>
+            <TabsTrigger value="interior" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-interior">
+              Interior
             </TabsTrigger>
             <TabsTrigger value="bedroom" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-bedrooms">
               Bedrooms
