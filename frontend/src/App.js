@@ -19,23 +19,23 @@ import { Toaster as SonnerToaster, toast } from "sonner";
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
-// Image assets
+// Image assets - User provided photos only
 const IMAGES = {
-  hero: "https://images.unsplash.com/photo-1759097247817-7611910ae819?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHwxfHxtZWRpdGVycmFuZWFuJTIwdmlsbGElMjB0ZXJyYWNlJTIwb2NlYW58ZW58MHx8fHwxNzc0ODc3ODc0fDA&ixlib=rb-4.1.0&q=85",
-  pool: [
-    "https://images.unsplash.com/photo-1766214573274-f31f935eda13?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzZ8MHwxfHNlYXJjaHwzfHxpbmZpbml0eSUyMHBvb2wlMjBvY2VhbiUyMHZpZXclMjBsdXh1cnl8ZW58MHx8fHwxNzc0ODc3ODc0fDA&ixlib=rb-4.1.0&q=85",
-    "https://images.unsplash.com/photo-1729605412044-81f6acce4370?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzZ8MHwxfHNlYXJjaHwxfHxpbmZpbml0eSUyMHBvb2wlMjBvY2VhbiUyMHZpZXclMjBsdXh1cnl8ZW58MHx8fHwxNzc0ODc3ODc0fDA&ixlib=rb-4.1.0&q=85"
+  // Sea/Outdoor photos
+  hero: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2mdq8ey6_6X3A3316.jpg",
+  outdoor: [
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/x4lznzvc_6X3A3243.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/zb6h31z5_6X3A3248.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ic7n3s3i_6X3A3250.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2mdq8ey6_6X3A3316.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/69ydmkh8_6X3A3320.jpg"
   ],
+  // Blue Room bedroom photos
   bedroom: [
     "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/ylvi6l68_6X3A3119.jpg",
     "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/m44rfaon_6X3A3127.jpg",
     "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/ok2dvnl2_6X3A3131.jpg",
     "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/b17g8dh2_6X3A3137.jpg"
-  ],
-  activities: [
-    "https://images.pexels.com/photos/3046628/pexels-photo-3046628.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    "https://images.unsplash.com/photo-1752693924632-2e4c82bcb23b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNzl8MHwxfHNlYXJjaHwxfHxncmVlayUyMGZvb2QlMjB3aW5lJTIwdGVycmFjZSUyMG9jZWFufGVufDB8fHx8MTc3NDg3Nzg4OXww&ixlib=rb-4.1.0&q=85",
-    "https://images.unsplash.com/photo-1582709711064-d40727248338?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwzfHxncmVlY2UlMjBpc2xhbmQlMjBjb2FzdGxpbmV8ZW58MHx8fHwxNzc0ODc3ODc0fDA&ixlib=rb-4.1.0&q=85"
   ]
 };
 
@@ -329,8 +329,8 @@ const OutdoorSection = () => {
             className="space-y-6"
           >
             <img
-              src={IMAGES.pool[0]}
-              alt="Infinity pool"
+              src={IMAGES.outdoor[0]}
+              alt="Path to the sea"
               className="w-full h-[300px] object-cover"
             />
             <div className="grid grid-cols-2 gap-6">
@@ -374,13 +374,14 @@ const OutdoorSection = () => {
 const GallerySection = () => {
   const allImages = [
     { src: IMAGES.bedroom[0], category: "bedroom", alt: "Blue Room - Sea View" },
-    { src: IMAGES.pool[0], category: "pool", alt: "Infinity Pool" },
+    { src: IMAGES.outdoor[0], category: "outdoor", alt: "Path to the Sea" },
     { src: IMAGES.bedroom[1], category: "bedroom", alt: "Blue Room - Detail" },
-    { src: IMAGES.activities[1], category: "outdoor", alt: "Outdoor Dining" },
-    { src: IMAGES.pool[1], category: "pool", alt: "Pool and Ocean" },
+    { src: IMAGES.outdoor[1], category: "outdoor", alt: "Stone Steps" },
+    { src: IMAGES.outdoor[2], category: "outdoor", alt: "Coastal View" },
     { src: IMAGES.bedroom[2], category: "bedroom", alt: "Blue Room - Bed" },
     { src: IMAGES.bedroom[3], category: "bedroom", alt: "Ensuite Bathroom" },
-    { src: IMAGES.activities[2], category: "outdoor", alt: "Coastline View" },
+    { src: IMAGES.outdoor[3], category: "outdoor", alt: "Bay View" },
+    { src: IMAGES.outdoor[4], category: "outdoor", alt: "Sea Access" },
   ];
 
   const [activeTab, setActiveTab] = useState("all");
@@ -407,11 +408,8 @@ const GallerySection = () => {
             <TabsTrigger value="bedroom" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-bedrooms">
               Bedrooms
             </TabsTrigger>
-            <TabsTrigger value="pool" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-pool">
-              Pool
-            </TabsTrigger>
             <TabsTrigger value="outdoor" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-outdoor">
-              Outdoor
+              Sea & Outdoor
             </TabsTrigger>
           </TabsList>
 
@@ -629,25 +627,25 @@ const ActivitiesSection = () => {
       icon: <Mountains size={32} weight="thin" />,
       title: "Hiking",
       description: "81 km of stone-paved footpaths thread the island, well maintained and marked, a joy to walk especially in spring.",
-      image: IMAGES.activities[2]
+      image: IMAGES.outdoor[1]
     },
     {
       icon: <Fish size={32} weight="thin" />,
       title: "Scuba Diving",
       description: "Exceptionally clear waters with marine life. Visit the Brittanic wreck (Titanic's sister ship) or other wrecks nearby.",
-      image: IMAGES.activities[0]
+      image: IMAGES.outdoor[2]
     },
     {
       icon: <Boat size={32} weight="thin" />,
       title: "Boating",
       description: "Many beautiful beaches along the coast are best explored by boat. Hire one with a captain for a day of snorkeling.",
-      image: IMAGES.activities[1]
+      image: IMAGES.outdoor[3]
     },
     {
       icon: <Bicycle size={32} weight="thin" />,
       title: "Cycling",
       description: "Explore Kea's beauty on two wheels. Electric bikes available for rent, making the mountainous terrain enjoyable.",
-      image: IMAGES.activities[2]
+      image: IMAGES.outdoor[4]
     }
   ];
 
