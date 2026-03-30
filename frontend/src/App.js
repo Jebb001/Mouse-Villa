@@ -22,13 +22,17 @@ const API = `${BACKEND_URL}/api`;
 // Image assets - User provided photos only
 const IMAGES = {
   // Sea/Outdoor photos
-  hero: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2mdq8ey6_6X3A3316.jpg",
+  hero: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/vx9wi6rx_Front%20page%20shot.jpg",
   outdoor: [
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/x4lznzvc_6X3A3243.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/zb6h31z5_6X3A3248.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ic7n3s3i_6X3A3250.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2mdq8ey6_6X3A3316.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/69ydmkh8_6X3A3320.jpg"
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/69ydmkh8_6X3A3320.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/p7t6012q_6X3A2862.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/irdvpl1j_6X3A2942.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ptsy2naq_6X3A2953.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/os7nbj1z_6X3A2979.jpg"
   ],
   // Blue Room bedroom photos
   bedroom: [
@@ -469,6 +473,10 @@ const GallerySection = () => {
     { src: IMAGES.terrace[5], category: "terrace", alt: "Terrace View" },
     { src: IMAGES.interior[6], category: "interior", alt: "Dining Room" },
     { src: IMAGES.outdoor[4], category: "outdoor", alt: "Sea Access" },
+    { src: IMAGES.outdoor[5], category: "outdoor", alt: "Terrace View" },
+    { src: IMAGES.outdoor[6], category: "outdoor", alt: "Outdoor Area" },
+    { src: IMAGES.outdoor[7], category: "outdoor", alt: "Villa Exterior" },
+    { src: IMAGES.outdoor[8], category: "outdoor", alt: "Terrace Seating" },
     { src: IMAGES.terrace[6], category: "terrace", alt: "Outdoor Seating" },
     { src: IMAGES.interior[7], category: "interior", alt: "Living Area" },
     { src: IMAGES.interior[8], category: "interior", alt: "Interior View" },
