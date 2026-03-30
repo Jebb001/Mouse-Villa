@@ -62,7 +62,10 @@ const IMAGES = {
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/oirpup82_6X3A2977.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/d5rpgebi_6X3A3007.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/glt1yit6_6X3A3010.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2m1ujmwr_6X3A3271.jpg"
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2m1ujmwr_6X3A3271.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/grvt1i8p_6X3A2610.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/tqmq62fj_6X3A2619.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/4enq669i_IMG_8792.jpeg"
   ]
 };
 
@@ -418,13 +421,16 @@ const GallerySection = () => {
     { src: IMAGES.terrace[3], category: "terrace", alt: "Outdoor Kitchen" },
     { src: IMAGES.interior[4], category: "interior", alt: "Living Space" },
     { src: IMAGES.kitchen[2], category: "kitchen", alt: "Kitchen Detail" },
+    { src: IMAGES.terrace[7], category: "terrace", alt: "Sunset Dining" },
     { src: IMAGES.bedroom[3], category: "bedroom", alt: "Ensuite Bathroom" },
     { src: IMAGES.outdoor[3], category: "outdoor", alt: "Bay View" },
     { src: IMAGES.terrace[4], category: "terrace", alt: "Pergola Dining" },
     { src: IMAGES.interior[5], category: "interior", alt: "Interior Detail" },
     { src: IMAGES.kitchen[3], category: "kitchen", alt: "Kitchen Area" },
+    { src: IMAGES.terrace[5], category: "terrace", alt: "Terrace View" },
     { src: IMAGES.interior[6], category: "interior", alt: "Dining Room" },
     { src: IMAGES.outdoor[4], category: "outdoor", alt: "Sea Access" },
+    { src: IMAGES.terrace[6], category: "terrace", alt: "Outdoor Seating" },
     { src: IMAGES.interior[7], category: "interior", alt: "Living Area" },
     { src: IMAGES.interior[8], category: "interior", alt: "Interior View" },
   ];
