@@ -428,18 +428,6 @@ const OutdoorSection = () => {
             </div>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 p-8 bg-white/5 border border-white/10"
-        >
-          <p className="text-white/90 text-base sm:text-lg leading-relaxed italic">
-            "Stone steps lead directly from the house down to pristine waters and a small, secluded beach. Take a bean bag pouf down to the shore, settle in with a book, swim in crystal-clear waters, and while away the hours in complete serenity."
-          </p>
-        </motion.div>
       </div>
     </section>
   );
@@ -448,6 +436,7 @@ const OutdoorSection = () => {
 // Photo Gallery Section
 const GallerySection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [activeTab, setActiveTab] = useState("interior");
   
   const allImages = [
     { src: IMAGES.interior[0], category: "interior", alt: "Living Room" },
@@ -515,11 +504,7 @@ const GallerySection = () => {
     { src: IMAGES.interior[8], category: "interior", alt: "Interior View" },
   ];
 
-  const [activeTab, setActiveTab] = useState("all");
-
-  const filteredImages = activeTab === "all" 
-    ? allImages 
-    : allImages.filter(img => img.category === activeTab);
+  const filteredImages = allImages.filter(img => img.category === activeTab);
 
   return (
     <section id="gallery" data-testid="gallery-section" className="py-20 sm:py-32 bg-[#F3EFEA]">
@@ -531,11 +516,8 @@ const GallerySection = () => {
           </h2>
         </div>
 
-        <Tabs defaultValue="all" className="villa-tabs" onValueChange={setActiveTab}>
+        <Tabs defaultValue="interior" className="villa-tabs" onValueChange={setActiveTab}>
           <TabsList className="mb-8 bg-transparent justify-center flex-wrap gap-2" data-testid="gallery-tabs">
-            <TabsTrigger value="all" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-all">
-              All
-            </TabsTrigger>
             <TabsTrigger value="interior" className="px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-interior">
               Interior
             </TabsTrigger>
