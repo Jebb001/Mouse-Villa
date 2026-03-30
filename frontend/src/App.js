@@ -48,6 +48,13 @@ const IMAGES = {
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/lqu7ngfa_6X3A2455.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/utmp36zb_6X3A2461.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/bx7brtoq_6X3A2478.jpg"
+  ],
+  // Kitchen photos
+  kitchen: [
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/0ba49ave_6X3A3048.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/196buzqy_6X3A3075.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/mydj1z33_6X3A3076.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/li8z02gw_6X3A3080.jpg"
   ]
 };
 
@@ -389,16 +396,20 @@ const GallerySection = () => {
     { src: IMAGES.bedroom[0], category: "bedroom", alt: "Blue Room - Sea View" },
     { src: IMAGES.outdoor[0], category: "outdoor", alt: "Path to the Sea" },
     { src: IMAGES.interior[1], category: "interior", alt: "Sitting Area" },
+    { src: IMAGES.kitchen[0], category: "kitchen", alt: "Kitchen" },
     { src: IMAGES.bedroom[1], category: "bedroom", alt: "Blue Room - Detail" },
     { src: IMAGES.interior[2], category: "interior", alt: "Dining Area" },
     { src: IMAGES.outdoor[1], category: "outdoor", alt: "Stone Steps" },
-    { src: IMAGES.interior[3], category: "interior", alt: "Kitchen" },
+    { src: IMAGES.kitchen[1], category: "kitchen", alt: "Kitchen View" },
+    { src: IMAGES.interior[3], category: "interior", alt: "Interior" },
     { src: IMAGES.bedroom[2], category: "bedroom", alt: "Blue Room - Bed" },
     { src: IMAGES.outdoor[2], category: "outdoor", alt: "Coastal View" },
     { src: IMAGES.interior[4], category: "interior", alt: "Living Space" },
+    { src: IMAGES.kitchen[2], category: "kitchen", alt: "Kitchen Detail" },
     { src: IMAGES.bedroom[3], category: "bedroom", alt: "Ensuite Bathroom" },
     { src: IMAGES.outdoor[3], category: "outdoor", alt: "Bay View" },
     { src: IMAGES.interior[5], category: "interior", alt: "Interior Detail" },
+    { src: IMAGES.kitchen[3], category: "kitchen", alt: "Kitchen Area" },
     { src: IMAGES.interior[6], category: "interior", alt: "Dining Room" },
     { src: IMAGES.outdoor[4], category: "outdoor", alt: "Sea Access" },
     { src: IMAGES.interior[7], category: "interior", alt: "Living Area" },
@@ -428,6 +439,9 @@ const GallerySection = () => {
             </TabsTrigger>
             <TabsTrigger value="interior" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-interior">
               Interior
+            </TabsTrigger>
+            <TabsTrigger value="kitchen" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-kitchen">
+              Kitchen
             </TabsTrigger>
             <TabsTrigger value="bedroom" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-bedrooms">
               Bedrooms
