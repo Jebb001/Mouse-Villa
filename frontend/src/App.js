@@ -43,7 +43,11 @@ const IMAGES = {
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/vabzeoaq_6X3A2517.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ci8nzblb_6X3A2527.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/19vile9q_6X3A2533.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2r1yshyg_6X3A3038.jpg"
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2r1yshyg_6X3A3038.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/rvfhrpwi_6X3A2420.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/lqu7ngfa_6X3A2455.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/utmp36zb_6X3A2461.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/bx7brtoq_6X3A2478.jpg"
   ]
 };
 
@@ -394,7 +398,11 @@ const GallerySection = () => {
     { src: IMAGES.interior[4], category: "interior", alt: "Living Space" },
     { src: IMAGES.bedroom[3], category: "bedroom", alt: "Ensuite Bathroom" },
     { src: IMAGES.outdoor[3], category: "outdoor", alt: "Bay View" },
+    { src: IMAGES.interior[5], category: "interior", alt: "Interior Detail" },
+    { src: IMAGES.interior[6], category: "interior", alt: "Dining Room" },
     { src: IMAGES.outdoor[4], category: "outdoor", alt: "Sea Access" },
+    { src: IMAGES.interior[7], category: "interior", alt: "Living Area" },
+    { src: IMAGES.interior[8], category: "interior", alt: "Interior View" },
   ];
 
   const [activeTab, setActiveTab] = useState("all");
