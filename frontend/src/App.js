@@ -14,7 +14,7 @@ import { Input } from "./components/ui/input";
 import { Textarea } from "./components/ui/textarea";
 import { Button } from "./components/ui/button";
 import { Label } from "./components/ui/label";
-import { Toaster, toast } from "sonner";
+import { Toaster as SonnerToaster, toast } from "sonner";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -1085,7 +1085,7 @@ const Footer = () => {
 function App() {
   return (
     <div className="App">
-      <Toaster position="top-right" richColors />
+      <SonnerToaster position="top-right" richColors closeButton />
       <Navigation />
       <HeroSection />
       <IntroSection />
