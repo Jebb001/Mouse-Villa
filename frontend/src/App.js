@@ -562,7 +562,7 @@ const GallerySection = () => {
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                     className={`gallery-item cursor-pointer ${
-                      index === 0 ? "sm:col-span-2 sm:row-span-2" : ""
+                      index === 0 && filteredImages.length > 4 ? "sm:col-span-2 sm:row-span-2" : ""
                     }`}
                     onClick={() => setSelectedImage(image)}
                     data-testid={`gallery-image-${index}`}
@@ -571,7 +571,7 @@ const GallerySection = () => {
                       src={image.src}
                       alt={image.alt}
                       className={`w-full object-cover ${
-                        index === 0 ? "h-[400px] sm:h-full" : "h-[250px]"
+                        index === 0 && filteredImages.length > 4 ? "h-[400px] sm:h-full" : "h-[300px]"
                       }`}
                     />
                   </motion.div>
