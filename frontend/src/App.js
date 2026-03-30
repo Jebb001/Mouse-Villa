@@ -253,7 +253,7 @@ const HeroSection = () => {
             <a href="#villa" className="btn-primary px-8 py-3 text-sm font-medium rounded-none" data-testid="hero-discover-btn">
               Discover the Villa
             </a>
-            <a href="#contact" className="btn-outline border-white text-white hover:bg-white hover:text-[#1C1917] px-8 py-3 text-sm font-medium rounded-none" data-testid="hero-inquire-btn">
+            <a href="#contact" className="bg-white text-[#1C1917] hover:bg-[#F3EFEA] px-8 py-3 text-sm font-medium rounded-none transition-all" data-testid="hero-inquire-btn">
               Make an Inquiry
             </a>
           </div>
