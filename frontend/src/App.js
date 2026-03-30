@@ -55,6 +55,14 @@ const IMAGES = {
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/196buzqy_6X3A3075.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/mydj1z33_6X3A3076.jpg",
     "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/li8z02gw_6X3A3080.jpg"
+  ],
+  // Outdoor Dining & BBQ photos
+  terrace: [
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/47wtgc6j_6X3A2648.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/oirpup82_6X3A2977.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/d5rpgebi_6X3A3007.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/glt1yit6_6X3A3010.jpg",
+    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2m1ujmwr_6X3A3271.jpg"
   ]
 };
 
@@ -393,21 +401,26 @@ const OutdoorSection = () => {
 const GallerySection = () => {
   const allImages = [
     { src: IMAGES.interior[0], category: "interior", alt: "Living Room" },
+    { src: IMAGES.terrace[0], category: "terrace", alt: "Outdoor Dining" },
     { src: IMAGES.bedroom[0], category: "bedroom", alt: "Blue Room - Sea View" },
     { src: IMAGES.outdoor[0], category: "outdoor", alt: "Path to the Sea" },
     { src: IMAGES.interior[1], category: "interior", alt: "Sitting Area" },
     { src: IMAGES.kitchen[0], category: "kitchen", alt: "Kitchen" },
+    { src: IMAGES.terrace[1], category: "terrace", alt: "BBQ Area" },
     { src: IMAGES.bedroom[1], category: "bedroom", alt: "Blue Room - Detail" },
     { src: IMAGES.interior[2], category: "interior", alt: "Dining Area" },
     { src: IMAGES.outdoor[1], category: "outdoor", alt: "Stone Steps" },
+    { src: IMAGES.terrace[2], category: "terrace", alt: "Terrace Dining" },
     { src: IMAGES.kitchen[1], category: "kitchen", alt: "Kitchen View" },
     { src: IMAGES.interior[3], category: "interior", alt: "Interior" },
     { src: IMAGES.bedroom[2], category: "bedroom", alt: "Blue Room - Bed" },
     { src: IMAGES.outdoor[2], category: "outdoor", alt: "Coastal View" },
+    { src: IMAGES.terrace[3], category: "terrace", alt: "Outdoor Kitchen" },
     { src: IMAGES.interior[4], category: "interior", alt: "Living Space" },
     { src: IMAGES.kitchen[2], category: "kitchen", alt: "Kitchen Detail" },
     { src: IMAGES.bedroom[3], category: "bedroom", alt: "Ensuite Bathroom" },
     { src: IMAGES.outdoor[3], category: "outdoor", alt: "Bay View" },
+    { src: IMAGES.terrace[4], category: "terrace", alt: "Pergola Dining" },
     { src: IMAGES.interior[5], category: "interior", alt: "Interior Detail" },
     { src: IMAGES.kitchen[3], category: "kitchen", alt: "Kitchen Area" },
     { src: IMAGES.interior[6], category: "interior", alt: "Dining Room" },
@@ -442,6 +455,9 @@ const GallerySection = () => {
             </TabsTrigger>
             <TabsTrigger value="kitchen" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-kitchen">
               Kitchen
+            </TabsTrigger>
+            <TabsTrigger value="terrace" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-terrace">
+              Terrace & BBQ
             </TabsTrigger>
             <TabsTrigger value="bedroom" className="px-6 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F]" data-testid="gallery-tab-bedrooms">
               Bedrooms
