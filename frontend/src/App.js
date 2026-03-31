@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import "@/App.css";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Bed, SwimmingPool, Waves, Mountains, WifiHigh, AirplaneTilt, 
-  MapPin, House, SunHorizon, Compass, CaretDown, List, X, 
+  MapPin, House, SunHorizon, Compass, CaretDown, CaretLeft, CaretRight, List, X, 
   EnvelopeSimple, Phone, User, Barbell, Boat, Bicycle, Fish,
   Timer, CarSimple, Anchor, AirplaneTakeoff, CheckCircle,
   Bathtub, Snowflake, TelevisionSimple, WashingMachine, Fan
@@ -435,8 +435,9 @@ const OutdoorSection = () => {
 
 // Photo Gallery Section
 const GallerySection = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [activeTab, setActiveTab] = useState("exterior");
+  const thumbnailStripRef = useRef(null);
   
   const allImages = [
     { src: IMAGES.interior[0], category: "interior", alt: "Living Room" },
@@ -499,6 +500,39 @@ const GallerySection = () => {
   ];
 
   const filteredImages = allImages.filter(img => img.category === activeTab);
+  const selectedImage = selectedImageIndex !== null ? filteredImages[selectedImageIndex] : null;
+
+  const goToImage = useCallback((newIndex) => {
+    if (newIndex >= 0 && newIndex < filteredImages.length) {
+      setSelectedImageIndex(newIndex);
+      // Scroll thumbnail into view
+      setTimeout(() => {
+        const thumb = document.querySelector(`[data-thumb-index="${newIndex}"]`);
+        if (thumb) thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }, 50);
+    }
+  }, [filteredImages.length]);
+
+  const goNext = useCallback(() => {
+    if (selectedImageIndex !== null) goToImage((selectedImageIndex + 1) % filteredImages.length);
+  }, [selectedImageIndex, filteredImages.length, goToImage]);
+
+  const goPrev = useCallback(() => {
+    if (selectedImageIndex !== null) goToImage((selectedImageIndex - 1 + filteredImages.length) % filteredImages.length);
+  }, [selectedImageIndex, filteredImages.length, goToImage]);
+
+  const closeLightbox = useCallback(() => setSelectedImageIndex(null), []);
+
+  useEffect(() => {
+    if (selectedImageIndex === null) return;
+    const handleKey = (e) => {
+      if (e.key === 'ArrowRight') goNext();
+      else if (e.key === 'ArrowLeft') goPrev();
+      else if (e.key === 'Escape') closeLightbox();
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [selectedImageIndex, goNext, goPrev, closeLightbox]);
 
   return (
     <section id="gallery" data-testid="gallery-section" className="py-20 sm:py-32 bg-[#F3EFEA]">
@@ -558,7 +592,7 @@ const GallerySection = () => {
                     className={`gallery-item cursor-pointer ${
                       index === 0 && filteredImages.length > 4 ? "sm:col-span-2 sm:row-span-2" : ""
                     }`}
-                    onClick={() => setSelectedImage(image)}
+                    onClick={() => setSelectedImageIndex(index)}
                     data-testid={`gallery-image-${index}`}
                   >
                     <img
@@ -576,39 +610,95 @@ const GallerySection = () => {
         </Tabs>
       </div>
 
-      {/* Lightbox Modal */}
+      {/* Lightbox Modal with Navigation */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black p-4"
-            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[100] flex flex-col bg-black"
+            onClick={closeLightbox}
             data-testid="lightbox-modal"
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="relative max-w-5xl max-h-[90vh] w-full flex flex-col items-center"
-              onClick={(e) => e.stopPropagation()}
-            >
+            {/* Top bar: close + counter */}
+            <div className="flex items-center justify-between px-4 sm:px-6 py-3 flex-shrink-0" onClick={(e) => e.stopPropagation()}>
+              <span className="text-white/60 text-sm font-light tracking-wide" data-testid="lightbox-counter">
+                {selectedImageIndex + 1} / {filteredImages.length}
+              </span>
               <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute -top-10 right-0 sm:-top-12 text-white hover:text-[#C05E44] transition-colors z-10"
+                onClick={closeLightbox}
+                className="text-white/70 hover:text-white transition-colors p-1"
                 data-testid="lightbox-close"
               >
-                <X size={32} weight="light" />
+                <X size={28} weight="light" />
               </button>
-              <img
+            </div>
+
+            {/* Main image area with prev/next */}
+            <div className="flex-1 flex items-center justify-center relative min-h-0 px-2 sm:px-16" onClick={(e) => e.stopPropagation()}>
+              {/* Previous button */}
+              <button
+                onClick={goPrev}
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-all backdrop-blur-sm"
+                data-testid="lightbox-prev"
+              >
+                <CaretLeft size={24} weight="bold" />
+              </button>
+
+              {/* Image */}
+              <motion.img
+                key={selectedImage.src}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.2 }}
                 src={selectedImage.src}
                 alt={selectedImage.alt}
-                className="w-full h-auto max-h-[80vh] object-contain"
+                className="max-w-full max-h-full object-contain"
+                data-testid="lightbox-image"
               />
-              <p className="text-white/80 text-center mt-4 text-sm">{selectedImage.alt}</p>
-            </motion.div>
+
+              {/* Next button */}
+              <button
+                onClick={goNext}
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-all backdrop-blur-sm"
+                data-testid="lightbox-next"
+              >
+                <CaretRight size={24} weight="bold" />
+              </button>
+            </div>
+
+            {/* Caption */}
+            <p className="text-white/60 text-center text-sm py-2 flex-shrink-0" onClick={(e) => e.stopPropagation()}>
+              {selectedImage.alt}
+            </p>
+
+            {/* Thumbnail strip */}
+            <div
+              ref={thumbnailStripRef}
+              className="flex-shrink-0 px-4 pb-4 pt-2 overflow-x-auto"
+              onClick={(e) => e.stopPropagation()}
+              data-testid="lightbox-thumbnails"
+            >
+              <div className="flex gap-2 justify-start sm:justify-center mx-auto max-w-5xl">
+                {filteredImages.map((img, i) => (
+                  <button
+                    key={img.src}
+                    data-thumb-index={i}
+                    onClick={() => goToImage(i)}
+                    className={`flex-shrink-0 w-16 h-12 sm:w-20 sm:h-14 overflow-hidden transition-all duration-200 ${
+                      i === selectedImageIndex
+                        ? "ring-2 ring-white opacity-100"
+                        : "opacity-40 hover:opacity-70"
+                    }`}
+                    data-testid={`lightbox-thumb-${i}`}
+                  >
+                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

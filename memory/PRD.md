@@ -5,7 +5,7 @@ Create a luxury website for "Villa Kephala" in Kea, Greece. The website includes
 
 ## Product Requirements
 - Single-page scrollable layout with multi-section design
-- Photo gallery with categorized tabs and lightbox feature
+- Photo gallery with categorized tabs and lightbox feature with in-lightbox navigation
 - Testimonials section with real reviews
 - Fully responsive mobile-friendly design
 - Contact form backed by API
@@ -15,7 +15,7 @@ Create a luxury website for "Villa Kephala" in Kea, Greece. The website includes
 - **Backend**: FastAPI (contact form endpoint)
 - **Database**: None (contact form returns mock success)
 
-## Completed Features (All Done)
+## Completed Features
 - Navigation bar with smooth scroll
 - Hero section with infinity pool focus
 - Welcome section (pool-focused imagery)
@@ -23,16 +23,16 @@ Create a luxury website for "Villa Kephala" in Kea, Greece. The website includes
 - Custom Testimonials section
 - Amenities/Quick points section
 - About Kea section
-- Activities section (icons instead of photos: hiking, scuba, boating, cycling)
+- Activities section (icons: hiking, scuba, boating, cycling)
 - Location info section
-- Contact Form with FastAPI backend
+- Contact Form with FastAPI backend (mock response)
 - Photo Gallery with 8 tabs: **Exterior** (default, first), Interior, Kitchen, Terrace, Blue Room, Pink Room, Sea Room, Suzani Room, Top Room
-- Lightbox overlay for image zoom
+- **Lightbox with prev/next arrows, thumbnail strip, keyboard nav (arrow keys + Escape), image counter** — browse all tab images without closing
 - Full mobile optimization (scrollable tabs, solid lightbox bg, stacking layout)
 - "Enquire" button with proper contrast
 
 ## Key Files
-- `/app/frontend/src/App.js` - Main React component (~1300 lines)
+- `/app/frontend/src/App.js` - Main React component
 - `/app/frontend/src/App.css` - Custom styling
 - `/app/frontend/src/index.css` - CSS variables
 - `/app/backend/server.py` - FastAPI backend
@@ -42,5 +42,5 @@ Create a luxury website for "Villa Kephala" in Kea, Greece. The website includes
 
 ## Important Notes
 - All images are user-provided `customer-assets` URLs — DO NOT replace with stock photos
-- Gallery tab/category names must match in both the TabsTrigger values and allImages category fields
-- Hot reload is enabled for frontend
+- Gallery tab/category names must match in both TabsTrigger values and allImages category fields
+- Lightbox navigates within the active tab's filtered images
