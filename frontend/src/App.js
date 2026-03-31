@@ -299,7 +299,7 @@ const IntroSection = () => {
             className="relative"
           >
             <img
-              src={IMAGES.outdoor[9]}
+              src={IMAGES.hero}
               alt="Infinity pool with sea view"
               className="w-full h-[400px] sm:h-[500px] object-cover"
             />
