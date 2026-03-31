@@ -164,9 +164,9 @@ const Navigation = () => {
             <a
               href="#contact"
               className="btn-primary px-6 py-2.5 text-sm font-medium rounded-none"
-              data-testid="nav-inquire-btn"
+              data-testid="nav-enquire-btn"
             >
-              Inquire
+              Enquire
             </a>
           </div>
 
@@ -211,7 +211,7 @@ const Navigation = () => {
                 className="btn-primary px-6 py-3 text-center text-sm font-medium rounded-none mt-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Inquire
+                Enquire
               </a>
             </div>
           </motion.div>
@@ -253,8 +253,8 @@ const HeroSection = () => {
             <a href="#villa" className="btn-primary px-8 py-3 text-sm font-medium rounded-none" data-testid="hero-discover-btn">
               Discover the Villa
             </a>
-            <a href="#contact" className="bg-white text-[#1C1917] hover:bg-[#F3EFEA] px-8 py-3 text-sm font-medium rounded-none transition-all" data-testid="hero-inquire-btn">
-              Make an Inquiry
+            <a href="#contact" className="bg-white text-[#1C1917] hover:bg-[#F3EFEA] px-8 py-3 text-sm font-medium rounded-none transition-all" data-testid="hero-enquire-btn">
+              Make an Enquiry
             </a>
           </div>
         </motion.div>
@@ -288,7 +288,7 @@ const IntroSection = () => {
               Enjoy a blissful retreat with unforgettable, uninterrupted views and golden sunsets in this elegant Cycladic home just meters from the sea.
             </p>
             <p className="text-[#57534E] text-base sm:text-lg leading-relaxed">
-              This exceptional seafront villa is newly completed and presented in immaculate condition throughout. It offers five generous double bedrooms, all with sea views and each with its own en-suite bathroom, providing both comfort and privacy for all guests.
+              Relax by the stunning infinity pool overlooking the beautiful bay, or take the stone steps down to your own private beach. This exceptional seafront villa offers the perfect blend of luxury and tranquility.
             </p>
           </motion.div>
           <motion.div
@@ -299,13 +299,13 @@ const IntroSection = () => {
             className="relative"
           >
             <img
-              src={IMAGES.interior[0]}
-              alt="Villa interior"
+              src={IMAGES.outdoor[9]}
+              alt="Infinity pool with sea view"
               className="w-full h-[400px] sm:h-[500px] object-cover"
             />
             <div className="absolute -bottom-6 -left-6 bg-white p-6 shadow-lg hidden sm:block">
-              <p className="font-['Cormorant_Garamond'] text-4xl font-light text-[#C05E44]">5</p>
-              <p className="text-sm text-[#57534E] uppercase tracking-wider">Bedrooms</p>
+              <p className="font-['Cormorant_Garamond'] text-4xl font-light text-[#C05E44]">∞</p>
+              <p className="text-sm text-[#57534E] uppercase tracking-wider">Infinity Pool</p>
             </div>
           </motion.div>
         </div>
@@ -379,20 +379,20 @@ const OutdoorSection = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="text-[#F3EFEA] text-xs uppercase tracking-[0.2em] font-medium mb-4 block">
-              Outdoor Living
+              Pool & Outdoor Living
             </span>
             <h2 className="font-['Cormorant_Garamond'] text-3xl sm:text-4xl lg:text-5xl font-light mb-6">
-              Where Land Meets Sea
+              Your Private Paradise
             </h2>
             <div className="space-y-6 text-white/80 leading-relaxed">
+              <p>
+                The stunning infinity pool overlooks the beautiful bay just 50m below, providing a breathtaking setting for swimming, relaxing, and enjoying the ever-changing light of the Aegean Sea.
+              </p>
               <p>
                 Outdoor sitting and dining areas beneath wooden pergolas offer welcome shade from the heat of the day, while the constant gentle sea breeze makes these spaces exceptionally comfortable.
               </p>
               <p>
-                Multiple outdoor sitting areas are thoughtfully positioned around the villa, allowing guests to find their own moments of peace and tranquility throughout the day.
-              </p>
-              <p>
-                An infinity pool overlooks the beautiful bay just 50m below, providing a breathtaking setting for swimming, relaxing, and enjoying the ever-changing light of the sea.
+                As evening falls, return to the terraces for sunset drinks, where exquisite views and soft light create unforgettable moments at the end of each day.
               </p>
             </div>
           </motion.div>
@@ -404,8 +404,8 @@ const OutdoorSection = () => {
             className="space-y-6"
           >
             <img
-              src={IMAGES.outdoor[0]}
-              alt="Path to the sea"
+              src={IMAGES.outdoor[14]}
+              alt="Infinity pool with bay view"
               className="w-full h-[300px] object-cover"
             />
             <div className="grid grid-cols-2 gap-6">
@@ -860,28 +860,24 @@ const AboutKeaSection = () => {
 const ActivitiesSection = () => {
   const activities = [
     {
-      icon: <Mountains size={32} weight="thin" />,
+      icon: <Mountains size={48} weight="thin" />,
       title: "Hiking",
-      description: "81 km of stone-paved footpaths thread the island, well maintained and marked, a joy to walk especially in spring.",
-      image: IMAGES.outdoor[5]
+      description: "81 km of stone-paved footpaths thread the island, well maintained and marked, a joy to walk especially in spring."
     },
     {
-      icon: <Fish size={32} weight="thin" />,
+      icon: <Fish size={48} weight="thin" />,
       title: "Scuba Diving",
-      description: "Exceptionally clear waters with marine life. Visit the Brittanic wreck (Titanic's sister ship) or other wrecks nearby.",
-      image: IMAGES.outdoor[18]
+      description: "Exceptionally clear waters with marine life. Visit the Brittanic wreck (Titanic's sister ship) or other wrecks nearby."
     },
     {
-      icon: <Boat size={32} weight="thin" />,
+      icon: <Boat size={48} weight="thin" />,
       title: "Boating",
-      description: "Many beautiful beaches along the coast are best explored by boat. Hire one with a captain for a day of snorkeling.",
-      image: IMAGES.outdoor[17]
+      description: "Many beautiful beaches along the coast are best explored by boat. Hire one with a captain for a day of snorkeling."
     },
     {
-      icon: <Bicycle size={32} weight="thin" />,
+      icon: <Bicycle size={48} weight="thin" />,
       title: "Cycling",
-      description: "Explore Kea's beauty on two wheels. Electric bikes available for rent, making the mountainous terrain enjoyable.",
-      image: IMAGES.outdoor[12]
+      description: "Explore Kea's beauty on two wheels. Electric bikes available for rent, making the mountainous terrain enjoyable."
     }
   ];
 
@@ -906,22 +902,14 @@ const ActivitiesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="activity-card group relative h-[350px] overflow-hidden"
+              className="bg-white p-8 border border-[#E7E5E4] text-center card-hover"
               data-testid={`activity-card-${index}`}
             >
-              <img
-                src={activity.image}
-                alt={activity.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="activity-overlay absolute inset-0" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <div className="mb-3">{activity.icon}</div>
-                <h3 className="font-['Cormorant_Garamond'] text-2xl mb-2">{activity.title}</h3>
-                <p className="text-white/80 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {activity.description}
-                </p>
-              </div>
+              <div className="text-[#C05E44] flex justify-center mb-4">{activity.icon}</div>
+              <h3 className="font-['Cormorant_Garamond'] text-2xl mb-3">{activity.title}</h3>
+              <p className="text-[#57534E] text-sm leading-relaxed">
+                {activity.description}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -1105,7 +1093,7 @@ const ContactSection = () => {
 
     try {
       await axios.post(`${API}/contact`, formData);
-      toast.success("Thank you for your inquiry! We'll be in touch soon.");
+      toast.success("Thank you for your enquiry! We'll be in touch soon.");
       setFormData({ name: "", email: "", phone: "", dates: "", guests: "", message: "" });
     } catch (error) {
       toast.error("Something went wrong. Please try again.");
@@ -1126,7 +1114,7 @@ const ContactSection = () => {
           >
             <span className="section-label mb-4 block">Contact</span>
             <h2 className="section-heading text-3xl sm:text-4xl lg:text-5xl mb-6">
-              Make an Inquiry
+              Make an Enquiry
             </h2>
             <p className="text-[#57534E] text-base sm:text-lg leading-relaxed mb-8">
               Ready to experience Villa Kephala? Fill out the form and we'll get back to you with availability and any information you need.
@@ -1242,7 +1230,7 @@ const ContactSection = () => {
                 className="btn-primary w-full py-3 rounded-none text-sm font-medium"
                 data-testid="contact-submit-btn"
               >
-                {isSubmitting ? "Sending..." : "Send Inquiry"}
+                {isSubmitting ? "Sending..." : "Send Enquiry"}
               </Button>
             </form>
           </motion.div>
