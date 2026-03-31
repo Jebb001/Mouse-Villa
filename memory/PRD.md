@@ -1,60 +1,46 @@
-# Villa Kephala Website - PRD
+# Villa Kephala - Luxury Villa Website
 
-## Original Problem Statement
-Create a website for Villa Kephala, a luxury seafront villa in Kea, Greece. The site includes:
-- Extensive copy about the villa, location, bedrooms, outdoor living, activities
-- Contact form for inquiries
-- Photo gallery organized by area
-- Interactive map showing villa location
-- Information about Kea island and how to get there
+## Problem Statement
+Create a luxury website for "Villa Kephala" in Kea, Greece. The website includes specific copy about the location, 5 bedrooms, outdoor living, activities, and getting there. It features a contact form and a comprehensive photo gallery categorized by rooms/areas using ONLY user-uploaded photos.
 
-## User Personas
-1. **Luxury Travelers** - High-net-worth individuals seeking premium vacation rentals
-2. **Family Groups** - Large families needing 5-bedroom accommodation
-3. **Couple Getaways** - Romantic retreats to Greek islands
+## Product Requirements
+- Single-page scrollable layout with multi-section design
+- Photo gallery with categorized tabs and lightbox feature
+- Testimonials section with real reviews
+- Fully responsive mobile-friendly design
+- Contact form backed by API
 
-## Core Requirements (Static)
-- Showcase website for luxury villa rental
-- Contact form submission (stored in MongoDB)
-- Photo gallery with filtering by category
-- Interactive Google Maps embed
-- Mobile-responsive design
-- Elegant Mediterranean aesthetic
+## Architecture
+- **Frontend**: React + Tailwind CSS + Framer Motion + Phosphor Icons + Shadcn UI
+- **Backend**: FastAPI (contact form endpoint)
+- **Database**: None (contact form returns mock success)
 
-## What's Been Implemented (March 30, 2026)
-- ✅ Full landing page with 12 sections
-- ✅ Hero section with villa imagery
-- ✅ Navigation with smooth scrolling
-- ✅ Photo gallery with Tabs (All, Bedrooms, Pool, Outdoor)
-- ✅ Contact form with backend API (/api/contact)
-- ✅ Interactive Google Maps embed
-- ✅ Mobile-responsive design
-- ✅ Framer Motion animations
-- ✅ Cormorant Garamond + Outfit typography
-- ✅ User-provided bedroom photos integrated
+## Completed Features (All Done)
+- Navigation bar with smooth scroll
+- Hero section with infinity pool focus
+- Welcome section (pool-focused imagery)
+- Villa Details section (bedrooms, outdoor living)
+- Custom Testimonials section
+- Amenities/Quick points section
+- About Kea section
+- Activities section (icons instead of photos: hiking, scuba, boating, cycling)
+- Location info section
+- Contact Form with FastAPI backend
+- Photo Gallery with 8 tabs: **Exterior** (default, first), Interior, Kitchen, Terrace, Blue Room, Pink Room, Sea Room, Suzani Room, Top Room
+- Lightbox overlay for image zoom
+- Full mobile optimization (scrollable tabs, solid lightbox bg, stacking layout)
+- "Enquire" button with proper contrast
 
-## Tech Stack
-- Frontend: React, Tailwind CSS, Shadcn UI, Framer Motion, Phosphor Icons
-- Backend: FastAPI, MongoDB
-- Design: Light Mediterranean theme (Organic & Earthy)
+## Key Files
+- `/app/frontend/src/App.js` - Main React component (~1300 lines)
+- `/app/frontend/src/App.css` - Custom styling
+- `/app/frontend/src/index.css` - CSS variables
+- `/app/backend/server.py` - FastAPI backend
 
-## Prioritized Backlog
-### P0 (Critical) - Done
-- [x] Core website with all sections
-- [x] Contact form functionality
-- [x] Photo gallery
+## API Endpoints
+- `POST /api/contact` - Contact form (mock response)
 
-### P1 (High Priority) - Future
-- [ ] Add more villa photos when provided by user
-- [ ] Email notification on contact form submission
-- [ ] Admin dashboard for viewing inquiries
-
-### P2 (Nice to Have)
-- [ ] Availability calendar integration
-- [ ] Multi-language support (Greek/English)
-- [ ] Virtual tour integration
-
-## Next Tasks
-1. Add more photos for each room as user provides them
-2. Consider email integration for form notifications
-3. Add SEO meta tags for search visibility
+## Important Notes
+- All images are user-provided `customer-assets` URLs — DO NOT replace with stock photos
+- Gallery tab/category names must match in both the TabsTrigger values and allImages category fields
+- Hot reload is enabled for frontend
