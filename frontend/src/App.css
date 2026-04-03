@@ -248,7 +248,7 @@
 }
 
 /* Tab Styles Override */
-.villa-tabs [data-state="active"] {
+.villa-tabs [role="tablist"] [data-state="active"] {
   background-color: #2C423F;
   color: white;
 }

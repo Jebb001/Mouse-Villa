@@ -6,12 +6,13 @@ Create a luxury website for "Villa Kephala" in Kea, Greece. The website includes
 ## Product Requirements
 - Single-page scrollable layout with multi-section design
 - Photo gallery with categorized tabs and lightbox with in-lightbox navigation
+- Bedrooms tab with accordion dropdowns per room
 - Testimonials section with real reviews
 - Fully responsive mobile-friendly design
 - Contact form backed by API
 
 ## Architecture
-- **Frontend**: React + Tailwind CSS + Framer Motion + Phosphor Icons + Shadcn UI
+- **Frontend**: React + Tailwind CSS + Framer Motion + Phosphor Icons + Shadcn UI (Tabs, Accordion)
 - **Backend**: FastAPI (contact form endpoint)
 - **Database**: None (contact form returns mock success)
 
@@ -27,6 +28,7 @@ Create a luxury website for "Villa Kephala" in Kea, Greece. The website includes
 - Location info section
 - Contact Form with FastAPI backend (mock response)
 - Photo Gallery with 6 tabs (in order): **Pool & Terraces** (default), **Down to the Sea**, **Interior**, **Bedrooms**, **Outdoor Dining**, **Kitchen**
+- **Bedrooms tab**: Accordion dropdowns for Blue Bedroom, Pink Bedroom, Sea Bedroom, Suzani Bedroom, Top Bedroom — one open at a time
 - Lightbox with prev/next arrows, thumbnail strip, keyboard nav, image counter
 - Full mobile optimization
 
@@ -42,4 +44,5 @@ Create a luxury website for "Villa Kephala" in Kea, Greece. The website includes
 ## Important Notes
 - All images are user-provided `customer-assets` URLs — DO NOT replace with stock photos
 - Gallery tab/category names must match in both TabsTrigger values and allImages category fields
-- Lightbox navigates within the active tab's filtered images
+- Bedroom images have a `room` field for accordion grouping
+- Lightbox navigates within the active tab's filtered images (all bedrooms combined when in Bedrooms tab)
