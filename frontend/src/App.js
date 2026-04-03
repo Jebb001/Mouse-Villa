@@ -638,7 +638,7 @@ const GallerySection = () => {
               <img
                 src={filteredImages[0]?.src}
                 alt={filteredImages[0]?.alt}
-                className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full aspect-[16/9] object-cover"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                 <span className="text-white text-sm tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 px-6 py-3 backdrop-blur-sm">
