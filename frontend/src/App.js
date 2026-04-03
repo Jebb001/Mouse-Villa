@@ -438,6 +438,7 @@ const OutdoorSection = () => {
 const GallerySection = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [activeTab, setActiveTab] = useState("pool");
+  const [lightboxImages, setLightboxImages] = useState([]);
   const thumbnailStripRef = useRef(null);
   
   const allImages = [
@@ -521,28 +522,35 @@ const GallerySection = () => {
   ];
 
   const filteredImages = allImages.filter(img => img.category === activeTab);
-  const selectedImage = selectedImageIndex !== null ? filteredImages[selectedImageIndex] : null;
+  const selectedImage = selectedImageIndex !== null ? lightboxImages[selectedImageIndex] : null;
+
+  const openLightbox = useCallback((images, startIndex) => {
+    setLightboxImages(images);
+    setSelectedImageIndex(startIndex);
+  }, []);
 
   const goToImage = useCallback((newIndex) => {
-    if (newIndex >= 0 && newIndex < filteredImages.length) {
+    if (newIndex >= 0 && newIndex < lightboxImages.length) {
       setSelectedImageIndex(newIndex);
-      // Scroll thumbnail into view
       setTimeout(() => {
         const thumb = document.querySelector(`[data-thumb-index="${newIndex}"]`);
         if (thumb) thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }, 50);
     }
-  }, [filteredImages.length]);
+  }, [lightboxImages.length]);
 
   const goNext = useCallback(() => {
-    if (selectedImageIndex !== null) goToImage((selectedImageIndex + 1) % filteredImages.length);
-  }, [selectedImageIndex, filteredImages.length, goToImage]);
+    if (selectedImageIndex !== null) goToImage((selectedImageIndex + 1) % lightboxImages.length);
+  }, [selectedImageIndex, lightboxImages.length, goToImage]);
 
   const goPrev = useCallback(() => {
-    if (selectedImageIndex !== null) goToImage((selectedImageIndex - 1 + filteredImages.length) % filteredImages.length);
-  }, [selectedImageIndex, filteredImages.length, goToImage]);
+    if (selectedImageIndex !== null) goToImage((selectedImageIndex - 1 + lightboxImages.length) % lightboxImages.length);
+  }, [selectedImageIndex, lightboxImages.length, goToImage]);
 
-  const closeLightbox = useCallback(() => setSelectedImageIndex(null), []);
+  const closeLightbox = useCallback(() => {
+    setSelectedImageIndex(null);
+    setLightboxImages([]);
+  }, []);
 
   useEffect(() => {
     if (selectedImageIndex === null) return;
@@ -603,7 +611,7 @@ const GallerySection = () => {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.4 }}
                         className="cursor-pointer relative group overflow-hidden"
-                        onClick={() => setSelectedImageIndex(globalIndex)}
+                        onClick={() => openLightbox(roomImages, 0)}
                         data-testid={`bedroom-main-${roomName.toLowerCase().replace(' ', '-')}`}
                       >
                         <img
@@ -627,7 +635,7 @@ const GallerySection = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4 }}
               className="cursor-pointer relative group overflow-hidden"
-              onClick={() => setSelectedImageIndex(0)}
+              onClick={() => openLightbox(filteredImages, 0)}
               data-testid="gallery-main-image"
             >
               <img
@@ -660,7 +668,7 @@ const GallerySection = () => {
             {/* Top bar: close + counter */}
             <div className="flex items-center justify-between px-4 sm:px-6 py-3 flex-shrink-0" onClick={(e) => e.stopPropagation()}>
               <span className="text-white/60 text-sm font-light tracking-wide" data-testid="lightbox-counter">
-                {selectedImageIndex + 1} / {filteredImages.length}
+                {selectedImageIndex + 1} / {lightboxImages.length}
               </span>
               <button
                 onClick={closeLightbox}
@@ -713,7 +721,7 @@ const GallerySection = () => {
               data-testid="lightbox-thumbnails"
             >
               <div className="flex gap-2 justify-start sm:justify-center mx-auto max-w-5xl">
-                {filteredImages.map((img, i) => (
+                {lightboxImages.map((img, i) => (
                   <button
                     key={img.src}
                     data-thumb-index={i}
