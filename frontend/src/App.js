@@ -335,7 +335,7 @@ const VillaSection = () => {
             {
               icon: <House size={32} weight="thin" />,
               title: "Interior Spaces",
-              description: "Calm, beautifully interior-designed spaces flow seamlessly outdoors onto generous terraces, creating a natural connection between indoor and outdoor living."
+              description: "Calm, beautifully interior-designed spaces flow seamlessly outdoors onto generous terraces, creating a natural connection between indoor and outdoor living. The villa is fully air conditioned throughout."
             },
             {
               icon: <Barbell size={32} weight="thin" />,
