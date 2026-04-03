@@ -787,7 +787,7 @@ const BedroomsSection = () => {
             <ul className="space-y-3">
               {[
                 "4 Superkings (2 can be made into twin bedrooms)",
-                "1 King (cooled by Dyson fans and sea breezes rather than air conditioning, due to its proximity to the sea)",
+                "1 King (Dyson fans & sea breezes — no A/C)",
                 "All rooms with en-suite bathrooms",
                 "TVs in 4 bedrooms and sitting room"
               ].map((item, index) => (
