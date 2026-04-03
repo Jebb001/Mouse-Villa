@@ -480,30 +480,30 @@ const GallerySection = () => {
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/d7xik4o3_6X3A2527.jpg", category: "interior", alt: "Lounge" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/bj0h5wrc_6X3A2533.jpg", category: "interior", alt: "Dining Room" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/6to9rj0u_6X3A3038.jpg", category: "interior", alt: "Interior View" },
-    // Bedrooms (all rooms with sub-room labels)
-    { src: IMAGES.bedroom[0], category: "bedrooms", room: "Blue Bedroom", alt: "Blue Room" },
-    { src: IMAGES.bedroom[1], category: "bedrooms", room: "Blue Bedroom", alt: "Blue Room - Detail" },
-    { src: IMAGES.bedroom[2], category: "bedrooms", room: "Blue Bedroom", alt: "Blue Room - Bed" },
-    { src: IMAGES.bedroom[3], category: "bedrooms", room: "Blue Bedroom", alt: "Blue Room - Bathroom" },
-    { src: IMAGES.pinkRoom[0], category: "bedrooms", room: "Pink Bedroom", alt: "Pink Room" },
-    { src: IMAGES.pinkRoom[1], category: "bedrooms", room: "Pink Bedroom", alt: "Pink Room - Detail" },
-    { src: IMAGES.pinkRoom[2], category: "bedrooms", room: "Pink Bedroom", alt: "Pink Room - Bed" },
-    { src: IMAGES.pinkRoom[3], category: "bedrooms", room: "Pink Bedroom", alt: "Pink Room - Bathroom" },
-    { src: IMAGES.seaRoom[0], category: "bedrooms", room: "Sea Bedroom", alt: "Sea Room" },
-    { src: IMAGES.seaRoom[1], category: "bedrooms", room: "Sea Bedroom", alt: "Sea Room - View" },
-    { src: IMAGES.seaRoom[2], category: "bedrooms", room: "Sea Bedroom", alt: "Sea Room - Bed" },
-    { src: IMAGES.seaRoom[3], category: "bedrooms", room: "Sea Bedroom", alt: "Sea Room - Detail" },
-    { src: IMAGES.seaRoom[4], category: "bedrooms", room: "Sea Bedroom", alt: "Sea Room - Bathroom" },
-    { src: IMAGES.suzaniRoom[0], category: "bedrooms", room: "Suzani Bedroom", alt: "Suzani Room" },
-    { src: IMAGES.suzaniRoom[1], category: "bedrooms", room: "Suzani Bedroom", alt: "Suzani Room - Detail" },
-    { src: IMAGES.suzaniRoom[2], category: "bedrooms", room: "Suzani Bedroom", alt: "Suzani Room - Bed" },
-    { src: IMAGES.suzaniRoom[3], category: "bedrooms", room: "Suzani Bedroom", alt: "Suzani Room - View" },
-    { src: IMAGES.suzaniRoom[4], category: "bedrooms", room: "Suzani Bedroom", alt: "Suzani Room - Bathroom" },
-    { src: IMAGES.suzaniRoom[5], category: "bedrooms", room: "Suzani Bedroom", alt: "Suzani Room - Window" },
-    { src: IMAGES.topRoom[0], category: "bedrooms", room: "Top Bedroom", alt: "Top Room" },
-    { src: IMAGES.topRoom[1], category: "bedrooms", room: "Top Bedroom", alt: "Top Room - View" },
-    { src: IMAGES.topRoom[2], category: "bedrooms", room: "Top Bedroom", alt: "Top Room - Bed" },
-    { src: IMAGES.topRoom[3], category: "bedrooms", room: "Top Bedroom", alt: "Top Room - Bathroom" },
+    // Bedrooms
+    { src: IMAGES.bedroom[0], category: "bedrooms", isMain: true, alt: "Bedrooms" },
+    { src: IMAGES.bedroom[1], category: "bedrooms", alt: "Blue Room - Detail" },
+    { src: IMAGES.bedroom[2], category: "bedrooms", alt: "Blue Room - Bed" },
+    { src: IMAGES.bedroom[3], category: "bedrooms", alt: "Blue Room - Bathroom" },
+    { src: IMAGES.pinkRoom[0], category: "bedrooms", alt: "Pink Room" },
+    { src: IMAGES.pinkRoom[1], category: "bedrooms", alt: "Pink Room - Detail" },
+    { src: IMAGES.pinkRoom[2], category: "bedrooms", alt: "Pink Room - Bed" },
+    { src: IMAGES.pinkRoom[3], category: "bedrooms", alt: "Pink Room - Bathroom" },
+    { src: IMAGES.seaRoom[0], category: "bedrooms", alt: "Sea Room" },
+    { src: IMAGES.seaRoom[1], category: "bedrooms", alt: "Sea Room - View" },
+    { src: IMAGES.seaRoom[2], category: "bedrooms", alt: "Sea Room - Bed" },
+    { src: IMAGES.seaRoom[3], category: "bedrooms", alt: "Sea Room - Detail" },
+    { src: IMAGES.seaRoom[4], category: "bedrooms", alt: "Sea Room - Bathroom" },
+    { src: IMAGES.suzaniRoom[0], category: "bedrooms", alt: "Suzani Room" },
+    { src: IMAGES.suzaniRoom[1], category: "bedrooms", alt: "Suzani Room - Detail" },
+    { src: IMAGES.suzaniRoom[2], category: "bedrooms", alt: "Suzani Room - Bed" },
+    { src: IMAGES.suzaniRoom[3], category: "bedrooms", alt: "Suzani Room - View" },
+    { src: IMAGES.suzaniRoom[4], category: "bedrooms", alt: "Suzani Room - Bathroom" },
+    { src: IMAGES.suzaniRoom[5], category: "bedrooms", alt: "Suzani Room - Window" },
+    { src: IMAGES.topRoom[0], category: "bedrooms", alt: "Top Room" },
+    { src: IMAGES.topRoom[1], category: "bedrooms", alt: "Top Room - View" },
+    { src: IMAGES.topRoom[2], category: "bedrooms", alt: "Top Room - Bed" },
+    { src: IMAGES.topRoom[3], category: "bedrooms", alt: "Top Room - Bathroom" },
     // Outdoor Dining (user-uploaded - 8 photos)
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/4zpf91xn_Main%20Shot.jpg", category: "dining", alt: "Outdoor Dining", isMain: true },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/vpf2fobt_6X3A2610.jpg", category: "dining", alt: "Dining Terrace" },
@@ -588,48 +588,6 @@ const GallerySection = () => {
           </TabsList>
 
           <TabsContent value={activeTab} className="mt-0">
-            {activeTab === "bedrooms" ? (
-              <Accordion type="single" collapsible defaultValue="Blue Bedroom" data-testid="bedrooms-accordion">
-                {["Blue Bedroom", "Pink Bedroom", "Sea Bedroom", "Suzani Bedroom", "Top Bedroom"].map((roomName) => {
-                  const roomImages = filteredImages.filter(img => img.room === roomName);
-                  if (roomImages.length === 0) return null;
-                  return (
-                    <AccordionItem key={roomName} value={roomName} className="border-b border-[#D6D0C8]">
-                      <AccordionTrigger
-                        className="py-5 text-base sm:text-lg font-light tracking-wide text-[#2C423F] hover:no-underline"
-                        data-testid={`bedroom-accordion-${roomName.toLowerCase().replace(' ', '-')}`}
-                      >
-                        {roomName}
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 pb-2">
-                          {roomImages.map((image) => {
-                            const globalIndex = filteredImages.indexOf(image);
-                            return (
-                              <motion.div
-                                key={image.src}
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.3 }}
-                                className="gallery-item cursor-pointer"
-                                onClick={() => setSelectedImageIndex(globalIndex)}
-                                data-testid={`gallery-image-${globalIndex}`}
-                              >
-                                <img
-                                  src={image.src}
-                                  alt={image.alt}
-                                  className="w-full h-[200px] sm:h-[240px] object-cover"
-                                />
-                              </motion.div>
-                            );
-                          })}
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  );
-                })}
-              </Accordion>
-            ) : (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -649,7 +607,6 @@ const GallerySection = () => {
                 </span>
               </div>
             </motion.div>
-            )}
           </TabsContent>
         </Tabs>
       </div>
@@ -712,11 +669,6 @@ const GallerySection = () => {
                 <CaretRight size={24} weight="bold" />
               </button>
             </div>
-
-            {/* Caption */}
-            <p className="text-white/60 text-center text-sm py-2 flex-shrink-0" onClick={(e) => e.stopPropagation()}>
-              {selectedImage.alt}
-            </p>
 
             {/* Thumbnail strip */}
             <div
