@@ -344,8 +344,8 @@ const VillaSection = () => {
             },
             {
               icon: <Snowflake size={32} weight="thin" />,
-              title: "Air Conditioned",
-              description: "The villa is fully air-conditioned, ensuring comfort throughout the warmer months. One bedroom features Dyson fans and sea breezes due to its proximity to the sea."
+              title: "Outdoor Living",
+              description: "Multiple outdoor sitting areas are thoughtfully positioned around the villa, allowing guests to find their own moments of peace and tranquility throughout the day."
             }
           ].map((item, index) => (
             <motion.div
