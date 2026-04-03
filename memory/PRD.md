@@ -1,36 +1,26 @@
 # Villa Kephala - Luxury Villa Website
 
 ## Problem Statement
-Create a luxury website for "Villa Kephala" in Kea, Greece. The website includes specific copy about the location, 5 bedrooms, outdoor living, activities, and getting there. It features a contact form and a comprehensive photo gallery categorized by rooms/areas using ONLY user-uploaded photos.
-
-## Product Requirements
-- Single-page scrollable layout with multi-section design
-- Photo gallery with categorized tabs and lightbox with in-lightbox navigation
-- Bedrooms tab with accordion dropdowns per room
-- Testimonials section with real reviews
-- Fully responsive mobile-friendly design
-- Contact form backed by API
+Create a luxury website for "Villa Kephala" in Kea, Greece with photo gallery, contact form, testimonials, and responsive design using ONLY user-uploaded photos.
 
 ## Architecture
 - **Frontend**: React + Tailwind CSS + Framer Motion + Phosphor Icons + Shadcn UI (Tabs, Accordion)
-- **Backend**: FastAPI (contact form endpoint)
-- **Database**: None (contact form returns mock success)
+- **Backend**: FastAPI (contact form endpoint, mock response)
 
 ## Completed Features
-- Navigation bar with smooth scroll
-- Hero section with infinity pool focus
-- Welcome section (pool-focused imagery)
-- Villa Details section (bedrooms, outdoor living)
-- Custom Testimonials section
-- Amenities/Quick points section
-- About Kea section
-- Activities section (icons: hiking, scuba, boating, cycling)
-- Location info section
-- Contact Form with FastAPI backend (mock response)
-- Photo Gallery with 6 tabs (in order): **Pool & Terraces** (default), **Down to the Sea**, **Interior**, **Bedrooms**, **Outdoor Dining**, **Kitchen**
-- **Bedrooms tab**: Accordion dropdowns for Blue Bedroom, Pink Bedroom, Sea Bedroom, Suzani Bedroom, Top Bedroom — one open at a time
-- Lightbox with prev/next arrows, thumbnail strip, keyboard nav, image counter
+- Navigation, Hero, Welcome, Villa Details, Testimonials, Amenities, About Kea, Activities, Location, Contact Form
+- Photo Gallery with 6 tabs: Pool & Terraces, Down to the Sea, Interior, Outdoor Dining, Kitchen, Bedrooms
+- **Main photo layout**: Each non-bedroom tab shows one large hero image; clicking opens lightbox with all images
+- **Bedrooms tab**: Accordion dropdowns per room (Blue, Pink, Sea, Suzani, Top)
+- Lightbox with prev/next, thumbnails, keyboard nav, counter
 - Full mobile optimization
+
+## Gallery Main Photos (user-uploaded)
+- Pool & Terraces: `2mcxhs4y_1st Shot of pool section.jpg`
+- Down to the Sea: `et9roi8q_Main Photo Option.jpg`
+- Interior: `bh088xq7_Main Photo.jpg`
+- Outdoor Dining: `42dcy0cp_Main Shot.jpg`
+- Kitchen: `8e5izdsp_Main Shot.jpg`
 
 ## Key Files
 - `/app/frontend/src/App.js` - Main React component
@@ -38,11 +28,7 @@ Create a luxury website for "Villa Kephala" in Kea, Greece. The website includes
 - `/app/frontend/src/index.css` - CSS variables
 - `/app/backend/server.py` - FastAPI backend
 
-## API Endpoints
-- `POST /api/contact` - Contact form (mock response)
-
 ## Important Notes
 - All images are user-provided `customer-assets` URLs — DO NOT replace with stock photos
-- Gallery tab/category names must match in both TabsTrigger values and allImages category fields
+- Gallery images with `isMain: true` are the hero photos shown per tab
 - Bedroom images have a `room` field for accordion grouping
-- Lightbox navigates within the active tab's filtered images (all bedrooms combined when in Bedrooms tab)

@@ -442,6 +442,7 @@ const GallerySection = () => {
   
   const allImages = [
     // Pool Section and Terraces
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2mcxhs4y_1st%20Shot%20of%20pool%20section.jpg", category: "pool", alt: "Pool & Terraces", isMain: true },
     { src: IMAGES.outdoor[14], category: "pool", alt: "Pool with Bay View" },
     { src: IMAGES.outdoor[15], category: "pool", alt: "Infinity Pool" },
     { src: IMAGES.outdoor[16], category: "pool", alt: "Poolside View" },
@@ -452,6 +453,7 @@ const GallerySection = () => {
     { src: IMAGES.outdoor[7], category: "pool", alt: "Villa Exterior" },
     { src: IMAGES.outdoor[8], category: "pool", alt: "Terrace Furniture" },
     // Down to the Sea
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/et9roi8q_Main%20Photo%20Option.jpg", category: "sea", alt: "Down to the Sea", isMain: true },
     { src: IMAGES.outdoor[18], category: "sea", alt: "Bay Coastline" },
     { src: IMAGES.outdoor[17], category: "sea", alt: "Sunset Sea View" },
     { src: IMAGES.outdoor[3], category: "sea", alt: "Bay Vista" },
@@ -463,6 +465,7 @@ const GallerySection = () => {
     { src: IMAGES.outdoor[12], category: "sea", alt: "Cove View" },
     { src: IMAGES.outdoor[13], category: "sea", alt: "Coastal Vista" },
     // Interior
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/bh088xq7_Main%20Photo.jpg", category: "interior", alt: "Interior", isMain: true },
     { src: IMAGES.interior[0], category: "interior", alt: "Living Room" },
     { src: IMAGES.interior[1], category: "interior", alt: "Sitting Area" },
     { src: IMAGES.interior[2], category: "interior", alt: "Dining Area" },
@@ -497,6 +500,7 @@ const GallerySection = () => {
     { src: IMAGES.topRoom[2], category: "bedrooms", room: "Top Bedroom", alt: "Top Room - Bed" },
     { src: IMAGES.topRoom[3], category: "bedrooms", room: "Top Bedroom", alt: "Top Room - Bathroom" },
     // Outdoor Dining
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/42dcy0cp_Main%20Shot.jpg", category: "dining", alt: "Outdoor Dining", isMain: true },
     { src: IMAGES.terrace[0], category: "dining", alt: "Outdoor Dining" },
     { src: IMAGES.terrace[1], category: "dining", alt: "BBQ Area" },
     { src: IMAGES.terrace[2], category: "dining", alt: "Terrace Dining" },
@@ -506,6 +510,7 @@ const GallerySection = () => {
     { src: IMAGES.terrace[6], category: "dining", alt: "Outdoor Seating" },
     { src: IMAGES.terrace[7], category: "dining", alt: "Sunset Dining" },
     // Kitchen
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/8e5izdsp_Main%20Shot.jpg", category: "kitchen", alt: "Kitchen", isMain: true },
     { src: IMAGES.kitchen[0], category: "kitchen", alt: "Kitchen" },
     { src: IMAGES.kitchen[1], category: "kitchen", alt: "Kitchen View" },
     { src: IMAGES.kitchen[2], category: "kitchen", alt: "Kitchen Detail" },
@@ -622,35 +627,24 @@ const GallerySection = () => {
                 })}
               </Accordion>
             ) : (
-            <motion.div 
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-              layout
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4 }}
+              className="cursor-pointer gallery-item relative"
+              onClick={() => setSelectedImageIndex(0)}
+              data-testid="gallery-main-image"
             >
-              <AnimatePresence mode="popLayout">
-                {filteredImages.map((image, index) => (
-                  <motion.div
-                    key={image.src}
-                    layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className={`gallery-item cursor-pointer ${
-                      index === 0 && filteredImages.length > 4 ? "sm:col-span-2 sm:row-span-2" : ""
-                    }`}
-                    onClick={() => setSelectedImageIndex(index)}
-                    data-testid={`gallery-image-${index}`}
-                  >
-                    <img
-                      src={image.src}
-                      alt={image.alt}
-                      className={`w-full object-cover ${
-                        index === 0 && filteredImages.length > 4 ? "h-[400px] sm:h-full" : "h-[300px]"
-                      }`}
-                    />
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+              <img
+                src={filteredImages[0]?.src}
+                alt={filteredImages[0]?.alt}
+                className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover"
+              />
+              <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-all duration-300 flex items-end justify-center pb-6">
+                <span className="text-white text-sm tracking-widest uppercase opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/40 px-4 py-2 backdrop-blur-sm">
+                  View {filteredImages.length} photos
+                </span>
+              </div>
             </motion.div>
             )}
           </TabsContent>
