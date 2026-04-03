@@ -335,7 +335,7 @@ const VillaSection = () => {
             {
               icon: <House size={32} weight="thin" />,
               title: "Interior Spaces",
-              description: "Calm, beautifully interior-designed spaces flow seamlessly outdoors onto generous terraces, creating a natural connection between indoor and outdoor living. The villa is fully air conditioned throughout."
+              description: "Calm, beautifully interior-designed spaces flow seamlessly outdoors onto generous terraces, creating a natural connection between indoor and outdoor living. The villa is fully air conditioned throughout, with the exception of the Sea Bedroom which is cooled by Dyson fans and sea breezes due to its proximity to the sea."
             },
             {
               icon: <Barbell size={32} weight="thin" />,
