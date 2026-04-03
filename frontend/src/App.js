@@ -481,29 +481,29 @@ const GallerySection = () => {
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/bj0h5wrc_6X3A2533.jpg", category: "interior", alt: "Dining Room" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/6to9rj0u_6X3A3038.jpg", category: "interior", alt: "Interior View" },
     // Bedrooms
-    { src: IMAGES.bedroom[0], category: "bedrooms", isMain: true, alt: "Bedrooms" },
-    { src: IMAGES.bedroom[1], category: "bedrooms", alt: "Blue Room - Detail" },
-    { src: IMAGES.bedroom[2], category: "bedrooms", alt: "Blue Room - Bed" },
-    { src: IMAGES.bedroom[3], category: "bedrooms", alt: "Blue Room - Bathroom" },
-    { src: IMAGES.pinkRoom[0], category: "bedrooms", alt: "Pink Room" },
-    { src: IMAGES.pinkRoom[1], category: "bedrooms", alt: "Pink Room - Detail" },
-    { src: IMAGES.pinkRoom[2], category: "bedrooms", alt: "Pink Room - Bed" },
-    { src: IMAGES.pinkRoom[3], category: "bedrooms", alt: "Pink Room - Bathroom" },
-    { src: IMAGES.seaRoom[0], category: "bedrooms", alt: "Sea Room" },
-    { src: IMAGES.seaRoom[1], category: "bedrooms", alt: "Sea Room - View" },
-    { src: IMAGES.seaRoom[2], category: "bedrooms", alt: "Sea Room - Bed" },
-    { src: IMAGES.seaRoom[3], category: "bedrooms", alt: "Sea Room - Detail" },
-    { src: IMAGES.seaRoom[4], category: "bedrooms", alt: "Sea Room - Bathroom" },
-    { src: IMAGES.suzaniRoom[0], category: "bedrooms", alt: "Suzani Room" },
-    { src: IMAGES.suzaniRoom[1], category: "bedrooms", alt: "Suzani Room - Detail" },
-    { src: IMAGES.suzaniRoom[2], category: "bedrooms", alt: "Suzani Room - Bed" },
-    { src: IMAGES.suzaniRoom[3], category: "bedrooms", alt: "Suzani Room - View" },
-    { src: IMAGES.suzaniRoom[4], category: "bedrooms", alt: "Suzani Room - Bathroom" },
-    { src: IMAGES.suzaniRoom[5], category: "bedrooms", alt: "Suzani Room - Window" },
-    { src: IMAGES.topRoom[0], category: "bedrooms", alt: "Top Room" },
-    { src: IMAGES.topRoom[1], category: "bedrooms", alt: "Top Room - View" },
-    { src: IMAGES.topRoom[2], category: "bedrooms", alt: "Top Room - Bed" },
-    { src: IMAGES.topRoom[3], category: "bedrooms", alt: "Top Room - Bathroom" },
+    { src: IMAGES.bedroom[0], category: "bedrooms", room: "Blue Bedroom", isMain: true, alt: "Blue Bedroom" },
+    { src: IMAGES.bedroom[1], category: "bedrooms", room: "Blue Bedroom", alt: "Blue Room - Detail" },
+    { src: IMAGES.bedroom[2], category: "bedrooms", room: "Blue Bedroom", alt: "Blue Room - Bed" },
+    { src: IMAGES.bedroom[3], category: "bedrooms", room: "Blue Bedroom", alt: "Blue Room - Bathroom" },
+    { src: IMAGES.pinkRoom[0], category: "bedrooms", room: "Pink Bedroom", isMain: true, alt: "Pink Bedroom" },
+    { src: IMAGES.pinkRoom[1], category: "bedrooms", room: "Pink Bedroom", alt: "Pink Room - Detail" },
+    { src: IMAGES.pinkRoom[2], category: "bedrooms", room: "Pink Bedroom", alt: "Pink Room - Bed" },
+    { src: IMAGES.pinkRoom[3], category: "bedrooms", room: "Pink Bedroom", alt: "Pink Room - Bathroom" },
+    { src: IMAGES.seaRoom[0], category: "bedrooms", room: "Sea Bedroom", isMain: true, alt: "Sea Bedroom" },
+    { src: IMAGES.seaRoom[1], category: "bedrooms", room: "Sea Bedroom", alt: "Sea Room - View" },
+    { src: IMAGES.seaRoom[2], category: "bedrooms", room: "Sea Bedroom", alt: "Sea Room - Bed" },
+    { src: IMAGES.seaRoom[3], category: "bedrooms", room: "Sea Bedroom", alt: "Sea Room - Detail" },
+    { src: IMAGES.seaRoom[4], category: "bedrooms", room: "Sea Bedroom", alt: "Sea Room - Bathroom" },
+    { src: IMAGES.suzaniRoom[0], category: "bedrooms", room: "Suzani Bedroom", isMain: true, alt: "Suzani Bedroom" },
+    { src: IMAGES.suzaniRoom[1], category: "bedrooms", room: "Suzani Bedroom", alt: "Suzani Room - Detail" },
+    { src: IMAGES.suzaniRoom[2], category: "bedrooms", room: "Suzani Bedroom", alt: "Suzani Room - Bed" },
+    { src: IMAGES.suzaniRoom[3], category: "bedrooms", room: "Suzani Bedroom", alt: "Suzani Room - View" },
+    { src: IMAGES.suzaniRoom[4], category: "bedrooms", room: "Suzani Bedroom", alt: "Suzani Room - Bathroom" },
+    { src: IMAGES.suzaniRoom[5], category: "bedrooms", room: "Suzani Bedroom", alt: "Suzani Room - Window" },
+    { src: IMAGES.topRoom[0], category: "bedrooms", room: "Top Bedroom", isMain: true, alt: "Top Bedroom" },
+    { src: IMAGES.topRoom[1], category: "bedrooms", room: "Top Bedroom", alt: "Top Room - View" },
+    { src: IMAGES.topRoom[2], category: "bedrooms", room: "Top Bedroom", alt: "Top Room - Bed" },
+    { src: IMAGES.topRoom[3], category: "bedrooms", room: "Top Bedroom", alt: "Top Room - Bathroom" },
     // Outdoor Dining (user-uploaded - 8 photos)
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/4zpf91xn_Main%20Shot.jpg", category: "dining", alt: "Outdoor Dining", isMain: true },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/vpf2fobt_6X3A2610.jpg", category: "dining", alt: "Dining Terrace" },
@@ -588,6 +588,40 @@ const GallerySection = () => {
           </TabsList>
 
           <TabsContent value={activeTab} className="mt-0">
+            {activeTab === "bedrooms" ? (
+              <div className="space-y-8">
+                {["Blue Bedroom", "Pink Bedroom", "Sea Bedroom", "Suzani Bedroom", "Top Bedroom"].map((roomName) => {
+                  const roomImages = filteredImages.filter(img => img.room === roomName);
+                  const mainImage = roomImages[0];
+                  if (!mainImage) return null;
+                  const globalIndex = filteredImages.indexOf(mainImage);
+                  return (
+                    <div key={roomName}>
+                      <h3 className="text-lg sm:text-xl font-light tracking-wide text-[#2C423F] mb-3 font-['Cormorant_Garamond']">{roomName}</h3>
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.4 }}
+                        className="cursor-pointer relative group overflow-hidden"
+                        onClick={() => setSelectedImageIndex(globalIndex)}
+                        data-testid={`bedroom-main-${roomName.toLowerCase().replace(' ', '-')}`}
+                      >
+                        <img
+                          src={mainImage.src}
+                          alt={mainImage.alt}
+                          className="w-full aspect-[16/9] object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                          <span className="text-white text-sm tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 px-6 py-3 backdrop-blur-sm">
+                            View {roomImages.length} photos
+                          </span>
+                        </div>
+                      </motion.div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -607,6 +641,7 @@ const GallerySection = () => {
                 </span>
               </div>
             </motion.div>
+            )}
           </TabsContent>
         </Tabs>
       </div>
