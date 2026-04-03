@@ -1199,170 +1199,36 @@ const GettingThereSection = () => {
   );
 };
 
-// Contact Form Section
+// Contact Section
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    dates: "",
-    guests: "",
-    message: ""
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      await axios.post(`${API}/contact`, formData);
-      toast.success("Thank you for your enquiry! We'll be in touch soon.");
-      setFormData({ name: "", email: "", phone: "", dates: "", guests: "", message: "" });
-    } catch (error) {
-      toast.error("Something went wrong. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section id="contact" data-testid="contact-section" className="py-20 sm:py-32">
-      <div className="max-w-7xl mx-auto px-6 sm:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="section-label mb-4 block">Contact</span>
-            <h2 className="section-heading text-3xl sm:text-4xl lg:text-5xl mb-6">
-              Make an Enquiry
-            </h2>
-            <p className="text-[#57534E] text-base sm:text-lg leading-relaxed mb-8">
-              Ready to experience Villa Kephala? Fill out the form and we'll get back to you with availability and any information you need.
-            </p>
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-[#F3EFEA] flex items-center justify-center">
-                  <MapPin size={20} className="text-[#C05E44]" />
-                </div>
-                <div>
-                  <p className="text-sm text-[#57534E]">Location</p>
-                  <p className="font-medium">Kea, Cyclades, Greece</p>
-                </div>
+      <div className="max-w-3xl mx-auto px-6 sm:px-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <span className="section-label mb-4 block">Contact</span>
+          <h2 className="section-heading text-3xl sm:text-4xl lg:text-5xl mb-10">
+            Get in Touch
+          </h2>
+          <div className="space-y-6">
+            <a href="mailto:Lucinda.byng@btinternet.com" className="flex items-center justify-center gap-4 text-[#2C423F] hover:text-[#C05E44] transition-colors group" data-testid="contact-email">
+              <div className="w-12 h-12 bg-[#F3EFEA] flex items-center justify-center group-hover:bg-[#C05E44]/10 transition-colors">
+                <EnvelopeSimple size={22} className="text-[#C05E44]" />
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-[#F3EFEA] flex items-center justify-center">
-                  <Bed size={20} className="text-[#C05E44]" />
-                </div>
-                <div>
-                  <p className="text-sm text-[#57534E]">Capacity</p>
-                  <p className="font-medium">5 Bedrooms, up to 10 Guests</p>
-                </div>
+              <span className="text-base sm:text-lg font-medium">Lucinda.byng@btinternet.com</span>
+            </a>
+            <a href="tel:07887945315" className="flex items-center justify-center gap-4 text-[#2C423F] hover:text-[#C05E44] transition-colors group" data-testid="contact-phone">
+              <div className="w-12 h-12 bg-[#F3EFEA] flex items-center justify-center group-hover:bg-[#C05E44]/10 transition-colors">
+                <Phone size={22} className="text-[#C05E44]" />
               </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <form onSubmit={handleSubmit} className="card-solid p-8" data-testid="contact-form">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <Label htmlFor="name" className="text-sm text-[#57534E] mb-2 block">Full Name *</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="form-input rounded-none"
-                    data-testid="contact-name-input"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="email" className="text-sm text-[#57534E] mb-2 block">Email *</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="form-input rounded-none"
-                    data-testid="contact-email-input"
-                  />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <Label htmlFor="phone" className="text-sm text-[#57534E] mb-2 block">Phone</Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="form-input rounded-none"
-                    data-testid="contact-phone-input"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="guests" className="text-sm text-[#57534E] mb-2 block">Number of Guests</Label>
-                  <Input
-                    id="guests"
-                    name="guests"
-                    value={formData.guests}
-                    onChange={handleChange}
-                    className="form-input rounded-none"
-                    data-testid="contact-guests-input"
-                  />
-                </div>
-              </div>
-              <div className="mb-6">
-                <Label htmlFor="dates" className="text-sm text-[#57534E] mb-2 block">Preferred Dates</Label>
-                <Input
-                  id="dates"
-                  name="dates"
-                  value={formData.dates}
-                  onChange={handleChange}
-                  placeholder="e.g., July 15-22, 2025"
-                  className="form-input rounded-none"
-                  data-testid="contact-dates-input"
-                />
-              </div>
-              <div className="mb-6">
-                <Label htmlFor="message" className="text-sm text-[#57534E] mb-2 block">Message</Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className="form-input rounded-none resize-none"
-                  placeholder="Tell us about your trip..."
-                  data-testid="contact-message-input"
-                />
-              </div>
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="btn-primary w-full py-3 rounded-none text-sm font-medium"
-                data-testid="contact-submit-btn"
-              >
-                {isSubmitting ? "Sending..." : "Send Enquiry"}
-              </Button>
-            </form>
-          </motion.div>
-        </div>
+              <span className="text-base sm:text-lg font-medium">07887 945 315</span>
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
