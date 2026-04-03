@@ -568,14 +568,14 @@ const GallerySection = () => {
             <TabsTrigger value="interior" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-interior">
               Interior
             </TabsTrigger>
-            <TabsTrigger value="bedrooms" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-bedrooms">
-              Bedrooms
-            </TabsTrigger>
             <TabsTrigger value="dining" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-dining">
               Outdoor Dining
             </TabsTrigger>
             <TabsTrigger value="kitchen" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-kitchen">
               Kitchen
+            </TabsTrigger>
+            <TabsTrigger value="bedrooms" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-bedrooms">
+              Bedrooms
             </TabsTrigger>
           </TabsList>
 
