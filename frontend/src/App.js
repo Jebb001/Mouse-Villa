@@ -605,7 +605,7 @@ const GallerySection = () => {
                   const globalIndex = filteredImages.indexOf(mainImage);
                   return (
                     <div key={roomName}>
-                      <h3 className="text-lg sm:text-xl font-light tracking-wide text-[#2C423F] mb-3 font-['Cormorant_Garamond']">{roomName}</h3>
+                      <h3 className="text-xl sm:text-2xl font-normal tracking-wide text-[#2C423F] mb-4 font-['Cormorant_Garamond']">{roomName}</h3>
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
