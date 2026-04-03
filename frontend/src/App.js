@@ -343,7 +343,7 @@ const VillaSection = () => {
               description: "The fully equipped kitchen is complemented by an outdoor bar/kitchen and BBQ area, ideal for long summer lunches and evenings spent cooking and dining under the sky."
             },
             {
-              icon: <Snowflake size={32} weight="thin" />,
+              icon: <SunHorizon size={32} weight="thin" />,
               title: "Outdoor Living",
               description: "Multiple outdoor sitting areas are thoughtfully positioned around the villa, allowing guests to find their own moments of peace and tranquility throughout the day."
             }
