@@ -460,7 +460,6 @@ const GallerySection = () => {
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/lww6rffa_DJI_20250831161029_0103_D%20copy.jpg", category: "sea", alt: "Aerial Villa View" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/t5zwm95t_DJI_20250831161052_0106_D%20copy.jpg", category: "sea", alt: "Aerial Coastline" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ufbiwkrp_DJI_20250831161634_0138_D%20copy.jpg", category: "sea", alt: "Aerial Sea Path" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/o8n4wjfb_main%20pho.jpg", category: "sea", alt: "Villa & Bay" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/cgfs9a63_Main%20Photo%20Option.jpg", category: "sea", alt: "Outdoor Shower" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/9yxbz6wa_DJI_20250831161115_0108_D%20copy.jpg", category: "sea", alt: "Hillside to Sea" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/285qxmsp_Main%20photo%20option%202.heic", category: "sea", alt: "Path to the Sea" },
