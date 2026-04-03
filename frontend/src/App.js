@@ -436,67 +436,79 @@ const OutdoorSection = () => {
 // Photo Gallery Section
 const GallerySection = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
-  const [activeTab, setActiveTab] = useState("exterior");
+  const [activeTab, setActiveTab] = useState("pool");
   const thumbnailStripRef = useRef(null);
   
   const allImages = [
+    // Pool Section and Terraces
+    { src: IMAGES.outdoor[14], category: "pool", alt: "Pool with Bay View" },
+    { src: IMAGES.outdoor[15], category: "pool", alt: "Infinity Pool" },
+    { src: IMAGES.outdoor[16], category: "pool", alt: "Poolside View" },
+    { src: IMAGES.outdoor[9], category: "pool", alt: "Pool Terrace" },
+    { src: IMAGES.outdoor[10], category: "pool", alt: "Sea View Loungers" },
+    { src: IMAGES.outdoor[5], category: "pool", alt: "Villa Terrace" },
+    { src: IMAGES.outdoor[6], category: "pool", alt: "Outdoor Seating" },
+    { src: IMAGES.outdoor[7], category: "pool", alt: "Villa Exterior" },
+    { src: IMAGES.outdoor[8], category: "pool", alt: "Terrace Furniture" },
+    // Down to the Sea
+    { src: IMAGES.outdoor[18], category: "sea", alt: "Bay Coastline" },
+    { src: IMAGES.outdoor[17], category: "sea", alt: "Sunset Sea View" },
+    { src: IMAGES.outdoor[3], category: "sea", alt: "Bay Vista" },
+    { src: IMAGES.outdoor[4], category: "sea", alt: "Coastal Path" },
+    { src: IMAGES.outdoor[0], category: "sea", alt: "Shoreline View" },
+    { src: IMAGES.outdoor[1], category: "sea", alt: "Rocky Coast" },
+    { src: IMAGES.outdoor[2], category: "sea", alt: "Sea Cliffs" },
+    { src: IMAGES.outdoor[11], category: "sea", alt: "Waterfront" },
+    { src: IMAGES.outdoor[12], category: "sea", alt: "Cove View" },
+    { src: IMAGES.outdoor[13], category: "sea", alt: "Coastal Vista" },
+    // Interior
     { src: IMAGES.interior[0], category: "interior", alt: "Living Room" },
-    { src: IMAGES.terrace[0], category: "terrace", alt: "Outdoor Dining" },
-    { src: IMAGES.bedroom[0], category: "blueRoom", alt: "Blue Room" },
-    { src: IMAGES.outdoor[18], category: "exterior", alt: "Bay Coastline" },
-    { src: IMAGES.pinkRoom[0], category: "pinkRoom", alt: "Pink Room" },
-    { src: IMAGES.seaRoom[0], category: "seaRoom", alt: "Sea Room" },
-    { src: IMAGES.suzaniRoom[0], category: "suzaniRoom", alt: "Suzani Room" },
-    { src: IMAGES.topRoom[0], category: "topRoom", alt: "Top Room" },
     { src: IMAGES.interior[1], category: "interior", alt: "Sitting Area" },
-    { src: IMAGES.kitchen[0], category: "kitchen", alt: "Kitchen" },
-    { src: IMAGES.terrace[1], category: "terrace", alt: "BBQ Area" },
-    { src: IMAGES.bedroom[1], category: "blueRoom", alt: "Blue Room - Detail" },
-    { src: IMAGES.pinkRoom[1], category: "pinkRoom", alt: "Pink Room - Detail" },
-    { src: IMAGES.seaRoom[1], category: "seaRoom", alt: "Sea Room - View" },
-    { src: IMAGES.suzaniRoom[1], category: "suzaniRoom", alt: "Suzani Room - Detail" },
-    { src: IMAGES.topRoom[1], category: "topRoom", alt: "Top Room - View" },
     { src: IMAGES.interior[2], category: "interior", alt: "Dining Area" },
-    { src: IMAGES.outdoor[17], category: "exterior", alt: "Sunset Sea View" },
-    { src: IMAGES.terrace[2], category: "terrace", alt: "Terrace Dining" },
-    { src: IMAGES.kitchen[1], category: "kitchen", alt: "Kitchen View" },
     { src: IMAGES.interior[3], category: "interior", alt: "Interior" },
-    { src: IMAGES.bedroom[2], category: "blueRoom", alt: "Blue Room - Bed" },
-    { src: IMAGES.pinkRoom[2], category: "pinkRoom", alt: "Pink Room - Bed" },
-    { src: IMAGES.seaRoom[2], category: "seaRoom", alt: "Sea Room - Bed" },
-    { src: IMAGES.suzaniRoom[2], category: "suzaniRoom", alt: "Suzani Room - Bed" },
-    { src: IMAGES.topRoom[2], category: "topRoom", alt: "Top Room - Bed" },
-    { src: IMAGES.outdoor[14], category: "exterior", alt: "Pool with Bay View" },
-    { src: IMAGES.terrace[3], category: "terrace", alt: "Outdoor Kitchen" },
     { src: IMAGES.interior[4], category: "interior", alt: "Living Space" },
-    { src: IMAGES.kitchen[2], category: "kitchen", alt: "Kitchen Detail" },
-    { src: IMAGES.terrace[7], category: "terrace", alt: "Sunset Dining" },
-    { src: IMAGES.bedroom[3], category: "blueRoom", alt: "Blue Room - Bathroom" },
-    { src: IMAGES.pinkRoom[3], category: "pinkRoom", alt: "Pink Room - Bathroom" },
-    { src: IMAGES.seaRoom[3], category: "seaRoom", alt: "Sea Room - Detail" },
-    { src: IMAGES.suzaniRoom[3], category: "suzaniRoom", alt: "Suzani Room - View" },
-    { src: IMAGES.seaRoom[4], category: "seaRoom", alt: "Sea Room - Bathroom" },
-    { src: IMAGES.suzaniRoom[4], category: "suzaniRoom", alt: "Suzani Room - Bathroom" },
-    { src: IMAGES.topRoom[3], category: "topRoom", alt: "Top Room - Bathroom" },
-    { src: IMAGES.suzaniRoom[5], category: "suzaniRoom", alt: "Suzani Room - Window" },
-    { src: IMAGES.outdoor[15], category: "exterior", alt: "Infinity Pool" },
-    { src: IMAGES.terrace[4], category: "terrace", alt: "Pergola Dining" },
     { src: IMAGES.interior[5], category: "interior", alt: "Interior Detail" },
-    { src: IMAGES.kitchen[3], category: "kitchen", alt: "Kitchen Area" },
-    { src: IMAGES.terrace[5], category: "terrace", alt: "Terrace View" },
     { src: IMAGES.interior[6], category: "interior", alt: "Dining Room" },
-    { src: IMAGES.outdoor[16], category: "exterior", alt: "Poolside View" },
-    { src: IMAGES.outdoor[9], category: "exterior", alt: "Pool Terrace" },
-    { src: IMAGES.outdoor[10], category: "exterior", alt: "Sea View Loungers" },
-    { src: IMAGES.outdoor[3], category: "exterior", alt: "Bay Vista" },
-    { src: IMAGES.outdoor[4], category: "exterior", alt: "Coastal Path" },
-    { src: IMAGES.outdoor[5], category: "exterior", alt: "Villa Terrace" },
-    { src: IMAGES.outdoor[6], category: "exterior", alt: "Outdoor Seating" },
-    { src: IMAGES.outdoor[7], category: "exterior", alt: "Villa Exterior" },
-    { src: IMAGES.outdoor[8], category: "exterior", alt: "Terrace Furniture" },
-    { src: IMAGES.terrace[6], category: "terrace", alt: "Outdoor Seating" },
     { src: IMAGES.interior[7], category: "interior", alt: "Living Area" },
     { src: IMAGES.interior[8], category: "interior", alt: "Interior View" },
+    // Bedrooms (all rooms combined)
+    { src: IMAGES.bedroom[0], category: "bedrooms", alt: "Blue Room" },
+    { src: IMAGES.bedroom[1], category: "bedrooms", alt: "Blue Room - Detail" },
+    { src: IMAGES.bedroom[2], category: "bedrooms", alt: "Blue Room - Bed" },
+    { src: IMAGES.bedroom[3], category: "bedrooms", alt: "Blue Room - Bathroom" },
+    { src: IMAGES.pinkRoom[0], category: "bedrooms", alt: "Pink Room" },
+    { src: IMAGES.pinkRoom[1], category: "bedrooms", alt: "Pink Room - Detail" },
+    { src: IMAGES.pinkRoom[2], category: "bedrooms", alt: "Pink Room - Bed" },
+    { src: IMAGES.pinkRoom[3], category: "bedrooms", alt: "Pink Room - Bathroom" },
+    { src: IMAGES.seaRoom[0], category: "bedrooms", alt: "Sea Room" },
+    { src: IMAGES.seaRoom[1], category: "bedrooms", alt: "Sea Room - View" },
+    { src: IMAGES.seaRoom[2], category: "bedrooms", alt: "Sea Room - Bed" },
+    { src: IMAGES.seaRoom[3], category: "bedrooms", alt: "Sea Room - Detail" },
+    { src: IMAGES.seaRoom[4], category: "bedrooms", alt: "Sea Room - Bathroom" },
+    { src: IMAGES.suzaniRoom[0], category: "bedrooms", alt: "Suzani Room" },
+    { src: IMAGES.suzaniRoom[1], category: "bedrooms", alt: "Suzani Room - Detail" },
+    { src: IMAGES.suzaniRoom[2], category: "bedrooms", alt: "Suzani Room - Bed" },
+    { src: IMAGES.suzaniRoom[3], category: "bedrooms", alt: "Suzani Room - View" },
+    { src: IMAGES.suzaniRoom[4], category: "bedrooms", alt: "Suzani Room - Bathroom" },
+    { src: IMAGES.suzaniRoom[5], category: "bedrooms", alt: "Suzani Room - Window" },
+    { src: IMAGES.topRoom[0], category: "bedrooms", alt: "Top Room" },
+    { src: IMAGES.topRoom[1], category: "bedrooms", alt: "Top Room - View" },
+    { src: IMAGES.topRoom[2], category: "bedrooms", alt: "Top Room - Bed" },
+    { src: IMAGES.topRoom[3], category: "bedrooms", alt: "Top Room - Bathroom" },
+    // Outdoor Dining
+    { src: IMAGES.terrace[0], category: "dining", alt: "Outdoor Dining" },
+    { src: IMAGES.terrace[1], category: "dining", alt: "BBQ Area" },
+    { src: IMAGES.terrace[2], category: "dining", alt: "Terrace Dining" },
+    { src: IMAGES.terrace[3], category: "dining", alt: "Outdoor Kitchen" },
+    { src: IMAGES.terrace[4], category: "dining", alt: "Pergola Dining" },
+    { src: IMAGES.terrace[5], category: "dining", alt: "Terrace View" },
+    { src: IMAGES.terrace[6], category: "dining", alt: "Outdoor Seating" },
+    { src: IMAGES.terrace[7], category: "dining", alt: "Sunset Dining" },
+    // Kitchen
+    { src: IMAGES.kitchen[0], category: "kitchen", alt: "Kitchen" },
+    { src: IMAGES.kitchen[1], category: "kitchen", alt: "Kitchen View" },
+    { src: IMAGES.kitchen[2], category: "kitchen", alt: "Kitchen Detail" },
+    { src: IMAGES.kitchen[3], category: "kitchen", alt: "Kitchen Area" },
   ];
 
   const filteredImages = allImages.filter(img => img.category === activeTab);
@@ -544,34 +556,25 @@ const GallerySection = () => {
           </h2>
         </div>
 
-        <Tabs defaultValue="exterior" className="villa-tabs" onValueChange={setActiveTab}>
+        <Tabs defaultValue="pool" className="villa-tabs" onValueChange={setActiveTab}>
           <TabsList className="mb-8 bg-transparent justify-start sm:justify-center flex-nowrap overflow-x-auto gap-2 pb-2" data-testid="gallery-tabs">
-            <TabsTrigger value="exterior" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-exterior">
-              Exterior
+            <TabsTrigger value="pool" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-pool">
+              Pool & Terraces
+            </TabsTrigger>
+            <TabsTrigger value="sea" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-sea">
+              Down to the Sea
             </TabsTrigger>
             <TabsTrigger value="interior" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-interior">
               Interior
             </TabsTrigger>
+            <TabsTrigger value="bedrooms" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-bedrooms">
+              Bedrooms
+            </TabsTrigger>
+            <TabsTrigger value="dining" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-dining">
+              Outdoor Dining
+            </TabsTrigger>
             <TabsTrigger value="kitchen" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-kitchen">
               Kitchen
-            </TabsTrigger>
-            <TabsTrigger value="terrace" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-terrace">
-              Terrace
-            </TabsTrigger>
-            <TabsTrigger value="blueRoom" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-blue">
-              Blue Room
-            </TabsTrigger>
-            <TabsTrigger value="pinkRoom" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-pink">
-              Pink Room
-            </TabsTrigger>
-            <TabsTrigger value="seaRoom" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-sea">
-              Sea Room
-            </TabsTrigger>
-            <TabsTrigger value="suzaniRoom" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-suzani">
-              Suzani Room
-            </TabsTrigger>
-            <TabsTrigger value="topRoom" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-top">
-              Top Room
             </TabsTrigger>
           </TabsList>
 

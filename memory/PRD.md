@@ -5,7 +5,7 @@ Create a luxury website for "Villa Kephala" in Kea, Greece. The website includes
 
 ## Product Requirements
 - Single-page scrollable layout with multi-section design
-- Photo gallery with categorized tabs and lightbox feature with in-lightbox navigation
+- Photo gallery with categorized tabs and lightbox with in-lightbox navigation
 - Testimonials section with real reviews
 - Fully responsive mobile-friendly design
 - Contact form backed by API
@@ -26,10 +26,9 @@ Create a luxury website for "Villa Kephala" in Kea, Greece. The website includes
 - Activities section (icons: hiking, scuba, boating, cycling)
 - Location info section
 - Contact Form with FastAPI backend (mock response)
-- Photo Gallery with 8 tabs: **Exterior** (default, first), Interior, Kitchen, Terrace, Blue Room, Pink Room, Sea Room, Suzani Room, Top Room
-- **Lightbox with prev/next arrows, thumbnail strip, keyboard nav (arrow keys + Escape), image counter** — browse all tab images without closing
-- Full mobile optimization (scrollable tabs, solid lightbox bg, stacking layout)
-- "Enquire" button with proper contrast
+- Photo Gallery with 6 tabs (in order): **Pool & Terraces** (default), **Down to the Sea**, **Interior**, **Bedrooms**, **Outdoor Dining**, **Kitchen**
+- Lightbox with prev/next arrows, thumbnail strip, keyboard nav, image counter
+- Full mobile optimization
 
 ## Key Files
 - `/app/frontend/src/App.js` - Main React component
