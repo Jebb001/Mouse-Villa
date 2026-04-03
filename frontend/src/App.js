@@ -513,12 +513,11 @@ const GallerySection = () => {
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ums7pats_6X3A3007.jpg", category: "dining", alt: "Outdoor Kitchen" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/tcnc460i_6X3A3010.jpg", category: "dining", alt: "BBQ Area" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/vfnwo4c3_IMG_8792.jpeg", category: "dining", alt: "Sunset Dinner" },
-    // Kitchen
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/8e5izdsp_Main%20Shot.jpg", category: "kitchen", alt: "Kitchen", isMain: true },
-    { src: IMAGES.kitchen[0], category: "kitchen", alt: "Kitchen" },
-    { src: IMAGES.kitchen[1], category: "kitchen", alt: "Kitchen View" },
-    { src: IMAGES.kitchen[2], category: "kitchen", alt: "Kitchen Detail" },
-    { src: IMAGES.kitchen[3], category: "kitchen", alt: "Kitchen Area" },
+    // Kitchen (user-uploaded - 4 photos)
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/xzgggwie_Main%20Shot.jpg", category: "kitchen", alt: "Kitchen", isMain: true },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/o1ppr2bg_6X3A3075.jpg", category: "kitchen", alt: "Kitchen View" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/gitf0uu5_6X3A3076.jpg", category: "kitchen", alt: "Kitchen Detail" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/1iieiy9h_6X3A3080.jpg", category: "kitchen", alt: "Kitchen Area" },
   ];
 
   const filteredImages = allImages.filter(img => img.category === activeTab);
