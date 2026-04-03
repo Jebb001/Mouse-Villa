@@ -453,7 +453,7 @@ const GallerySection = () => {
     { src: IMAGES.outdoor[7], category: "pool", alt: "Villa Exterior" },
     { src: IMAGES.outdoor[8], category: "pool", alt: "Terrace Furniture" },
     // Down to the Sea
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/et9roi8q_Main%20Photo%20Option.jpg", category: "sea", alt: "Down to the Sea", isMain: true },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/zxso9kvv_main%20pho.jpg", category: "sea", alt: "Down to the Sea", isMain: true },
     { src: IMAGES.outdoor[18], category: "sea", alt: "Bay Coastline" },
     { src: IMAGES.outdoor[17], category: "sea", alt: "Sunset Sea View" },
     { src: IMAGES.outdoor[3], category: "sea", alt: "Bay Vista" },
@@ -638,7 +638,7 @@ const GallerySection = () => {
               <img
                 src={filteredImages[0]?.src}
                 alt={filteredImages[0]?.alt}
-                className="w-full h-[500px] sm:h-[600px] lg:h-[700px] object-contain"
+                className="w-full aspect-[16/9] object-cover"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                 <span className="text-white text-sm tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 px-6 py-3 backdrop-blur-sm">
