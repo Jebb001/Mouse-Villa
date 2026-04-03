@@ -441,17 +441,22 @@ const GallerySection = () => {
   const thumbnailStripRef = useRef(null);
   
   const allImages = [
-    // Pool Section and Terraces
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2mcxhs4y_1st%20Shot%20of%20pool%20section.jpg", category: "pool", alt: "Pool & Terraces", isMain: true },
-    { src: IMAGES.outdoor[14], category: "pool", alt: "Pool with Bay View" },
-    { src: IMAGES.outdoor[15], category: "pool", alt: "Infinity Pool" },
-    { src: IMAGES.outdoor[16], category: "pool", alt: "Poolside View" },
-    { src: IMAGES.outdoor[9], category: "pool", alt: "Pool Terrace" },
-    { src: IMAGES.outdoor[10], category: "pool", alt: "Sea View Loungers" },
-    { src: IMAGES.outdoor[5], category: "pool", alt: "Villa Terrace" },
-    { src: IMAGES.outdoor[6], category: "pool", alt: "Outdoor Seating" },
-    { src: IMAGES.outdoor[7], category: "pool", alt: "Villa Exterior" },
-    { src: IMAGES.outdoor[8], category: "pool", alt: "Terrace Furniture" },
+    // Pool Section and Terraces (user-uploaded - 15 photos)
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/8qru9z8n_1st%20Shot%20of%20pool%20section.jpg", category: "pool", alt: "Pool & Terraces", isMain: true },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/n74aj80a_5th%20shot.jpg", category: "pool", alt: "Pool View" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/562pm7rb_6X3A2672.jpg", category: "pool", alt: "Terrace Loungers" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/pqo4p0lj_6X3A2674.jpg", category: "pool", alt: "Poolside" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/6ebta2y6_6X3A2685.jpg", category: "pool", alt: "Sea View Terrace" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/7wint7la_6X3A2761.jpg", category: "pool", alt: "Villa Terrace" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/x97o08jp_6X3A2840.jpg", category: "pool", alt: "Pool Terrace" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ephbwhe6_6X3A2862.jpg", category: "pool", alt: "Outdoor Seating" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/uolthw34_6X3A2942.jpg", category: "pool", alt: "Terrace View" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/7h74aimj_6X3A2953.jpg", category: "pool", alt: "Villa Exterior" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/yk36ymws_6X3A2979.jpg", category: "pool", alt: "Infinity Pool" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/6f8v5ybr_fouth%20shot.jpg", category: "pool", alt: "Pool Panorama" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/w03fxzmz_Second%20Main%20shot.jpg", category: "pool", alt: "Pool & Bay" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/8nlyu6xh_thrid%20shot.jpg", category: "pool", alt: "Terrace Sunset" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/xwhow8qr_IMG_9420.jpeg", category: "pool", alt: "Sunset Pool" },
     // Down to the Sea (user-uploaded folder - 12 photos only)
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/zxso9kvv_main%20pho.jpg", category: "sea", alt: "Down to the Sea", isMain: true },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2abm8h8n_6X3A3275.jpg", category: "sea", alt: "Coastal Steps" },
