@@ -301,8 +301,8 @@ const IntroSection = () => {
             className="relative"
           >
             <img
-              src={IMAGES.outdoor[15]}
-              alt="Infinity pool with sea view"
+              src="https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/lww6rffa_DJI_20250831161029_0103_D%20copy.jpg"
+              alt="Aerial view of Villa Kephala"
               className="w-full h-[400px] sm:h-[500px] object-cover"
             />
             <div className="absolute -bottom-6 -left-6 bg-white p-6 shadow-lg hidden sm:block">
@@ -346,7 +346,7 @@ const VillaSection = () => {
             {
               icon: <SunHorizon size={32} weight="thin" />,
               title: "Outdoor Living",
-              description: "Multiple outdoor sitting areas are thoughtfully positioned around the villa, allowing guests to find their own moments of peace and tranquility throughout the day."
+              description: "Multiple outdoor sitting areas are thoughtfully positioned around the villa, allowing guests to find their own moments of peace and tranquility throughout the day. Table tennis, board games, cards and books are also available for your enjoyment."
             }
           ].map((item, index) => (
             <motion.div
@@ -816,7 +816,6 @@ const AmenitiesSection = () => {
     { icon: <WifiHigh size={28} weight="thin" />, label: "Starlink WiFi" },
     { icon: <TelevisionSimple size={28} weight="thin" />, label: "Smart TVs" },
     { icon: <WashingMachine size={28} weight="thin" />, label: "Washer/Dryer" },
-    { icon: <GameController size={28} weight="thin" />, label: "Table Tennis, Games & Books" },
   ];
 
   return (
