@@ -306,7 +306,7 @@ const IntroSection = () => {
               className="w-full h-[400px] sm:h-[500px] object-cover"
             />
             <div className="absolute -bottom-6 -left-6 bg-white p-6 shadow-lg hidden sm:block">
-              <p className="font-['Cormorant_Garamond'] text-4xl font-light text-[#C05E44]">∞</p>
+              <p className="font-['Cormorant_Garamond'] text-4xl font-light text-[#C05E44]"><Mountains size={32} weight="thin" /></p>
               <p className="text-sm text-[#57534E] uppercase tracking-wider">Stunning Views</p>
             </div>
           </motion.div>
