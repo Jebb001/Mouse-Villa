@@ -6,6 +6,7 @@ import {
   Bed, SwimmingPool, Waves, Mountains, WifiHigh, AirplaneTilt, 
   MapPin, House, SunHorizon, Compass, CaretDown, CaretLeft, CaretRight, List, X, 
   EnvelopeSimple, Phone, User, Barbell, Boat, Bicycle, Fish,
+  GameController,
   Timer, CarSimple, Anchor, AirplaneTakeoff, CheckCircle,
   Bathtub, Snowflake, TelevisionSimple, WashingMachine, Fan
 } from "@phosphor-icons/react";
@@ -815,6 +816,7 @@ const AmenitiesSection = () => {
     { icon: <WifiHigh size={28} weight="thin" />, label: "Starlink WiFi" },
     { icon: <TelevisionSimple size={28} weight="thin" />, label: "Smart TVs" },
     { icon: <WashingMachine size={28} weight="thin" />, label: "Washer/Dryer" },
+    { icon: <GameController size={28} weight="thin" />, label: "Table Tennis, Games & Books" },
   ];
 
   return (
