@@ -301,8 +301,8 @@ const IntroSection = () => {
             className="relative"
           >
             <img
-              src="https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/lww6rffa_DJI_20250831161029_0103_D%20copy.jpg"
-              alt="Aerial view of Villa Kephala"
+              src="https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ibmg8lib_6X3A3399.jpg"
+              alt="Villa Kephala Welcome"
               className="w-full h-[400px] sm:h-[500px] object-cover"
             />
             <div className="absolute -bottom-6 -left-6 bg-white p-6 shadow-lg hidden sm:block">
