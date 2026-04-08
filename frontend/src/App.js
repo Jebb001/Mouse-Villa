@@ -273,7 +273,7 @@ const HeroSection = () => {
 // Introduction Section
 const IntroSection = () => {
   return (
-    <section data-testid="intro-section" className="py-20 sm:py-32 bg-[#F3EFEA]">
+    <section data-testid="intro-section" className="py-12 sm:py-20 lg:py-32 bg-[#F3EFEA]">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div
@@ -319,9 +319,9 @@ const IntroSection = () => {
 // Villa Details Section
 const VillaSection = () => {
   return (
-    <section id="villa" data-testid="villa-section" className="py-20 sm:py-32">
+    <section id="villa" data-testid="villa-section" className="py-12 sm:py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <span className="section-label mb-4 block">The Villa</span>
           <h2 className="section-heading text-3xl sm:text-4xl lg:text-5xl mb-6">
             Elegant Cycladic Living
@@ -371,7 +371,7 @@ const VillaSection = () => {
 // Outdoor Living Section
 const OutdoorSection = () => {
   return (
-    <section data-testid="outdoor-section" className="py-20 sm:py-32 bg-[#2C423F] text-white">
+    <section data-testid="outdoor-section" className="py-12 sm:py-20 lg:py-32 bg-[#2C423F] text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           <motion.div
@@ -569,7 +569,7 @@ const GallerySection = () => {
   }, [selectedImageIndex, goNext, goPrev, closeLightbox]);
 
   return (
-    <section id="gallery" data-testid="gallery-section" className="py-20 sm:py-32 bg-[#F3EFEA]">
+    <section id="gallery" data-testid="gallery-section" className="py-12 sm:py-20 lg:py-32 bg-[#F3EFEA]">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="text-center mb-12">
           <span className="section-label mb-4 block">Gallery</span>
@@ -753,7 +753,7 @@ const GallerySection = () => {
 // Bedrooms Section
 const BedroomsSection = () => {
   return (
-    <section data-testid="bedrooms-section" className="py-20 sm:py-32">
+    <section data-testid="bedrooms-section" className="py-12 sm:py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div
@@ -818,7 +818,7 @@ const AmenitiesSection = () => {
   ];
 
   return (
-    <section data-testid="amenities-section" className="py-20 sm:py-32 bg-[#F3EFEA]">
+    <section data-testid="amenities-section" className="py-12 sm:py-20 lg:py-32 bg-[#F3EFEA]">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="text-center mb-12">
           <span className="section-label mb-4 block">Amenities</span>
@@ -884,9 +884,9 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section data-testid="testimonials-section" className="py-20 sm:py-32">
+    <section data-testid="testimonials-section" className="py-12 sm:py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <span className="section-label mb-4 block">Guest Reviews</span>
           <h2 className="section-heading text-3xl sm:text-4xl lg:text-5xl mb-6">
             What Our Guests Say
@@ -927,7 +927,7 @@ const TestimonialsSection = () => {
 // About Kea Section
 const AboutKeaSection = () => {
   return (
-    <section data-testid="about-kea-section" className="py-20 sm:py-32">
+    <section data-testid="about-kea-section" className="py-12 sm:py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           <motion.div
@@ -1010,7 +1010,7 @@ const ActivitiesSection = () => {
   ];
 
   return (
-    <section id="activities" data-testid="activities-section" className="py-20 sm:py-32 bg-[#F3EFEA]">
+    <section id="activities" data-testid="activities-section" className="py-12 sm:py-20 lg:py-32 bg-[#F3EFEA]">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="text-center mb-12">
           <span className="section-label mb-4 block">What To Do</span>
@@ -1070,7 +1070,7 @@ const ActivitiesSection = () => {
 // Location & Map Section
 const LocationSection = () => {
   return (
-    <section id="location" data-testid="location-section" className="py-20 sm:py-32">
+    <section id="location" data-testid="location-section" className="py-12 sm:py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           <motion.div
@@ -1136,7 +1136,7 @@ const LocationSection = () => {
 // How to Get There Section
 const GettingThereSection = () => {
   return (
-    <section data-testid="getting-there-section" className="py-20 sm:py-32 bg-[#2C423F] text-white">
+    <section data-testid="getting-there-section" className="py-12 sm:py-20 lg:py-32 bg-[#2C423F] text-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="text-center mb-12">
           <span className="text-[#F3EFEA] text-xs uppercase tracking-[0.2em] font-medium mb-4 block">
@@ -1147,7 +1147,7 @@ const GettingThereSection = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {[
             {
               icon: <Anchor size={40} weight="thin" />,
@@ -1209,7 +1209,7 @@ const GettingThereSection = () => {
 // Contact Section
 const ContactSection = () => {
   return (
-    <section id="contact" data-testid="contact-section" className="py-20 sm:py-32">
+    <section id="contact" data-testid="contact-section" className="py-12 sm:py-20 lg:py-32">
       <div className="max-w-3xl mx-auto px-6 sm:px-12 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -1226,17 +1226,17 @@ const ContactSection = () => {
             Get in Touch
           </h2>
           <div className="space-y-6">
-            <a href="mailto:Lucinda.byng@btinternet.com" className="flex items-center justify-center gap-4 text-[#2C423F] hover:text-[#C05E44] transition-colors group" data-testid="contact-email">
-              <div className="w-12 h-12 bg-[#F3EFEA] flex items-center justify-center group-hover:bg-[#C05E44]/10 transition-colors">
-                <EnvelopeSimple size={22} className="text-[#C05E44]" />
+            <a href="mailto:Lucinda.byng@btinternet.com" className="flex items-center justify-center gap-3 sm:gap-4 text-[#2C423F] hover:text-[#C05E44] transition-colors group" data-testid="contact-email">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 bg-[#F3EFEA] flex items-center justify-center group-hover:bg-[#C05E44]/10 transition-colors">
+                <EnvelopeSimple size={20} className="text-[#C05E44]" />
               </div>
-              <span className="text-base sm:text-lg font-['Cormorant_Garamond']">Lucinda.byng@btinternet.com</span>
+              <span className="text-sm sm:text-lg font-['Cormorant_Garamond'] break-all sm:break-normal">Lucinda.byng@btinternet.com</span>
             </a>
-            <a href="tel:+447887945315" className="flex items-center justify-center gap-4 text-[#2C423F] hover:text-[#C05E44] transition-colors group" data-testid="contact-phone">
-              <div className="w-12 h-12 bg-[#F3EFEA] flex items-center justify-center group-hover:bg-[#C05E44]/10 transition-colors">
-                <Phone size={22} className="text-[#C05E44]" />
+            <a href="tel:+447887945315" className="flex items-center justify-center gap-3 sm:gap-4 text-[#2C423F] hover:text-[#C05E44] transition-colors group" data-testid="contact-phone">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 bg-[#F3EFEA] flex items-center justify-center group-hover:bg-[#C05E44]/10 transition-colors">
+                <Phone size={20} className="text-[#C05E44]" />
               </div>
-              <span className="text-base sm:text-lg font-['Cormorant_Garamond']">+44 7887 945 315</span>
+              <span className="text-sm sm:text-lg font-['Cormorant_Garamond']">+44 7887 945 315</span>
             </a>
           </div>
         </motion.div>
