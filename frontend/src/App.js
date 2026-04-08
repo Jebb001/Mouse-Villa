@@ -452,6 +452,8 @@ const GallerySection = () => {
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/6f8v5ybr_fouth%20shot.jpg", category: "pool", alt: "Pool Panorama" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/w03fxzmz_Second%20Main%20shot.jpg", category: "pool", alt: "Pool & Bay" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/8nlyu6xh_thrid%20shot.jpg", category: "pool", alt: "Poolside Loungers" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/yk36ymws_6X3A2979.jpg", category: "pool", alt: "Infinity Pool" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/xwhow8qr_IMG_9420.jpeg", category: "pool", alt: "Sunset Pool" },
     // Seating areas
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/uolthw34_6X3A2942.jpg", category: "pool", alt: "Terrace Sofa" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/7wint7la_6X3A2761.jpg", category: "pool", alt: "Seaside Seating" },
@@ -459,22 +461,19 @@ const GallerySection = () => {
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/x97o08jp_6X3A2840.jpg", category: "pool", alt: "Striped Day Beds" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ephbwhe6_6X3A2862.jpg", category: "pool", alt: "Striped Loungers" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/7h74aimj_6X3A2953.jpg", category: "pool", alt: "Terrace Chaise Lounges" },
-    // Different aspect ratio (portrait & 4:3) at end
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/yk36ymws_6X3A2979.jpg", category: "pool", alt: "Infinity Pool" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/xwhow8qr_IMG_9420.jpeg", category: "pool", alt: "Sunset Pool" },
+    // Different aspect ratio at end
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/562pm7rb_6X3A2672.jpg", category: "pool", alt: "Outdoor Sofa & Chairs" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/pqo4p0lj_6X3A2674.jpg", category: "pool", alt: "Woven Chairs & Table" },
-    // Down to the Sea (user-uploaded folder - 12 photos only)
+    // Down to the Sea (user-uploaded - 11 photos)
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/zxso9kvv_main%20pho.jpg", category: "sea", alt: "Down to the Sea", isMain: true },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2abm8h8n_6X3A3275.jpg", category: "sea", alt: "Coastal Steps" },
+    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/cgfs9a63_Main%20Photo%20Option.jpg", category: "sea", alt: "Outdoor Shower" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/kqiim4cb_6X3A3316.jpg", category: "sea", alt: "Rocky Shore" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/m2btdjh4_6X3A3320.jpg", category: "sea", alt: "Sea Cove" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/lww6rffa_DJI_20250831161029_0103_D%20copy.jpg", category: "sea", alt: "Aerial Villa View" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/t5zwm95t_DJI_20250831161052_0106_D%20copy.jpg", category: "sea", alt: "Aerial Coastline" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ufbiwkrp_DJI_20250831161634_0138_D%20copy.jpg", category: "sea", alt: "Aerial Sea Path" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/cgfs9a63_Main%20Photo%20Option.jpg", category: "sea", alt: "Outdoor Shower" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/9yxbz6wa_DJI_20250831161115_0108_D%20copy.jpg", category: "sea", alt: "Hillside to Sea" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/285qxmsp_Main%20photo%20option%202.heic", category: "sea", alt: "Path to the Sea" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ekwml0zh_aab6d5b1-6c6f-41ed-aeb5-19ab94c80446.jpg", category: "sea", alt: "Crystal Cove" },
     { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/rpq7r46m_9f532966-46f5-4775-8131-67650e7744ba.jpg", category: "sea", alt: "Sunset over Bay" },
     // Interior (user-uploaded - 10 photos)
@@ -496,8 +495,8 @@ const GallerySection = () => {
     { src: IMAGES.pinkRoom[1], category: "bedrooms", room: "Pink Bedroom", alt: "Pink Room - Detail" },
     { src: IMAGES.pinkRoom[2], category: "bedrooms", room: "Pink Bedroom", alt: "Pink Room - Bed" },
     { src: IMAGES.pinkRoom[3], category: "bedrooms", room: "Pink Bedroom", alt: "Pink Room - Bathroom" },
-    { src: IMAGES.seaRoom[0], category: "bedrooms", room: "Sea Bedroom", isMain: true, alt: "Sea Bedroom" },
-    { src: IMAGES.seaRoom[1], category: "bedrooms", room: "Sea Bedroom", alt: "Sea Room - View" },
+    { src: IMAGES.seaRoom[1], category: "bedrooms", room: "Sea Bedroom", isMain: true, alt: "Sea Bedroom" },
+    { src: IMAGES.seaRoom[0], category: "bedrooms", room: "Sea Bedroom", alt: "Sea Room - View" },
     { src: IMAGES.seaRoom[2], category: "bedrooms", room: "Sea Bedroom", alt: "Sea Room - Bed" },
     { src: IMAGES.seaRoom[3], category: "bedrooms", room: "Sea Bedroom", alt: "Sea Room - Detail" },
     { src: IMAGES.seaRoom[4], category: "bedrooms", room: "Sea Bedroom", alt: "Sea Room - Bathroom" },
@@ -787,7 +786,7 @@ const BedroomsSection = () => {
             </div>
             <ul className="space-y-3">
               {[
-                "4 Superkings (2 can be made into twin bedrooms)",
+                "4 Superkings (All with A/C and 2 can be made into twins)",
                 "1 King (Dyson fans & sea breezes — no A/C)",
                 "All rooms with en-suite bathrooms",
                 "TVs in 4 bedrooms and sitting room"
@@ -871,7 +870,7 @@ const TestimonialsSection = () => {
       date: "July 2025"
     },
     {
-      quote: "Had an exquisite 5 days here with my girlfriends….it was magical. Beautiful house with all amenities. Amazing outside space for al fresco dining. A good sized pool with sea front views. Sundowners and amazing sunsets topped it off! Will be returning and would highly recommend.",
+      quote: "Had an exquisite 5 days here with my girlfriends….it was magical. Beautiful house with all the amenities. Amazing outside space for al fresco dining. A good sized pool with sea front views. Sundowners and amazing sunsets topped it off! Will be returning and would highly recommend.",
       author: "Nikki",
       location: "South London",
       date: "October 2025"
@@ -943,7 +942,7 @@ const AboutKeaSection = () => {
             </h2>
             <div className="space-y-6 text-[#57534E] leading-relaxed">
               <p>
-                Kea is the hidden gem of the Cyclades. Only an hour by ferry from Lavrio port (30 mins from Athens airport), it is particularly easy to reach and as a result has long attracted Athenians, many of whom have chosen the island for their holiday homes.
+                Kea is the hidden gem of the Cyclades. It is particularly easy to reach and as a result has long attracted Athenians, many of whom have chosen the island for their holiday homes.
               </p>
               <p>
                 It is known for its popular hiking trails, ancient history, beaches, oak forests and scuba diving. Visitors are drawn by Kea's beautiful beaches and enchanting landscape, where vines and fruit trees flourish.
@@ -969,13 +968,13 @@ const AboutKeaSection = () => {
             <div className="bg-[#F3EFEA] p-8">
               <h3 className="font-['Cormorant_Garamond'] text-2xl mb-4">Vourkari</h3>
               <p className="text-[#57534E] text-sm leading-relaxed">
-                A picturesque fishing village, now a cosmopolitan place frequented by many luxury yachts. This protected bay is often full of sailing boats and is a bustling spot in summer.
+                A picturesque fishing village, now a cosmopolitan place frequented by many luxury yachts. This protected bay is often full of sailing boats and is a bustling spot in summer. It is a great place to spend an evening at one of the many excellent restaurants and bars.
               </p>
             </div>
             <div className="bg-[#F3EFEA] p-8">
               <h3 className="font-['Cormorant_Garamond'] text-2xl mb-4">Ioulis (Chora)</h3>
               <p className="text-[#57534E] text-sm leading-relaxed">
-                A village of tightly built traditional white houses with reddish tiles on the hillside. Its narrow stone-paved alleys, numerous chapels, restaurants and shops are definitely worth a visit.
+                A hillside village of tightly built traditional white houses with reddish tiles on the hillside. Its narrow stone-paved alleys, numerous chapels, restaurants and shops are definitely worth a visit.
               </p>
             </div>
           </motion.div>
@@ -996,12 +995,12 @@ const ActivitiesSection = () => {
     {
       icon: <Fish size={48} weight="thin" />,
       title: "Scuba Diving",
-      description: "Exceptionally clear waters with marine life. Visit the Brittanic wreck (Titanic's sister ship) or other wrecks nearby."
+      description: "Exceptionally clear waters with teeming marine life, and for the experienced diver, excellent wreck diving, including Britannic, sister ship of Titanic."
     },
     {
       icon: <Boat size={48} weight="thin" />,
       title: "Boating",
-      description: "Many beautiful beaches along the coast are best explored by boat. Hire one with a captain for a day of snorkeling."
+      description: "Many of the beautiful beaches along the coast are best explored by boat. Hire one with a captain for the day."
     },
     {
       icon: <Bicycle size={48} weight="thin" />,
@@ -1053,7 +1052,7 @@ const ActivitiesSection = () => {
           <div className="bg-white p-8 border border-[#E7E5E4]">
             <h3 className="font-['Cormorant_Garamond'] text-2xl mb-4">Beaches</h3>
             <p className="text-[#57534E] text-sm leading-relaxed">
-              Exceptional variety including Tris Amoudia, Otzias, Gialiskari and Korissia. Numerous pristine hidden beaches accessible by 4x4: Xyla, Orkos, Liparo and Lygia.
+              Exceptional variety including Tris Amoudia, Otzias, Spathi, Gialiskari and Korissia. Numerous pristine hidden beaches accessible by 4x4: Xyla, Orkos, Liparo and Lygia.
             </p>
           </div>
           <div className="bg-white p-8 border border-[#E7E5E4]">
@@ -1086,10 +1085,10 @@ const LocationSection = () => {
             </h2>
             <div className="space-y-6 text-[#57534E] leading-relaxed mb-8">
               <p>
-                Kea is the closest Cycladic island to Athens, and being only an hour by ferry from the small port of Lavrio, makes it easily accessible from the airport and city.
+                Kea is the closest Cycladic island to Athens and being only an hour by ferry from the small port of Lavrio makes it easily accessible from the city. The airport is just a 35 minute taxi ride to Lavrio port.
               </p>
               <p>
-                Villa Kephala is very peaceful and private, yet not isolated, sitting just above a beautiful bay on a small peninsula that houses about 9 villas, opposite Cape Kephala famous for an important late Neolithic settlement.
+                Villa Kephala is very peaceful and private, yet not isolated, sitting just above a beautiful bay on a small peninsula that houses about a dozen villas, opposite Cape Kephala famous for an important late Neolithic settlement.
               </p>
             </div>
 
@@ -1098,8 +1097,8 @@ const LocationSection = () => {
                 { icon: <Timer size={20} />, text: "15 mins from Korissia port" },
                 { icon: <MapPin size={20} />, text: "10 mins to Vourkari restaurants & shops" },
                 { icon: <Waves size={20} />, text: "5 mins to Otzias beach" },
-                { icon: <Anchor size={20} />, text: "1 hour ferry from Lavrio" },
-                { icon: <AirplaneTakeoff size={20} />, text: "35 mins taxi from Athens airport" }
+                { icon: <Anchor size={20} />, text: "1 hour ferry from Lavrio to Kea" },
+                { icon: <AirplaneTakeoff size={20} />, text: "35 mins taxi from Athens airport to Lavrio Port" }
               ].map((item, index) => (
                 <div key={index} className="flex items-center gap-3 text-[#57534E]">
                   <span className="text-[#C05E44]">{item.icon}</span>
@@ -1148,12 +1147,12 @@ const GettingThereSection = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
               icon: <Anchor size={40} weight="thin" />,
               title: "By Ferry",
-              description: "Car & passenger ferries go 4-5 times daily in high season from Lavrio Port. Book at least a few days in advance during peak months.",
+              description: "Car & passenger ferries go 4-5 times daily in high season from Lavrio Port (35 mins from Athens Airport). Book at least a few days in advance during peak months.",
               link: "https://www.ferryhopper.com/",
               linkText: "Book Ferry"
             },
@@ -1163,6 +1162,13 @@ const GettingThereSection = () => {
               description: "Scheduled helicopter transfers available a couple of days a week for those with little luggage. Quick and scenic option.",
               link: "https://flyhoper.com/destinations/greece/kea",
               linkText: "View Flights"
+            },
+            {
+              icon: <Boat size={40} weight="thin" />,
+              title: "Speedboat Transfer",
+              description: "Private speedboat transfers are available (depending on sea conditions) and take roughly 40 minutes.",
+              link: "https://keadivers.com/useful.html",
+              linkText: "More Info"
             },
             {
               icon: <CarSimple size={40} weight="thin" />,
@@ -1211,6 +1217,10 @@ const ContactSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
+          <span className="section-label mb-4 block">Rental Rates</span>
+          <p className="text-[#57534E] text-base sm:text-lg leading-relaxed mb-12 font-['Cormorant_Garamond'] text-xl sm:text-2xl">
+            From &euro;620/night in low season to &euro;1,400/night in high season.
+          </p>
           <span className="section-label mb-4 block">Contact</span>
           <h2 className="section-heading text-3xl sm:text-4xl lg:text-5xl mb-10">
             Get in Touch
@@ -1220,13 +1230,13 @@ const ContactSection = () => {
               <div className="w-12 h-12 bg-[#F3EFEA] flex items-center justify-center group-hover:bg-[#C05E44]/10 transition-colors">
                 <EnvelopeSimple size={22} className="text-[#C05E44]" />
               </div>
-              <span className="text-base sm:text-lg font-medium">Lucinda.byng@btinternet.com</span>
+              <span className="text-base sm:text-lg font-['Cormorant_Garamond']">Lucinda.byng@btinternet.com</span>
             </a>
-            <a href="tel:07887945315" className="flex items-center justify-center gap-4 text-[#2C423F] hover:text-[#C05E44] transition-colors group" data-testid="contact-phone">
+            <a href="tel:+447887945315" className="flex items-center justify-center gap-4 text-[#2C423F] hover:text-[#C05E44] transition-colors group" data-testid="contact-phone">
               <div className="w-12 h-12 bg-[#F3EFEA] flex items-center justify-center group-hover:bg-[#C05E44]/10 transition-colors">
                 <Phone size={22} className="text-[#C05E44]" />
               </div>
-              <span className="text-base sm:text-lg font-medium">07887 945 315</span>
+              <span className="text-base sm:text-lg font-['Cormorant_Garamond']">+44 7887 945 315</span>
             </a>
           </div>
         </motion.div>
