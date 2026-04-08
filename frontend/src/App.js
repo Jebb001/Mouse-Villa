@@ -1085,7 +1085,7 @@ const LocationSection = () => {
             </h2>
             <div className="space-y-6 text-[#57534E] leading-relaxed mb-8">
               <p>
-                Kea is the closest Cycladic island to Athens and being only an hour by ferry from the small port of Lavrio makes it easily accessible from the city. The airport is just a 35 minute taxi ride to Lavrio port.
+                Kea is the closest Cycladic island to Athens, and being only an hour by ferry from the small port of Lavrio, makes it easily accessible from the city. The airport is just a 35 minute taxi ride to Lavrio port.
               </p>
               <p>
                 Villa Kephala is very peaceful and private, yet not isolated, sitting just above a beautiful bay on a small peninsula that houses about a dozen villas, opposite Cape Kephala famous for an important late Neolithic settlement.
