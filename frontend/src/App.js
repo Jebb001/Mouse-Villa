@@ -579,7 +579,7 @@ const GallerySection = () => {
         </div>
 
         <Tabs defaultValue="pool" className="villa-tabs" onValueChange={setActiveTab}>
-          <TabsList className="mb-8 bg-transparent justify-start sm:justify-center flex-nowrap overflow-x-auto gap-2 pb-2" data-testid="gallery-tabs">
+          <TabsList className="mb-8 bg-transparent justify-start sm:justify-center flex-nowrap overflow-x-auto gap-2 pb-2 max-w-full" data-testid="gallery-tabs">
             <TabsTrigger value="pool" className="px-3 sm:px-4 py-2 rounded-none border border-[#E7E5E4] data-[state=active]:bg-[#2C423F] data-[state=active]:text-white data-[state=active]:border-[#2C423F] whitespace-nowrap text-xs sm:text-sm" data-testid="gallery-tab-pool">
               Pool & Terraces
             </TabsTrigger>
