@@ -331,7 +331,7 @@ const IntroSection = () => {
 // Direct Access to the Sea Section
 const SeaAccessSection = () => {
   return (
-    <section data-testid="sea-access-section" className="pt-0 pb-12 sm:pt-4 sm:pb-20 lg:pt-8 lg:pb-32">
+    <section data-testid="sea-access-section" className="py-12 sm:py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div
@@ -1374,9 +1374,9 @@ function App() {
       <Navigation />
       <HeroSection />
       <IntroSection />
-      <SeaAccessSection />
       <VillaSection />
       <OutdoorSection />
+      <SeaAccessSection />
       <GallerySection />
       <BedroomsSection />
       <AmenitiesSection />
