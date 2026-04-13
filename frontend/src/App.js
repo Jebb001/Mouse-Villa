@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import "@/App.css";
-import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Bed, SwimmingPool, Waves, Mountains, WifiHigh, AirplaneTilt, 
@@ -13,25 +12,16 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./components/ui/accordion";
 
-const API = process.env.REACT_APP_BACKEND_URL;
-
-// Helper to get optimized image URL via the backend proxy
-const optimImg = (src, width = 1200, quality = 75) => {
-  if (!src) return src;
-  return `${API}/api/img?url=${encodeURIComponent(src)}&w=${width}&q=${quality}`;
-};
-
 // Lazy image with loading skeleton
-const LazyImage = ({ src, alt, className, width = 1200, quality = 75 }) => {
+const LazyImage = ({ src, alt, className }) => {
   const [loaded, setLoaded] = useState(false);
-  const optimizedSrc = src?.startsWith('http') ? optimImg(src, width, quality) : src;
   return (
     <div className={`relative ${className}`}>
       {!loaded && (
         <div className="absolute inset-0 bg-[#E7E5E4] animate-pulse" />
       )}
       <img
-        src={optimizedSrc}
+        src={src}
         alt={alt}
         loading="lazy"
         onLoad={() => setLoaded(true)}
@@ -40,104 +30,100 @@ const LazyImage = ({ src, alt, className, width = 1200, quality = 75 }) => {
     </div>
   );
 };
-import { Input } from "./components/ui/input";
-import { Textarea } from "./components/ui/textarea";
-import { Button } from "./components/ui/button";
-import { Label } from "./components/ui/label";
-import { Toaster as SonnerToaster, toast } from "sonner";
+import { Toaster as SonnerToaster } from "sonner";
 
 // Image assets - User provided photos only
 const IMAGES = {
   // Sea/Outdoor photos
-  hero: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/vx9wi6rx_Front%20page%20shot.jpg",
+  hero: "/images/b7d88a2b22.jpg",
   outdoor: [
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/x4lznzvc_6X3A3243.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/zb6h31z5_6X3A3248.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ic7n3s3i_6X3A3250.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2mdq8ey6_6X3A3316.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/69ydmkh8_6X3A3320.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/p7t6012q_6X3A2862.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/irdvpl1j_6X3A2942.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ptsy2naq_6X3A2953.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/os7nbj1z_6X3A2979.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/4o1hq3yl_6X3A2672.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ztcq7zra_6X3A2674.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/iftlcoa5_6X3A2685.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/00beod5w_6X3A2761.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ou2o94cw_6X3A2840.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/q1p5hifu_6X3A2577.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/w9ms065p_6X3A2652.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ouk3ggn1_6X3A2658.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ukf2iv4c_IMG_2846.jpeg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/8gftqw95_IMG_9380.jpeg"
+    "/images/c7d8d3b323.jpg",
+    "/images/793b8e2af2.jpg",
+    "/images/59857e0a03.jpg",
+    "/images/cda50ca24a.jpg",
+    "/images/b500d51b1a.jpg",
+    "/images/3dd1b44a6e.jpg",
+    "/images/94c8bb9ebd.jpg",
+    "/images/e5ed73054a.jpg",
+    "/images/4d1d48b293.jpg",
+    "/images/f858985fdc.jpg",
+    "/images/6b8484644e.jpg",
+    "/images/d580222851.jpg",
+    "/images/b32868e5a0.jpg",
+    "/images/5692465cdb.jpg",
+    "/images/aa126c09e5.jpg",
+    "/images/6bb63febc7.jpg",
+    "/images/72b76c46d3.jpg",
+    "/images/9f0f882af0.jpg",
+    "/images/29e57ed3ab.jpg"
   ],
   // Blue Room bedroom photos
   bedroom: [
-    "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/ylvi6l68_6X3A3119.jpg",
-    "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/m44rfaon_6X3A3127.jpg",
-    "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/ok2dvnl2_6X3A3131.jpg",
-    "https://customer-assets.emergentagent.com/job_fe429844-f03e-4126-85d4-d6ca607e49e7/artifacts/b17g8dh2_6X3A3137.jpg"
+    "/images/f5929a98a6.jpg",
+    "/images/aaaeb2beb1.jpg",
+    "/images/4dd529a72a.jpg",
+    "/images/5b8e9084bf.jpg"
   ],
   // Pink Room bedroom photos
   pinkRoom: [
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/07dv74jy_6X3A3145.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/aj900s2l_6X3A3168.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/vsj0m48k_6X3A3175.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/dmgvmmhh_6X3A3181.jpg"
+    "/images/0260fa6563.jpg",
+    "/images/c0d0db514c.jpg",
+    "/images/37bf505a4b.jpg",
+    "/images/a5cfe07942.jpg"
   ],
   // Sea Room bedroom photos
   seaRoom: [
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/aqsbr719_6X3A3328.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/a5axtx6c_6X3A3331.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/d75kfy8y_6X3A3337.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/jt3r2pr1_6X3A3338.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/5za68vwo_6X3A3353.jpg"
+    "/images/718325e2a0.jpg",
+    "/images/4721800524.jpg",
+    "/images/bb25253fc0.jpg",
+    "/images/a3d0f2a98a.jpg",
+    "/images/74a8afbb35.jpg"
   ],
   // Suzani Room bedroom photos
   suzaniRoom: [
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2o093qsj_6X3A2737.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/4w9qrq0a_6X3A2750.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/zappo98a_6X3A2771.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/s24i0mtn_6X3A2781.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/nv8txv0a_6X3A2790.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/vnxc3gej_6X3A2722.jpg"
+    "/images/dc10730569.jpg",
+    "/images/2e52b4ad9e.jpg",
+    "/images/432d361792.jpg",
+    "/images/ed41e9a19e.jpg",
+    "/images/d2269670ef.jpg",
+    "/images/a4c7d7e6c5.jpg"
   ],
   // Top Room bedroom photos
   topRoom: [
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/lhqes2dd_6X3A2809.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/wz4g6xnf_6X3A2820.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/yjl17e06_6X3A2836.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/rqdx95ck_6X3A2936.jpg"
+    "/images/53d75eb475.jpg",
+    "/images/7b5250c8c9.jpg",
+    "/images/35ab5bd056.jpg",
+    "/images/9f6ad2c5b2.jpg"
   ],
   // Interior/Sitting/Dining photos
   interior: [
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/76o7azlg_6X3A2502.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/vabzeoaq_6X3A2517.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ci8nzblb_6X3A2527.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/19vile9q_6X3A2533.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2r1yshyg_6X3A3038.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/rvfhrpwi_6X3A2420.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/lqu7ngfa_6X3A2455.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/utmp36zb_6X3A2461.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/bx7brtoq_6X3A2478.jpg"
+    "/images/2c30ee682b.jpg",
+    "/images/3b4e9b40ab.jpg",
+    "/images/7eb5d4a24a.jpg",
+    "/images/2ad4383921.jpg",
+    "/images/fda4f5f11a.jpg",
+    "/images/b978559c45.jpg",
+    "/images/981ca0f644.jpg",
+    "/images/fc819c092c.jpg",
+    "/images/1d94d21a86.jpg"
   ],
   // Kitchen photos
   kitchen: [
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/0ba49ave_6X3A3048.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/196buzqy_6X3A3075.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/mydj1z33_6X3A3076.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/li8z02gw_6X3A3080.jpg"
+    "/images/08b61c2fb6.jpg",
+    "/images/e25b0ab5e8.jpg",
+    "/images/5df5d33158.jpg",
+    "/images/44fb23445c.jpg"
   ],
   // Outdoor Dining & BBQ photos
   terrace: [
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/47wtgc6j_6X3A2648.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/oirpup82_6X3A2977.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/d5rpgebi_6X3A3007.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/glt1yit6_6X3A3010.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2m1ujmwr_6X3A3271.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/grvt1i8p_6X3A2610.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/tqmq62fj_6X3A2619.jpg",
-    "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/4enq669i_IMG_8792.jpeg"
+    "/images/933d7336cf.jpg",
+    "/images/395cccc551.jpg",
+    "/images/dd5af927d9.jpg",
+    "/images/d6390ef7e5.jpg",
+    "/images/0e25af86bd.jpg",
+    "/images/acf1b78fb4.jpg",
+    "/images/40b366e39f.jpg",
+    "/images/15f2895e7e.jpg"
   ]
 };
 
@@ -255,7 +241,7 @@ const HeroSection = () => {
       data-testid="hero-section"
       className="min-h-screen relative flex items-end pb-24"
       style={{
-        backgroundImage: `url(${optimImg(IMAGES.hero, 1920, 80)})`,
+        backgroundImage: `url(${IMAGES.hero})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -326,11 +312,9 @@ const IntroSection = () => {
             className="relative"
           >
             <LazyImage
-              src="https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ibmg8lib_6X3A3399.jpg"
+              src="/images/9f48eb7fb0.jpg"
               alt="Villa Kephala Welcome"
               className="w-full h-[400px] sm:h-[500px]"
-              width={1200}
-              quality={80}
             />
             <div className="absolute -bottom-6 -left-6 bg-white p-6 shadow-lg hidden sm:block">
               <p className="font-['Cormorant_Garamond'] text-4xl font-light text-[#C05E44]"><Mountains size={32} weight="thin" /></p>
@@ -347,7 +331,7 @@ const IntroSection = () => {
 // Direct Access to the Sea Section
 const SeaAccessSection = () => {
   return (
-    <section data-testid="sea-access-section" className="py-12 sm:py-20 lg:py-32">
+    <section data-testid="sea-access-section" className="pt-0 pb-12 sm:pt-4 sm:pb-20 lg:pt-8 lg:pb-32">
       <div className="max-w-7xl mx-auto px-6 sm:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div
@@ -379,11 +363,9 @@ const SeaAccessSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <LazyImage
-              src="https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/cgfs9a63_Main%20Photo%20Option.jpg"
+              src="/images/17ebdc83a4.jpg"
               alt="Steps down to the sea with outdoor shower"
               className="w-full h-[400px] sm:h-[500px]"
-              width={1200}
-              quality={80}
             />
           </motion.div>
         </div>
@@ -485,8 +467,6 @@ const OutdoorSection = () => {
               src={IMAGES.outdoor[14]}
               alt="Infinity pool with bay view"
               className="w-full h-[300px]"
-              width={800}
-              quality={75}
             />
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-white/10 p-6">
@@ -523,47 +503,47 @@ const GallerySection = () => {
   const allImages = [
     // Pool Section and Terraces (user-uploaded - 15 photos)
     // Main photo
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/8qru9z8n_1st%20Shot%20of%20pool%20section.jpg", category: "pool", alt: "Pool & Terraces", isMain: true },
+    { src: "/images/8092c6c263.jpg", category: "pool", alt: "Pool & Terraces", isMain: true },
     // Pool photos (landscape 3:2)
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/n74aj80a_5th%20shot.jpg", category: "pool", alt: "Pool View" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/6ebta2y6_6X3A2685.jpg", category: "pool", alt: "Sea View Pool" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/6f8v5ybr_fouth%20shot.jpg", category: "pool", alt: "Pool Panorama" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/w03fxzmz_Second%20Main%20shot.jpg", category: "pool", alt: "Pool & Bay" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/8nlyu6xh_thrid%20shot.jpg", category: "pool", alt: "Poolside Loungers" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/yk36ymws_6X3A2979.jpg", category: "pool", alt: "Infinity Pool" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/xwhow8qr_IMG_9420.jpeg", category: "pool", alt: "Sunset Pool" },
+    { src: "/images/ae754d6429.jpg", category: "pool", alt: "Pool View" },
+    { src: "/images/43a8b83e88.jpg", category: "pool", alt: "Sea View Pool" },
+    { src: "/images/8d43b64f31.jpg", category: "pool", alt: "Pool Panorama" },
+    { src: "/images/9d2143d832.jpg", category: "pool", alt: "Pool & Bay" },
+    { src: "/images/cdd9b4e1be.jpg", category: "pool", alt: "Poolside Loungers" },
+    { src: "/images/9ff69b9e98.jpg", category: "pool", alt: "Infinity Pool" },
+    { src: "/images/560584b6a2.jpg", category: "pool", alt: "Sunset Pool" },
     // Seating areas
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/uolthw34_6X3A2942.jpg", category: "pool", alt: "Terrace Sofa" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/7wint7la_6X3A2761.jpg", category: "pool", alt: "Seaside Seating" },
+    { src: "/images/b113a7166c.jpg", category: "pool", alt: "Terrace Sofa" },
+    { src: "/images/5e0f57a7cc.jpg", category: "pool", alt: "Seaside Seating" },
     // Striped beds
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/x97o08jp_6X3A2840.jpg", category: "pool", alt: "Striped Day Beds" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ephbwhe6_6X3A2862.jpg", category: "pool", alt: "Striped Loungers" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/7h74aimj_6X3A2953.jpg", category: "pool", alt: "Terrace Chaise Lounges" },
+    { src: "/images/edede981b2.jpg", category: "pool", alt: "Striped Day Beds" },
+    { src: "/images/269422a969.jpg", category: "pool", alt: "Striped Loungers" },
+    { src: "/images/ed5808073a.jpg", category: "pool", alt: "Terrace Chaise Lounges" },
     // Different aspect ratio at end
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/562pm7rb_6X3A2672.jpg", category: "pool", alt: "Outdoor Sofa & Chairs" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/pqo4p0lj_6X3A2674.jpg", category: "pool", alt: "Woven Chairs & Table" },
+    { src: "/images/1e64e608cd.jpg", category: "pool", alt: "Outdoor Sofa & Chairs" },
+    { src: "/images/7367178a9b.jpg", category: "pool", alt: "Woven Chairs & Table" },
     // Down to the Sea (user-uploaded - 11 photos)
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/zxso9kvv_main%20pho.jpg", category: "sea", alt: "Down to the Sea", isMain: true },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/2abm8h8n_6X3A3275.jpg", category: "sea", alt: "Coastal Steps" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/cgfs9a63_Main%20Photo%20Option.jpg", category: "sea", alt: "Outdoor Shower" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/kqiim4cb_6X3A3316.jpg", category: "sea", alt: "Rocky Shore" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/m2btdjh4_6X3A3320.jpg", category: "sea", alt: "Sea Cove" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/lww6rffa_DJI_20250831161029_0103_D%20copy.jpg", category: "sea", alt: "Aerial Villa View" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/t5zwm95t_DJI_20250831161052_0106_D%20copy.jpg", category: "sea", alt: "Aerial Coastline" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ufbiwkrp_DJI_20250831161634_0138_D%20copy.jpg", category: "sea", alt: "Aerial Sea Path" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/9yxbz6wa_DJI_20250831161115_0108_D%20copy.jpg", category: "sea", alt: "Hillside to Sea" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ekwml0zh_aab6d5b1-6c6f-41ed-aeb5-19ab94c80446.jpg", category: "sea", alt: "Crystal Cove" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/rpq7r46m_9f532966-46f5-4775-8131-67650e7744ba.jpg", category: "sea", alt: "Sunset over Bay" },
+    { src: "/images/fa819dfa39.jpg", category: "sea", alt: "Down to the Sea", isMain: true },
+    { src: "/images/d67da8202d.jpg", category: "sea", alt: "Coastal Steps" },
+    { src: "/images/17ebdc83a4.jpg", category: "sea", alt: "Outdoor Shower" },
+    { src: "/images/4f3cb65681.jpg", category: "sea", alt: "Rocky Shore" },
+    { src: "/images/0932d52309.jpg", category: "sea", alt: "Sea Cove" },
+    { src: "/images/cca3adb8ad.jpg", category: "sea", alt: "Aerial Villa View" },
+    { src: "/images/96d0b2d236.jpg", category: "sea", alt: "Aerial Coastline" },
+    { src: "/images/6113ab564a.jpg", category: "sea", alt: "Aerial Sea Path" },
+    { src: "/images/d3f96fce8a.jpg", category: "sea", alt: "Hillside to Sea" },
+    { src: "/images/db0d8e960d.jpg", category: "sea", alt: "Crystal Cove" },
+    { src: "/images/dc1115f109.jpg", category: "sea", alt: "Sunset over Bay" },
     // Interior (user-uploaded - 10 photos)
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/06fdna31_Main%20Photo.jpg", category: "interior", alt: "Interior", isMain: true },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/x1fizolk_6X3A2420.jpg", category: "interior", alt: "Living Room" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/wddyfkn7_6X3A2455.jpg", category: "interior", alt: "Sitting Area" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/5zo75vz1_6X3A2461.jpg", category: "interior", alt: "Dining Area" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/573zw91d_6X3A2478.jpg", category: "interior", alt: "Living Space" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/w28wcqxv_6X3A2517.jpg", category: "interior", alt: "Interior Detail" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/d7xik4o3_6X3A2527.jpg", category: "interior", alt: "Lounge" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/bj0h5wrc_6X3A2533.jpg", category: "interior", alt: "Dining Room" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/6to9rj0u_6X3A3038.jpg", category: "interior", alt: "Interior View" },
+    { src: "/images/45b8235cec.jpg", category: "interior", alt: "Interior", isMain: true },
+    { src: "/images/a604cc52a5.jpg", category: "interior", alt: "Living Room" },
+    { src: "/images/a9f5a7ad93.jpg", category: "interior", alt: "Sitting Area" },
+    { src: "/images/6748387709.jpg", category: "interior", alt: "Dining Area" },
+    { src: "/images/75f1be5e62.jpg", category: "interior", alt: "Living Space" },
+    { src: "/images/131c758268.jpg", category: "interior", alt: "Interior Detail" },
+    { src: "/images/538895f651.jpg", category: "interior", alt: "Lounge" },
+    { src: "/images/7df23b4298.jpg", category: "interior", alt: "Dining Room" },
+    { src: "/images/01df9b0e86.jpg", category: "interior", alt: "Interior View" },
     // Bedrooms
     { src: IMAGES.bedroom[0], category: "bedrooms", room: "Blue Bedroom", isMain: true, alt: "Blue Bedroom" },
     { src: IMAGES.bedroom[1], category: "bedrooms", room: "Blue Bedroom", alt: "Blue Room - Detail" },
@@ -589,19 +569,19 @@ const GallerySection = () => {
     { src: IMAGES.topRoom[2], category: "bedrooms", room: "Top Bedroom", alt: "Top Room - Bed" },
     { src: IMAGES.topRoom[3], category: "bedrooms", room: "Top Bedroom", alt: "Top Room - Bathroom" },
     // Outdoor Dining (user-uploaded - 8 photos)
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/4zpf91xn_Main%20Shot.jpg", category: "dining", alt: "Outdoor Dining", isMain: true },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/vpf2fobt_6X3A2610.jpg", category: "dining", alt: "Dining Terrace" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/wqmyullr_6X3A2619.jpg", category: "dining", alt: "Al Fresco Setting" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/gr884u1k_6X3A2648.jpg", category: "dining", alt: "Table Setting" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/8xg5oe5c_6X3A2977.jpg", category: "dining", alt: "Pergola Dining" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ums7pats_6X3A3007.jpg", category: "dining", alt: "Outdoor Kitchen" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/tcnc460i_6X3A3010.jpg", category: "dining", alt: "BBQ Area" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/vfnwo4c3_IMG_8792.jpeg", category: "dining", alt: "Sunset Dinner" },
+    { src: "/images/21f5c1bdc1.jpg", category: "dining", alt: "Outdoor Dining", isMain: true },
+    { src: "/images/bec04cb68b.jpg", category: "dining", alt: "Dining Terrace" },
+    { src: "/images/41d774ce3a.jpg", category: "dining", alt: "Al Fresco Setting" },
+    { src: "/images/1550972adb.jpg", category: "dining", alt: "Table Setting" },
+    { src: "/images/631c5f2358.jpg", category: "dining", alt: "Pergola Dining" },
+    { src: "/images/aad1f02a12.jpg", category: "dining", alt: "Outdoor Kitchen" },
+    { src: "/images/38be002118.jpg", category: "dining", alt: "BBQ Area" },
+    { src: "/images/939a04d466.jpg", category: "dining", alt: "Sunset Dinner" },
     // Kitchen (user-uploaded - 4 photos)
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/xzgggwie_Main%20Shot.jpg", category: "kitchen", alt: "Kitchen", isMain: true },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/o1ppr2bg_6X3A3075.jpg", category: "kitchen", alt: "Kitchen View" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/gitf0uu5_6X3A3076.jpg", category: "kitchen", alt: "Kitchen Detail" },
-    { src: "https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/1iieiy9h_6X3A3080.jpg", category: "kitchen", alt: "Kitchen Area" },
+    { src: "/images/585db820e5.jpg", category: "kitchen", alt: "Kitchen", isMain: true },
+    { src: "/images/9015784f1e.jpg", category: "kitchen", alt: "Kitchen View" },
+    { src: "/images/3a92fcae6d.jpg", category: "kitchen", alt: "Kitchen Detail" },
+    { src: "/images/6aff5f29ec.jpg", category: "kitchen", alt: "Kitchen Area" },
   ];
 
   const filteredImages = allImages.filter(img => img.category === activeTab);
@@ -701,8 +681,6 @@ const GallerySection = () => {
                           src={mainImage.src}
                           alt={mainImage.alt}
                           className="w-full aspect-[16/9]"
-                          width={1400}
-                          quality={80}
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                           <span className="text-white text-sm tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 px-6 py-3 backdrop-blur-sm">
@@ -727,8 +705,6 @@ const GallerySection = () => {
                 src={filteredImages[0]?.src}
                 alt={filteredImages[0]?.alt}
                 className="w-full aspect-[16/9]"
-                width={1400}
-                quality={80}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                 <span className="text-white text-sm tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 px-6 py-3 backdrop-blur-sm">
@@ -784,7 +760,7 @@ const GallerySection = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.2 }}
-                src={optimImg(selectedImage.src, 1400, 85)}
+                src={selectedImage.src}
                 alt={selectedImage.alt}
                 className="max-w-full max-h-full object-contain"
                 data-testid="lightbox-image"
@@ -820,7 +796,7 @@ const GallerySection = () => {
                     }`}
                     data-testid={`lightbox-thumb-${i}`}
                   >
-                    <img src={optimImg(img.src, 200, 60)} alt={img.alt} className="w-full h-full object-cover" />
+                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
                   </button>
                 ))}
               </div>
@@ -849,8 +825,6 @@ const BedroomsSection = () => {
               src={IMAGES.bedroom[1]}
               alt="Bedroom detail"
               className="w-full h-[400px] sm:h-[500px]"
-              width={1200}
-              quality={80}
             />
           </motion.div>
           <motion.div
