@@ -1,4 +1,5 @@
 from fastapi import FastAPI, APIRouter, HTTPException
+from fastapi.responses import StreamingResponse
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -9,6 +10,9 @@ from pydantic import BaseModel, Field, ConfigDict, EmailStr
 from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
+import httpx
+from PIL import Image
+from io import BytesIO
 
 
 ROOT_DIR = Path(__file__).parent
@@ -112,6 +116,46 @@ async def get_contact_inquiries():
             inquiry['created_at'] = datetime.fromisoformat(inquiry['created_at'])
     
     return inquiries
+
+
+# Image proxy with compression
+image_cache = {}
+
+@api_router.get("/img")
+async def proxy_image(url: str, w: int = 1200, q: int = 75):
+    """Proxy and compress images for faster loading"""
+    cache_key = f"{url}_{w}_{q}"
+    if cache_key in image_cache:
+        return StreamingResponse(BytesIO(image_cache[cache_key]), media_type="image/jpeg",
+                                 headers={"Cache-Control": "public, max-age=31536000"})
+    
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client_http:
+            resp = await client_http.get(url)
+            resp.raise_for_status()
+        
+        img = Image.open(BytesIO(resp.content))
+        if img.mode in ('RGBA', 'P'):
+            img = img.convert('RGB')
+        
+        # Resize maintaining aspect ratio
+        orig_w, orig_h = img.size
+        if orig_w > w:
+            ratio = w / orig_w
+            new_h = int(orig_h * ratio)
+            img = img.resize((w, new_h), Image.LANCZOS)
+        
+        output = BytesIO()
+        img.save(output, format='JPEG', quality=q, optimize=True)
+        compressed = output.getvalue()
+        
+        # Cache in memory
+        image_cache[cache_key] = compressed
+        
+        return StreamingResponse(BytesIO(compressed), media_type="image/jpeg",
+                                 headers={"Cache-Control": "public, max-age=31536000"})
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"Failed to fetch image: {str(e)}")
 
 
 # Include the router in the main app

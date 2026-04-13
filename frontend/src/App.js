@@ -12,14 +12,39 @@ import {
 } from "@phosphor-icons/react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./components/ui/accordion";
+
+const API = process.env.REACT_APP_BACKEND_URL;
+
+// Helper to get optimized image URL via the backend proxy
+const optimImg = (src, width = 1200, quality = 75) => {
+  if (!src) return src;
+  return `${API}/api/img?url=${encodeURIComponent(src)}&w=${width}&q=${quality}`;
+};
+
+// Lazy image with loading skeleton
+const LazyImage = ({ src, alt, className, width = 1200, quality = 75 }) => {
+  const [loaded, setLoaded] = useState(false);
+  const optimizedSrc = src?.startsWith('http') ? optimImg(src, width, quality) : src;
+  return (
+    <div className={`relative ${className}`}>
+      {!loaded && (
+        <div className="absolute inset-0 bg-[#E7E5E4] animate-pulse" />
+      )}
+      <img
+        src={optimizedSrc}
+        alt={alt}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+        className={`w-full h-full object-cover transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+      />
+    </div>
+  );
+};
 import { Input } from "./components/ui/input";
 import { Textarea } from "./components/ui/textarea";
 import { Button } from "./components/ui/button";
 import { Label } from "./components/ui/label";
 import { Toaster as SonnerToaster, toast } from "sonner";
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
 
 // Image assets - User provided photos only
 const IMAGES = {
@@ -230,7 +255,7 @@ const HeroSection = () => {
       data-testid="hero-section"
       className="min-h-screen relative flex items-end pb-24"
       style={{
-        backgroundImage: `url(${IMAGES.hero})`,
+        backgroundImage: `url(${optimImg(IMAGES.hero, 1920, 80)})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -300,15 +325,66 @@ const IntroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <img
+            <LazyImage
               src="https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/ibmg8lib_6X3A3399.jpg"
               alt="Villa Kephala Welcome"
-              className="w-full h-[400px] sm:h-[500px] object-cover"
+              className="w-full h-[400px] sm:h-[500px]"
+              width={1200}
+              quality={80}
             />
             <div className="absolute -bottom-6 -left-6 bg-white p-6 shadow-lg hidden sm:block">
               <p className="font-['Cormorant_Garamond'] text-4xl font-light text-[#C05E44]"><Mountains size={32} weight="thin" /></p>
               <p className="text-sm text-[#57534E] uppercase tracking-wider">Stunning Views</p>
             </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
+// Direct Access to the Sea Section
+const SeaAccessSection = () => {
+  return (
+    <section data-testid="sea-access-section" className="py-12 sm:py-20 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="section-label mb-4 block">The Villa</span>
+            <h2 className="section-heading text-3xl sm:text-4xl lg:text-5xl mb-6">
+              Direct Access to the Sea
+            </h2>
+            <div className="space-y-4 text-[#57534E] text-base sm:text-lg leading-relaxed">
+              <p>
+                Step from the terrace straight down to the crystal-clear waters of the Aegean with private, direct access to a secluded bay and small beach.
+              </p>
+              <p>
+                Take a beanbag down to the water and while away the afternoon with a book. Whether you're swimming, snorkelling, or simply soaking up the view, the experience is effortless and entirely your own.
+              </p>
+              <p>
+                This rare feature makes the villa truly special—offering the luxury of privacy alongside the natural beauty of the Greek coastline.
+              </p>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <LazyImage
+              src="https://customer-assets.emergentagent.com/job_cycladic-retreat/artifacts/cgfs9a63_Main%20Photo%20Option.jpg"
+              alt="Steps down to the sea with outdoor shower"
+              className="w-full h-[400px] sm:h-[500px]"
+              width={1200}
+              quality={80}
+            />
           </motion.div>
         </div>
       </div>
@@ -405,10 +481,12 @@ const OutdoorSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-6"
           >
-            <img
+            <LazyImage
               src={IMAGES.outdoor[14]}
               alt="Infinity pool with bay view"
-              className="w-full h-[300px] object-cover"
+              className="w-full h-[300px]"
+              width={800}
+              quality={75}
             />
             <div className="grid grid-cols-2 gap-6">
               <div className="bg-white/10 p-6">
@@ -506,8 +584,8 @@ const GallerySection = () => {
     { src: IMAGES.suzaniRoom[3], category: "bedrooms", room: "Suzani Bedroom", alt: "Suzani Room - View" },
     { src: IMAGES.suzaniRoom[4], category: "bedrooms", room: "Suzani Bedroom", alt: "Suzani Room - Bathroom" },
     { src: IMAGES.suzaniRoom[5], category: "bedrooms", room: "Suzani Bedroom", alt: "Suzani Room - Window" },
-    { src: IMAGES.topRoom[0], category: "bedrooms", room: "Top Bedroom", isMain: true, alt: "Top Bedroom" },
-    { src: IMAGES.topRoom[1], category: "bedrooms", room: "Top Bedroom", alt: "Top Room - View" },
+    { src: IMAGES.topRoom[1], category: "bedrooms", room: "Top Bedroom", isMain: true, alt: "Top Bedroom" },
+    { src: IMAGES.topRoom[0], category: "bedrooms", room: "Top Bedroom", alt: "Top Room - View" },
     { src: IMAGES.topRoom[2], category: "bedrooms", room: "Top Bedroom", alt: "Top Room - Bed" },
     { src: IMAGES.topRoom[3], category: "bedrooms", room: "Top Bedroom", alt: "Top Room - Bathroom" },
     // Outdoor Dining (user-uploaded - 8 photos)
@@ -619,10 +697,12 @@ const GallerySection = () => {
                         onClick={() => openLightbox(roomImages, 0)}
                         data-testid={`bedroom-main-${roomName.toLowerCase().replace(' ', '-')}`}
                       >
-                        <img
+                        <LazyImage
                           src={mainImage.src}
                           alt={mainImage.alt}
-                          className="w-full aspect-[16/9] object-cover"
+                          className="w-full aspect-[16/9]"
+                          width={1400}
+                          quality={80}
                         />
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                           <span className="text-white text-sm tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 px-6 py-3 backdrop-blur-sm">
@@ -643,10 +723,12 @@ const GallerySection = () => {
               onClick={() => openLightbox(filteredImages, 0)}
               data-testid="gallery-main-image"
             >
-              <img
+              <LazyImage
                 src={filteredImages[0]?.src}
                 alt={filteredImages[0]?.alt}
-                className="w-full aspect-[16/9] object-cover"
+                className="w-full aspect-[16/9]"
+                width={1400}
+                quality={80}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                 <span className="text-white text-sm tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 px-6 py-3 backdrop-blur-sm">
@@ -702,7 +784,7 @@ const GallerySection = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.2 }}
-                src={selectedImage.src}
+                src={optimImg(selectedImage.src, 1400, 85)}
                 alt={selectedImage.alt}
                 className="max-w-full max-h-full object-contain"
                 data-testid="lightbox-image"
@@ -738,7 +820,7 @@ const GallerySection = () => {
                     }`}
                     data-testid={`lightbox-thumb-${i}`}
                   >
-                    <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
+                    <img src={optimImg(img.src, 200, 60)} alt={img.alt} className="w-full h-full object-cover" />
                   </button>
                 ))}
               </div>
@@ -763,10 +845,12 @@ const BedroomsSection = () => {
             transition={{ duration: 0.6 }}
             className="order-2 lg:order-1"
           >
-            <img
+            <LazyImage
               src={IMAGES.bedroom[1]}
               alt="Bedroom detail"
-              className="w-full h-[400px] sm:h-[500px] object-cover"
+              className="w-full h-[400px] sm:h-[500px]"
+              width={1200}
+              quality={80}
             />
           </motion.div>
           <motion.div
@@ -1316,6 +1400,7 @@ function App() {
       <Navigation />
       <HeroSection />
       <IntroSection />
+      <SeaAccessSection />
       <VillaSection />
       <OutdoorSection />
       <GallerySection />
