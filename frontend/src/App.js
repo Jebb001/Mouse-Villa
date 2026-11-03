@@ -7,7 +7,8 @@ import {
   EnvelopeSimple, Phone, User, Barbell, Boat, Bicycle, Fish,
   GameController,
   Timer, CarSimple, Anchor, AirplaneTakeoff, CheckCircle,
-  Bathtub, Snowflake, TelevisionSimple, WashingMachine, Fan
+  Bathtub, Snowflake, TelevisionSimple, WashingMachine, Fan,
+  PersonSimpleSwim, Goggles, TennisBall
 } from "@phosphor-icons/react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./components/ui/accordion";
@@ -349,7 +350,7 @@ const SeaAccessSection = () => {
                 Step from the terrace straight down to the crystal-clear waters of the Aegean with private, direct access to a secluded bay and small beach.
               </p>
               <p>
-                Take a beanbag down to the water and while away the afternoon with a book. Whether you're swimming, snorkelling, or simply soaking up the view, the experience is effortless and entirely your own.
+                Take a beanbag down to the water and while away the afternoon with a book, or explore the crystal clear bay at your own pace with one of our stand-up paddle boards (SUPs).
               </p>
               <p>
                 This rare feature makes the villa truly special—offering the luxury of privacy alongside the natural beauty of the Greek coastline.
@@ -484,6 +485,14 @@ const OutdoorSection = () => {
               <div className="bg-white/10 p-6">
                 <House size={28} weight="thin" className="mb-3" />
                 <p className="text-sm">Shaded Pergolas</p>
+              </div>
+              <div className="bg-white/10 p-6">
+                <PersonSimpleSwim size={28} weight="thin" className="mb-3" />
+                <p className="text-sm">2 x SUPs</p>
+              </div>
+              <div className="bg-white/10 p-6">
+                <Goggles size={28} weight="thin" className="mb-3" />
+                <p className="text-sm">Snorkels & Masks</p>
               </div>
             </div>
           </motion.div>
@@ -873,6 +882,10 @@ const AmenitiesSection = () => {
     { icon: <WifiHigh size={28} weight="thin" />, label: "Starlink WiFi" },
     { icon: <TelevisionSimple size={28} weight="thin" />, label: "Smart TVs" },
     { icon: <WashingMachine size={28} weight="thin" />, label: "Washer/Dryer" },
+    { icon: <PersonSimpleSwim size={28} weight="thin" />, label: "SUPs" },
+    { icon: <GameController size={28} weight="thin" />, label: "Table Tennis" },
+    { icon: <Goggles size={28} weight="thin" />, label: "Masks & Snorkels" },
+    { icon: <Barbell size={28} weight="thin" />, label: "Yoga Mats & Weights" },
   ];
 
   return (
@@ -910,7 +923,7 @@ const AmenitiesSection = () => {
           className="mt-12 text-center text-[#57534E]"
         >
           <p className="text-sm">
-            Guided trips, boats, restaurants, cycling, baby-sitting, personal chefs etc can all be organised on request.
+            Guided trips, boats, cycling, baby sitting, personal chefs, daily maid service and home cooked food deliveries on request.
           </p>
         </motion.div>
       </div>
@@ -922,22 +935,28 @@ const AmenitiesSection = () => {
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      quote: "We had the most glorious vacation at Villa Kephala. The villa is gorgeous and beautifully furnished and fully equipped. The outdoor living area is heavenly and the infinity pool is bliss. The view from the villa is beautiful-hillsides and the bluest sea. There are steps down to the little private beach for those who want to sea swim. I would highly recommend this villa - we can't wait to return!",
-      author: "Nicola",
-      location: "Maine, USA",
-      date: "July 2025"
+      quote: "We had the most glorious vacation at Villa Kephala. The villa is gorgeous and beautifully furnished and fully equipped. The outdoor living area is heavenly and the infinity pool is bliss. The view from the villa is beautiful-hillsides and the bluest sea. There are steps down to the little private beach for those who want to sea swim. I would highly recommend this villa - we can't wait to return!"
     },
     {
-      quote: "Had an exquisite 5 days here with my girlfriends….it was magical. Beautiful house with all the amenities. Amazing outside space for al fresco dining. A good sized pool with sea front views. Sundowners and amazing sunsets topped it off! Will be returning and would highly recommend.",
-      author: "Nikki",
-      location: "South London",
-      date: "October 2025"
+      quote: "Had an exquisite 5 days here with my girlfriends....it was magical. Beautiful house with all the amenities. Amazing outside space for al fresco dining. A good sized pool with sea front views. Sundowners and amazing sunsets topped it off! Will be returning and would highly recommend."
     },
     {
-      quote: "We had such a wonderful holiday at this beautiful villa. Incredible sea views from each en-suite bedroom, lots of great terraces with comfy seating areas for cocktails, and direct access to the sea for morning dips. Beautiful pool and conveniently close to local amenities. Can't recommend highly enough!",
-      author: "Rachel",
-      location: "SW London",
-      date: "October 2025"
+      quote: "We had such a wonderful holiday at this beautiful villa. Incredible sea views from each en-suite bedroom, lots of great terraces with comfy seating areas for cocktails, and direct access to the sea for morning dips. Beautiful pool and conveniently close to local amenities. Can't recommend highly enough!"
+    },
+    {
+      quote: "Wow, wow, wow. We were blown away by Villa Kephala. Its dreamy position, the crashing waves, the starlit skies. Sitting alfresco whilst drinking rose and talking & laughing, all cares slipped away. The soft beds, sun loungers and sea snorkelling. The only bad thing about this holiday is leaving!"
+    },
+    {
+      quote: "This is a beautiful home and island. We have been captivated by the scenery and people. Kea really is an undiscovered gem — long may it last. We had the most magical family holiday!"
+    },
+    {
+      quote: "Thank you for sharing your amazing home with us! The style, comfort and location all make this place so unique and memorable. We especially enjoyed early morning swims in the sea, afternoon reading by the pool and evenings watching extraordinary sunsets."
+    },
+    {
+      quote: "We have had the most wonderful few days here. We are all wishing for a few more! It's so peaceful, so private, so beautiful. We've enjoyed the beach & pool here, had amazing boats trips to visit ancient ruins & secluded beaches, and been fed to bursting point. Villa Kephala has been an unparalleled success!"
+    },
+    {
+      quote: "Wow, this house is truly one of the most magical ever! We have loved slipping into the sea, soaking in the sun on the loungers & falling asleep to sound of the waves every night. It has been a perfect week!"
     }
   ];
 
@@ -951,7 +970,7 @@ const TestimonialsSection = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -963,17 +982,9 @@ const TestimonialsSection = () => {
               data-testid={`testimonial-${index}`}
             >
               <div className="text-[#C05E44] text-4xl font-serif mb-4">"</div>
-              <p className="text-[#57534E] text-sm leading-relaxed mb-6 italic">
+              <p className="text-[#57534E] text-sm leading-relaxed italic">
                 {testimonial.quote}
               </p>
-              <div className="border-t border-[#E7E5E4] pt-4">
-                <p className="font-['Cormorant_Garamond'] text-lg font-medium text-[#1C1917]">
-                  {testimonial.author}
-                </p>
-                <p className="text-[#57534E] text-sm">
-                  {testimonial.location} · {testimonial.date}
-                </p>
-              </div>
             </motion.div>
           ))}
         </div>
@@ -1064,6 +1075,11 @@ const ActivitiesSection = () => {
       icon: <Bicycle size={48} weight="thin" />,
       title: "Cycling",
       description: "Explore Kea's beauty on two wheels. Electric bikes available for rent, making the mountainous terrain enjoyable."
+    },
+    {
+      icon: <TennisBall size={48} weight="thin" />,
+      title: "Padel & Tennis",
+      description: "Get active with a game of padel or tennis — perfect for fun, fitness and a little friendly competition."
     }
   ];
 
@@ -1080,7 +1096,7 @@ const ActivitiesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {activities.map((activity, index) => (
             <motion.div
               key={index}
@@ -1277,7 +1293,7 @@ const ContactSection = () => {
         >
           <span className="section-label mb-4 block">Rental Rates</span>
           <p className="text-[#57534E] text-base sm:text-lg leading-relaxed mb-12 font-['Cormorant_Garamond'] text-xl sm:text-2xl">
-            From &euro;620/night in low season to &euro;1,400/night in high season.
+            From &euro;675/night in low season to &euro;1,500/night in high season.
           </p>
           <span className="section-label mb-4 block">Contact</span>
           <h2 className="section-heading text-3xl sm:text-4xl lg:text-5xl mb-10">
